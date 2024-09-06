@@ -1,1 +1,21 @@
+.char-header-4col {
+    display: grid;
+    grid-template-columns: 120px 100px 120px 100px;
+    column-gap: 5px;
+}
 
+.char-header-2col {
+    display: grid;
+    grid-template-columns: 120px 120px;
+    column-gap: 5px;
+}
+
+.char-stats-5col{
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    column-gap: 5px;
+}
+
+input.basics {
+    width: 100%;
+}
