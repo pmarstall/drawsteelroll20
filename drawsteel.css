@@ -1,12 +1,18 @@
 .char-header-4col {
     display: grid;
-    grid-template-columns: 120px 100px 120px 100px;
+    grid-template-columns: 100px 100px 100px 100px;
+    column-gap: 5px;
+}
+
+.char-header-main{
+    display: grid;
+    grid-template-columns: auto auto;
     column-gap: 5px;
 }
 
 .char-header-2col {
     display: grid;
-    grid-template-columns: 120px 120px;
+    grid-template-columns: 100px 120px;
     column-gap: 5px;
 }
 
