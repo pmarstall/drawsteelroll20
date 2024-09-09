@@ -21,21 +21,112 @@
             <input type="text" name="attr_languages" value="" placeholder="Enter Languages">
         </div>
     </div>
-    <div>
-        <div class="char-stats-5col">
-            <span>MGT</span>
-            <span>AGL</span>
-            <span>REA</span>
-            <span>INU</span>
-            <span>PRS</span>
+    <div class="char-top-layout-2col">
+        <div>
+            Attributes and Skills
+            <div class="char-stats-5col">
+                <span><button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=Might}}{{roll=[[2d10+@{mgt}]]}}{{critical=[[0]]}}">MGT</button></span>
+                <span><button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=Agility}}{{roll=[[2d10+@{agl}]]}}{{critical=[[0]]}}">AGL</button></span>
+                <span><button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=Reason}}{{roll=[[2d10+@{rea}]]}}{{critical=[[0]]}}">REA</button></span>
+                <span><button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=Intuition}}{{roll=[[2d10+@{inu}]]}}{{critical=[[0]]}}">INU</button></span>
+                <span><button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=Presence}}{{roll=[[2d10+@{prs}]]}}{{critical=[[0]]}}">PRS</button></span>
+
+                <input type="number" name="attr_mgt" value="0">
+                <input type="number" name="attr_agl" value="0">
+                <input type="number" name="attr_rea" value="0">
+                <input type="number" name="attr_inu" value="0">
+                <input type="number" name="attr_prs" value="0">
+            </div>  
         </div>
-        <div class="char-stats-5col"></div>
-            <input type="number" name="attr_mgt" value="0">
-            <input type="number" name="attr_agl" value="0">
-            <input type="number" name="attr_rea" value="0">
-            <input type="number" name="attr_inu" value="0">
-            <input type="number" name="attr_prs" value="0">
+        <div>
+            Repeating Stuff
+            <div>
+                Attacks?
+                 <fieldset class="repeating_attacks">
+                    <div>
+                        <div>
+                            <span value="@{atkname}">{{@{atkname}}}</span>
+                        </div>
+                        <input type="checkbox" class="sheet-foo">
+                        <div class="sheet-bar">
+                            <div>
+                                <input type="text" name="atkname" value="Attack" width="100%" placeholder="Attack Name">
+                            </div>
+                            <div class="rpt_2col">
+                                <span>Distance:</span><input type="text" name="atkdistance" placeholder="Distance">
+                            </div>
+                            <div class="rpt_2col">
+                                <span>Target:</span><input type="text" name="atktarget" placeholder="One Target">
+                            </div>
+                            <div class="rpt_3col"> 
+                                <span>XXX</span><span>Damage</span><span>Special</span>
+                                <span>Tier 1</span><input type="text" name="atktier1dmg" size="6" value="" placeholder="2"><input type="text" name="atktier1desc" value="" placeholder="2">
+                                <span>Tier 2</span><span><input type="text" name="atktier2dmg" class="small-val-input" value="" placeholder="2"></span><span><input type="text" name="atktier2desc" value="" placeholder="2"></span>
+                                <span>Tier 3</span><span><input type="text" name="atktier2dmg" class="small-val-input" value="" placeholder="2"></span><span><input type="text" name="atktier3desc" value="" placeholder="2"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                 </fieldset>
+            </div>
         </div>
     </div>
+    <div>
+        <button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=testing}}{{roll=[[2d10]]}}{{critical=[[18]]}}{{modifier=@{mgt}}}{{critical=[[0]]}}">Click me</button>
+    </div>
+</div>
 
 </div>
+
+
+<!-- TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES -->
+
+<rolltemplate class="sheet-rolltemplate-drawsteelbasic">
+    <div class="sheet-template-title">
+        {{#char-name}}
+        <span>{{char-name}}: </span>
+        {{/char-name}}
+        <span> {{roll-type}}</span>
+        <span>{{roll}}</span>
+    </div>
+    <div class="sheet-template-body">
+        {{#rollGreater() computed::critical 0}}<div class="sheet-template-crit">Critical</div>{{/rollGreater() computed::critical 0}}
+        {{#rollLess() roll 12}}<div class="sheet-template-result">Tier 1 Result</div>{{/rollLess() roll 12}}
+        {{#rollBetween() roll 12 16}}<div class="sheet-template-result">Tier 2 Result</div>{{/rollBetween() roll 12 16}}
+        {{#rollGreater() roll 16}}<div class="sheet-template-result">Tier 3 Result</div>{{/rollGreater() roll 16}}
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-test">
+    Full Roll = {{roll1}} <br />
+    Critical? = {{computed::critical}}<br />
+</rolltemplate>
+
+<!-- SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS-->
+<script type="text/worker">
+
+    on ('clicked:test', (event) => {
+        console.log(event);
+        testRoll(event.htmlAttributes.value);
+        console.log("Done?");
+    });
+    
+    
+    const testRoll = (rollExp) => {
+
+        console.log(rollExp);
+
+        startRoll(rollExp, (results) => {
+            console.log("In startRoll");
+            rolldata = {};
+            if((results.results.roll.dice[0]+results.results.roll.dice[1])>18){
+                console.log("Crit!")
+                rolldata.critical = 1
+            }else{
+                rolldata.critical = 0;
+            }
+            finishRoll(results.rollId, rolldata);
+        });
+    } 
+
+</script>

@@ -1,3 +1,8 @@
+.button {
+    background: transparent;
+    border: 0;
+}
+
 .char-header-4col {
     display: grid;
     grid-template-columns: 100px 100px 100px 100px;
@@ -22,6 +27,63 @@
     column-gap: 5px;
 }
 
-input.basics {
+.char-top-layout-2col{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+}
+
+.basics {
     width: 100%;
+}
+
+.sheet-rolltemplate-drawsteelbasic {
+    border: solid purple;
+}
+
+.sheet-rolltemplate-drawsteelbasic .sheet-template-title{
+    background-color: purple;
+    text-decoration-color: aliceblue;
+    padding: 5px;
+}
+
+.sheet-rolltemplate-drawsteelbasic .sheet-template-body{
+    text-align: center;
+}
+
+.sheet-rolltemplate-drawsteelbasic .sheet-template-crit{
+    text-align: center;
+    background-color: greenyellow;
+    color: rgb(53, 24, 30);
+    font-size:larger;
+    padding: 10px;
+}
+
+.sheet-rolltemplate-drawsteelbasic .sheet-template-result{
+    text-align: center;
+    padding: 10px;
+}
+
+.rpt_2col{
+    display: grid;
+    grid-template-columns: 120px 100px;
+    column-gap: 5px;
+}
+
+.rpt_3col{
+    display: grid;
+    grid-template-columns: 50px 200px 200px;
+    column-gap: 5px;
+}
+
+.sheet-bar {
+    display:none;
+}
+
+.sheet-foo:checked ~ .sheet-bar {
+    display:grid;
+}
+
+.small-val-input {
+    size: 6;
 }
