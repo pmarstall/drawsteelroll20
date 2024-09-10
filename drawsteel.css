@@ -64,6 +64,33 @@
     padding: 10px;
 }
 
+.sheet-rolltemplate-drawsteelattack {
+    border: solid purple;
+}
+
+.sheet-rolltemplate-drawsteelattack .sheet-template-title{
+    background-color: purple;
+    text-decoration-color: aliceblue;
+    padding: 5px;
+}
+
+.sheet-rolltemplate-drawsteelattack .sheet-template-body{
+    text-align: center;
+}
+
+.sheet-rolltemplate-drawsteelattack .sheet-template-crit{
+    text-align: center;
+    background-color: greenyellow;
+    color: rgb(53, 24, 30);
+    font-size:larger;
+    padding: 10px;
+}
+
+.sheet-rolltemplate-drawsteelattack .sheet-template-result{
+    text-align: center;
+    padding: 10px;
+}
+
 .rpt_2col{
     display: grid;
     grid-template-columns: 120px 100px;
@@ -72,7 +99,7 @@
 
 .rpt_3col{
     display: grid;
-    grid-template-columns: 50px 200px 200px;
+    grid-template-columns: 50px 80px 200px;
     column-gap: 5px;
 }
 
@@ -85,5 +112,5 @@
 }
 
 .small-val-input {
-    size: 6;
+    width: 75px;
 }
