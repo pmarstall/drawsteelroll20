@@ -23,22 +23,23 @@
     </div>
     <div class="char-top-layout-2col">
         <div>
-            Attributes and Skills
-            <div class="char-stats-5col">
-                <span><button type="action" name="act_test" value="mgt">MGT</button></span>
-                <span><button type="action" name="act_test" value="agl">AGL</button></span>
-                <span><button type="action" name="act_test" value="rea">REA</button></span>
-                <span><button type="action" name="act_test" value="inu">INU</button></span>
-                <span><button type="action" name="act_test" value="prs">PRS</button></span>
+            <div class="sheet-section">
+                <div class="sheet-section-title">Attributes and Skills</div>
+                <div class="char-stats-5col">
+                    <span><button type="action" name="act_test" value="MGT">MGT</button></span>
+                    <span><button type="action" name="act_test" value="AGL">AGL</button></span>
+                    <span><button type="action" name="act_test" value="REA">REA</button></span>
+                    <span><button type="action" name="act_test" value="INU">INU</button></span>
+                    <span><button type="action" name="act_test" value="PRS">PRS</button></span>
 
-                <input type="number" name="attr_mgt" value="0">
-                <input type="number" name="attr_agl" value="0">
-                <input type="number" name="attr_rea" value="0">
-                <input type="number" name="attr_inu" value="0">
-                <input type="number" name="attr_prs" value="0">
-            </div>  
-
-            <div class="bane-grid">
+                    <input type="number" name="attr_mgt" value="0">
+                    <input type="number" name="attr_agl" value="0">
+                    <input type="number" name="attr_rea" value="0">
+                    <input type="number" name="attr_inu" value="0">
+                    <input type="number" name="attr_prs" value="0">
+                </div>  
+            </div>
+            <div class="bane-grid sheet-section">
                 <div class="bane-top-level">
                     <!-- Rectangular switch -->
                      EDGE!
@@ -56,16 +57,47 @@
                     </label>
                 </div>
             </div>
+            <div class="sheet-section">
+                <div class="sheet-section-title">Victories</div>
+                <div class="sheet-vicres-holder">
+                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    
+                </div>
+            </div>
+            <div class="sheet-section">
+                <div class="sheet-section-title">Resources</div>
+                <div class="sheet-vicres-holder">
+                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                    
+                </div>
+            </div>
         </div>
         <div>
-            Repeating Stuff
-            <div>
-                 Attacks?
+            <div class="sheet-section">
+                 <div class="sheet-section-title">Attacks</div>
                  <fieldset class="repeating_attacks">
                     <div class="sheet-repholder">
                         <div class="sheet-reptitle">
                             <input type="text" name="attr_atknamedisp" value="@{atkname}" class="info-input" disabled="true">
-                            <button type="action" name="act_attackroll" id="atkrollbutton">X</button>
+                            <button type="action" name="act_attackroll" id="atkrollbutton" class="rptactionbutton">Roll Attack</button>
                         </div>
                         <input class="clicktohide" type="checkbox">
                         <div class="sheet-hiddenarea">
@@ -100,10 +132,7 @@
             </div>
         </div>
     </div>
-    <div>
-        <button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=testing}}{{roll=[[2d10]]}}{{modifier=@{mgt}}}{{critical=[[0]]}}">Click me</button>
-        
-    </div>
+    
 </div>
 
 </div>

@@ -1,6 +1,18 @@
+/* All Buttons */
 .button {
     background: transparent;
-    border: 0;
+    border: 0px;
+}
+
+/* The title box for a container */
+.sheet-section-title{
+  font-size: smaller;
+  text-align: left;
+}
+
+.sheet-section{
+  padding: 10px;
+  border-bottom: solid 1px black;
 }
 
 .char-header-4col {
@@ -13,6 +25,8 @@
     display: grid;
     grid-template-columns: auto auto;
     column-gap: 5px;
+    border-bottom: solid 1px black;
+    padding-bottom: 10px;
 }
 
 .char-header-2col {
@@ -31,13 +45,16 @@
     display: grid;
     grid-template-columns: 300px 400px;
     column-gap: 20px;
+    padding-top: 10px;
 }
 
 .basics {
     width: 100%;
 }
 
+/******************/
 /* Basic Template */
+/******************/
 
 .sheet-rolltemplate-drawsteelbasic {
     border: solid purple;
@@ -51,6 +68,8 @@
 
 .sheet-rolltemplate-drawsteelbasic .sheet-template-body{
     text-align: center;
+    border: solid 1px purple;
+    background-color: rgb(31, 18, 31);;
 }
 
 .sheet-rolltemplate-drawsteelbasic .sheet-template-crit{
@@ -66,20 +85,25 @@
     padding: 10px;
 }
 
+/*******************/
 /* Attack Template */
+/*******************/
 
 .sheet-rolltemplate-drawsteelattack {
-    border: solid purple;
+    border: solid 1px rgb(116, 181, 255);
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-title{
-    background-color: purple;
+    background-color: rgb(116, 181, 255);
     text-decoration-color: aliceblue;
+    color: black;
     padding: 5px;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-body{
     text-align: center;
+    border: solid 1px rgb(116, 181, 255);
+    background-color: #171e24;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-crit{
@@ -93,13 +117,14 @@
 .sheet-rolltemplate-drawsteelattack .sheet-template-result{
     text-align: center;
     padding: 10px;
+    border: solid 1px rgb(116, 181, 255)l
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-tier{
     text-align: center;
     font-size: smaller;
     padding: 3px;
-    border-bottom: solid 1px purple;
+    border-bottom: solid 1px rgb(116, 181, 255);
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-damage{
@@ -114,8 +139,10 @@
     padding: 3px;
 }
 
-
+/****************************/
 /* Repeating Section Styles */
+/****************************/
+
 .rpt_2col{
     display: grid;
     grid-template-columns: 100px 200px;
@@ -128,13 +155,29 @@
     column-gap: 5px;
 }
 
+/* The thing to be hidden */
 .sheet-hiddenarea{
     display:none;
     padding-top: 5px;
+    padding-bottom: 20px;
 }
 
+/*  Hide the area when checked */
 .sheet-hidebox:checked ~ .sheet-hiddenarea {
     display:grid;
+}
+
+/* The disabled input containing the repeating section's action name */
+.info-input{
+  font-size: 10px;
+  padding: 0px;
+}
+
+/* The in-line action button for a repeating section */
+.rptactionbutton{
+  font-size: 10px;
+  padding: 1px;
+  height: 12px;
 }
 
 .small-val-input{
@@ -147,8 +190,8 @@
 
 .sheet-repholder {
     position: relative;
-    border: solid 1px rgb(9, 9, 54);
-    padding: 5px;
+    border-top: solid 1px rgb(9, 9, 54);
+    padding: 0px;
 }
 
 .sheet-reptitle {
@@ -157,7 +200,7 @@
 
 .clicktohide {
     position: absolute;
-    top: 7px;
+    top: 5px;
 }
 
 .clicktohide:checked ~ .sheet-hiddenarea {
@@ -169,7 +212,10 @@ input[disabled]{
     border: transparent;
 }
 
+/**************************/
 /* Bane and Edge Switches */
+/**************************/
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -260,6 +306,7 @@ input[disabled]{
   /* Bane and Edge Switch containers */
   .bane-top-level{
     align-items: center;
+    width: 100%;
   }
 
   .bane-grid{
@@ -268,4 +315,75 @@ input[disabled]{
     column-gap: 5px;
     text-align: center;
   }
+
+  /***********************************/
+  /* Victory and Resource Checkboxes */
+  /***********************************/
+
+  /* Top level container for a counter-set */
+  .sheet-vicres-top{
+    position: relative;
+    border-top: solid 1px black;
+    padding: 10px;
+  }
+
+  /* The grid holding vitory & resource boxes */
+  .sheet-vicres-holder{
+    display: grid;
+    grid-template-columns: repeat(10, 20px);
+    column-gap: 5px;
+  }
+
+  /* Customize the label (the container) */
+  .vic-container, .res-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .vic-container input, .res-container input {
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .vic-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the victory checkbox is checked, add a blue background */
+  .vic-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .res-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  /* When the resource checkbox is checked, add a orange background */
+  .res-container input:checked ~ .checkmark {
+    background-color: #f39121;
+  }
+  
+  
   
