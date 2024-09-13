@@ -25,11 +25,11 @@
         <div>
             Attributes and Skills
             <div class="char-stats-5col">
-                <span><button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=Might}}{{roll=[[2d10+@{mgt}]]}}{{critical=[[0]]}}">MGT</button></span>
-                <span><button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=Agility}}{{roll=[[2d10+@{agl}]]}}{{critical=[[0]]}}">AGL</button></span>
-                <span><button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=Reason}}{{roll=[[2d10+@{rea}]]}}{{critical=[[0]]}}">REA</button></span>
-                <span><button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=Intuition}}{{roll=[[2d10+@{inu}]]}}{{critical=[[0]]}}">INU</button></span>
-                <span><button type="action" name="act_test" value="&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type=Presence}}{{roll=[[2d10+@{prs}]]}}{{critical=[[0]]}}">PRS</button></span>
+                <span><button type="action" name="act_test" value="mgt">MGT</button></span>
+                <span><button type="action" name="act_test" value="agl">AGL</button></span>
+                <span><button type="action" name="act_test" value="rea">REA</button></span>
+                <span><button type="action" name="act_test" value="inu">INU</button></span>
+                <span><button type="action" name="act_test" value="prs">PRS</button></span>
 
                 <input type="number" name="attr_mgt" value="0">
                 <input type="number" name="attr_agl" value="0">
@@ -37,33 +37,61 @@
                 <input type="number" name="attr_inu" value="0">
                 <input type="number" name="attr_prs" value="0">
             </div>  
+
+            <div class="bane-grid">
+                <div class="bane-top-level">
+                    <!-- Rectangular switch -->
+                     EDGE!
+                    <label class="switch">
+                        <input type="checkbox" name="attr_edge">
+                        <span class="slider_green"></span>
+                    </label>
+                </div>
+                <div>
+                    BANE!
+                    <!-- Rectangular switch -->
+                    <label class="switch">
+                        <input type="checkbox" name="attr_bane">
+                        <span class="slider_red"></span>
+                    </label>
+                </div>
+            </div>
         </div>
         <div>
             Repeating Stuff
             <div>
-                Attacks?
+                 Attacks?
                  <fieldset class="repeating_attacks">
-                    <div>
-                        <div>
-                            <input type="text" name="attr_atknamedisp" value="@{atkname}" width="100%" disabled="true">
-                            <button type="action" name="act_attackroll">X</button>
+                    <div class="sheet-repholder">
+                        <div class="sheet-reptitle">
+                            <input type="text" name="attr_atknamedisp" value="@{atkname}" class="info-input" disabled="true">
+                            <button type="action" name="act_attackroll" id="atkrollbutton">X</button>
                         </div>
-                        <input type="checkbox" class="sheet-foo">
-                        <div class="sheet-bar">
-                            <div>
-                                <input type="text" name="attr_atkname" value="Attack" width="100%" placeholder="Attack Name">
-                            </div>
+                        <input class="clicktohide" type="checkbox">
+                        <div class="sheet-hiddenarea">
                             <div class="rpt_2col">
+                                <span>Name:</span><input type="text" name="attr_atkname" placeholder="Attack Name">
+                                <span>Modifier</span>
+                                <select name="attr_mods">
+                                    <option>MGT</option>
+                                    <option>AGL</option>
+                                    <option>REA</option>
+                                    <option>INU</option>
+                                    <option>PRS</option>
+                                </select>
                                 <span>Distance:</span><input type="text" name="attr_atkdistance" placeholder="Distance">
-                            </div>
-                            <div class="rpt_2col">
+                            
                                 <span>Target:</span><input type="text" name="attr_atktarget" placeholder="One Target">
                             </div>
                             <div class="rpt_3col"> 
-                                <span>XXX</span><span>Damage</span><span>Special</span>
+                                <span></span><span>Damage</span><span>Special</span>
                                 <span>Tier 1</span><span><input type="text" name="attr_atktier1dmg" class="small-val-input" value="" placeholder="2"></span ><input type="text" name="attr_atktier1desc" value="" placeholder="Special Effect">
                                 <span>Tier 2</span><span><input type="text" name="attr_atktier2dmg" class="small-val-input" value="" placeholder="2"></span><span><input type="text" name="attr_atktier2desc" value="" placeholder="Special Effect"></span>
                                 <span>Tier 3</span><span><input type="text" name="attr_atktier3dmg" class="small-val-input" value="" placeholder="2"></span><span><input type="text" name="attr_atktier3desc" value="" placeholder="Special Effect"></span>
+                            </div>
+                            <div class="sheet-reptitle">
+                                <span>Effect</span><br/>
+                                <input type="text" name="attr_atkeffect" placeholder="Effect Description">
                             </div>
                         </div>
 
@@ -81,7 +109,6 @@
 </div>
 
 
-<!-- {{roll=[[2d10+@{mgt}]]}}{{critical=[[0]]}}{{rollresult=None}}{{damagenum=[[0]]}}{{specialnote=None}}{{t1d=@{atktier1dmg}}}{{t1sp=@{atktier1desc}}}{{t2d=@{atktier2dmg}}}{{t2sp=@{atktier2desc}}}{{t3d=@{atktier3dmg}}}{{t3sp=@{atktier3desc}}} -->
 <!-- TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES -->
 
 <rolltemplate class="sheet-rolltemplate-drawsteelbasic">
@@ -112,26 +139,31 @@
         {{#rollGreater() computed::critical 0}}<div class="sheet-template-crit">Critical</div>{{/rollGreater() computed::critical 0}}
         {{#rollLess() roll 12}}
             <div class="sheet-template-result">
-                <span>Tier 1 Result</span>
-                <span>{{t1dmg}}</span>
-                <span>{{t1desc}}</span>
+                <div class="sheet-template-tier"><span>Tier 1 Result</span></div>
+                <div class="sheet-template-damage"><span>Damage: </span><span>{{t1dmg}}</span></div>
+                {{#t1desc}}<div class="sheet-template-desc"><span>{{t1desc}}</span></div>{{/t1desc}}
             </div>
         {{/rollLess() roll 12}}
         {{#rollBetween() roll 12 16}}
-            <div class="sheet-template-result"></div>
-                <span>Tier 2 Result</span>
-                <span>{{t2dmg}}</span>
-                <span>{{t2desc}}</span>
+            <div class="sheet-template-result">
+                <div class="sheet-template-tier"><span>Tier 2 Result</span></div>
+                <div class="sheet-template-damage"><span>Damage: </span><span>{{t2dmg}}</span></div>
+                {{#t2desc}}<div class="sheet-template-desc"><span>{{t2desc}}</span></div>{{/t2desc}}
             </div>
         {{/rollBetween() roll 12 16}}
         {{#rollGreater() roll 16}}
             <div class="sheet-template-result">
-                <span>Tier 3 Result</span>
-                <span>{{t3dmg}}</span>
-                <span>{{t3desc}}</span>
+                <div class="sheet-template-tier"><span>Tier 3 Result</span></div>
+                <div class="sheet-template-damage"><span>Damage: </span><span>{{t3dmg}}</span></div>
+                {{#t3desc}}<div class="sheet-template-desc"><span>{{t3desc}}</span></div>{{/t3desc}}
             </div>
         {{/rollGreater() roll 16}}
     </div>
+    {{#effect}}
+        <div class="sheet-template-body">
+            {{effect}}
+        </div>
+    {{/effect}}
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-test">
@@ -151,44 +183,76 @@
 
         console.log(rollExp);
 
-        startRoll(rollExp, (results) => {
-            console.log("In Generic startRoll");
-            rolldata = {};
-            rolldata.critical = isCrit(results.results.roll.dice[0], results.results.roll.dice[1]);
-            finishRoll(results.rollId, rolldata);
+        // construct the die roll
+        let rollVal = "[[2d10+@{"+rollExp+"}";
+        let baneVal = "";
+        let edgeVal = "";
+        let totalRoll = "";
+
+        getAttrs(["bane", "edge"], 
+        function(values) {
+            baneVal = values["bane"];
+            console.log("Bane is " + baneVal);
+            edgeVal = values["edge"];
+            console.log("Edge is " + edgeVal);
+
+            if (edgeVal == "on"){rollVal = rollVal + "+2"};
+            if (baneVal == "on"){rollVal = rollVal + "-2"};
+    
+            rollVal = rollVal +"]]";
+    
+            // Construct the roll
+            totalRoll = "&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type="+rollExp+"}}{{roll="+rollVal+"}}{{critical=[[0]]}}";
+    
+            console.log("Roll text = " + totalRoll);
+
+            startRoll(totalRoll, (results) => {
+                console.log("In Generic startRoll");
+                rolldata = {};
+                rolldata.critical = isCrit(results.results.roll.dice[0], results.results.roll.dice[1]);
+                finishRoll(results.rollId, rolldata);
+            });
         });
+
     } 
 
     on ('clicked:repeating_attacks', (event) => {
         console.log("Starting event in repeating_attacks");
+        console.log(event);
         // Get the rowId
         const trigger = event.sourceAttribute.split('_');
         const rowid = trigger[2];
         console.log("Row ID: " + rowid);
         // Get the fields
-        attackFields = {};
+        
         getAttrs([
-            "repeating_attacks_"+rowid+"_atkname",
-            "repeating_attacks_"+rowid+"_atktier1dmg",
-            "repeating_attacks_"+rowid+"_atktier1desc",
-            "repeating_attacks_"+rowid+"_atktier2dmg",
-            "repeating_attacks_"+rowid+"_atktier2desc",
-            "repeating_attacks_"+rowid+"_atktier3dmg", 
-            "repeating_attacks_"+rowid+"_atktier3desc"
-        ], function(values) {
-            attackFields.name = values["repeating_attacks_"+rowid+"_atkname"];
-            attackFields.t1dmg = values["repeating_attacks_"+rowid+"_atktier1dmg"];
-            attackFields.t2dmg = values["repeating_attacks_"+rowid+"_atktier2dmg"];
-            attackFields.t3dmg = values["repeating_attacks_"+rowid+"_atktier3dmg"];
-            attackFields.t1desc = values["repeating_attacks_"+rowid+"_atktier1desc"];
-            attackFields.t2desc = values["repeating_attacks_"+rowid+"_atktier2desc"];
-            attackFields.t2desc = values["repeating_attacks_"+rowid+"_atktier3desc"];
-         });
+            "repeating_attacks_"+rowid+"_mods",
+            "edge",
+            "bane",
+        ], function(values){
+            let rollVal = "2d10";
+            rollVal = rollVal + "+@{" + values["repeating_attacks_"+rowid+"_mods"] + "}";
+            if (values["edge"] == "on"){rollVal = rollVal + "+2";};
+            if (values["bane"] == "on"){rollVal = rollVal + "-2";};
 
-         rollText="&{template:drawsteelattack}{{roll=[[2d10]]}}{{char-name=@{characterName}}}{{roll-type=@{repeating_attacks_"+rowid+"_atkname}}}{{critical=[[0]]}}{{t1dmg=@{repeating_attacks_"+rowid+"_atktier1dmg}}}{{t2dmg=@{repeating_attacks_"+rowid+"_atktier2dmg}}}{{t2dmg=@{repeating_attacks_"+rowid+"_atktier2dmg}}}{{t1desc=@{repeating_attacks_"+rowid+"_atktier1desc}}}{{t2desc=@{repeating_attacks_"+rowid+"_atktier2desc}}}{{t3desc=@{repeating_attacks_"+rowid+"_atktier3desc}}}";
+            rollText="&{template:drawsteelattack}"+
+                        "{{roll=[[" + rollVal + "]]}}"+
+                        "{{char-name=@{characterName}}}"+
+                        "{{roll-type=@{repeating_attacks_"+rowid+"_atkname}}}"+
+                        "{{critical=[[0]]}}"+
+                        "{{t1dmg=@{repeating_attacks_"+rowid+"_atktier1dmg}}}"+
+                        "{{t2dmg=@{repeating_attacks_"+rowid+"_atktier2dmg}}}"+
+                        "{{t3dmg=@{repeating_attacks_"+rowid+"_atktier3dmg}}}"+
+                        "{{t1desc=@{repeating_attacks_"+rowid+"_atktier1desc}}}"+
+                        "{{t2desc=@{repeating_attacks_"+rowid+"_atktier2desc}}}"+
+                        "{{t3desc=@{repeating_attacks_"+rowid+"_atktier3desc}}}"+
+                        "{{effect=@{repeating_attacks_"+rowid+"_atkeffect}}}";
 
+            attackRoll(rollText);
 
-         attackRoll(rollText);
+        });
+            
+         
     });
 
     const attackRoll = (rollText) => {
