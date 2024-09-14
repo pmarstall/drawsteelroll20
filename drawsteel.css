@@ -7,6 +7,11 @@
   width: 100%;
 }
 
+.sheet-generic-2col{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
 /* The title box for a container */
 .sheet-section-title{
   font-size: smaller;
@@ -72,13 +77,15 @@
 
 /* configure the tab buttons */
 .charsheet .sheet-actions,
-.charsheet .sheet-skills {
+.charsheet .sheet-skills,
+.charsheet .sheet-kit {
     display: none;
 }
 
 /* show the selected tab */
 .charsheet .sheet-tabstoggle[value="actions"] ~ div.sheet-actions,
-.charsheet .sheet-tabstoggle[value="skills"] ~ div.sheet-skills {
+.charsheet .sheet-tabstoggle[value="skills"] ~ div.sheet-skills, 
+.charsheet .sheet-tabstoggle[value="kit"] ~ div.sheet-kit {
     display: block;
 }
 
@@ -610,5 +617,32 @@ input[disabled]{
 .skillbutton:hover {
   background-color: #ccc;
 }
+
+/******************************************/
+/************    Kit Tab ******************/
+/******************************************/
+
+.sheet-kit-top-2col{
+  display: grid;
+  grid-template-columns: 250px auto;
+  column-gap: 20px;
+}
+
+.sheet-kit-damage-grid{
+  display: grid;
+  grid-template-columns: 40px repeat(3, 50px);
+  column-gap: 10px;
+}
+
+textarea.kit-smalltextarea{
+  width: 400px;
+  height: 50px;
+}
+
+textarea.kit-bigtextarea{
+  width: 400px;
+  height: 150px;
+}
+  
   
   

@@ -70,10 +70,14 @@
         <div class="button-holder">
             <button type="action" name="act_actions" class="sheet-button">Actions</button>
             <button type="action" name="act_skills" class="sheet-button">Skills</button>
+            <button type="action" name="act_kit" class="sheet-button">Kit</button>
         </div>
      </div>
 
-    <!-- Abilities -->
+     <!-- *******************************************************************************************************************
+     ********************************************* Abilities Tab **************************************************************
+     ********************************************************************************************************************-->
+
     <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="actions" />
     <div class="sheet-actions">
         <div class="char-top-layout-3col">
@@ -199,6 +203,10 @@
             
         </div>
     </div>
+
+    <!-- *******************************************************************************************************************
+     ********************************************* Skills Tab **************************************************************
+     ********************************************************************************************************************-->
 
     <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="actions" />
     <div class="sheet-skills">
@@ -359,6 +367,71 @@
 
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    <!-- *******************************************************************************************************************
+     ********************************************* Kit Tab **************************************************************
+     ********************************************************************************************************************-->
+
+    <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="actions" />
+    <div class="sheet-kit">
+        <div class="sheet-kit-top-2col">
+            <div class="sheet-kit-top-level">
+                <div class="sheet-section">
+                    <div><span>Kit Name:</span><input type="text" name="attr_kitname"></div>
+                </div>
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Damage Modifications</div>
+                    <div class="sheet-kit-damage-grid">
+                        <span></span>
+                        <span>Melee</span>
+                        <span>Ranged</span>
+                        <span>Magic</span>
+                        <span>Tier 1</span>
+                        <input type="number" name="attr_kitt1melee" value="0" class="kit-damage">
+                        <input type="number" name="attr_kitt1range" value="0" class="kit-damage">
+                        <input type="number" name="attr_kitt1magic" value="0" class="kit-damage">
+                        <span>Tier 2</span>
+                        <input type="number" name="attr_kitt2melee" value="0" class="kit-damage">
+                        <input type="number" name="attr_kitt2range" value="0" class="kit-damage">
+                        <input type="number" name="attr_kitt2magic" value="0" class="kit-damage">
+                        <span>Tier 3</span>
+                        <input type="number" name="attr_kitt3melee" value="0" class="kit-damage">
+                        <input type="number" name="attr_kitt3range" value="0" class="kit-damage">
+                        <input type="number" name="attr_kitt3magic" value="0" class="kit-damage">
+                    </div>
+                </div>
+                <div class="sheet-section">
+                    <div class="sheet-generic-2col">
+                        <div class="sheet-generic-2col">
+                            <span>Area+ </span><input type="number" name="attr_kitarea" value="0">
+                            <span>Distance+ </span><input type="number" name="attr_kitdistance" value="0">
+                            <span>Reach+ </span><input type="number" name="attr_kitreach" value="0">
+                        </div>
+                        <div class="sheet-generic-2col">
+                            <span>Stability+ </span><input type="number" name="attr_kitstability" value="0">
+                            <span>Stamina+ </span><input type="number" name="attr_kitstamina" value="0">
+                            <span>speed+ </span><input type="number" name="attr_kitspeed" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sheet-kit-top-level">
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Description</div>
+                    <div><textarea name="attr_kitdesc" class="kit-bigtextarea"></div>
+                </div>
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Equipment</div>
+                    <div><textarea name="attr_kitequip" class="kit-smalltextarea"></div>
+                </div>
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Mobility</div>
+                    <div><textarea name="attr_kitmobility" class="kit-smalltextarea"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -593,6 +666,11 @@
     on('clicked:actions', function() {
         setAttrs({
             sheetTab: "actions"
+        });
+    });
+    on('clicked:kit', function() {
+        setAttrs({
+            sheetTab: "kit"
         });
     });
 
