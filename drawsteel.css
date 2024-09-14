@@ -50,13 +50,6 @@
   padding-top: 10px;
 }
 
-.char-stats-5col{
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(5, 50px);
-    column-gap: 5px;
-}
-
 .char-top-layout-3col{
     display: grid;
     grid-template-columns: 400px 400px 400px;
@@ -247,7 +240,7 @@
 
 .clicktohide {
     position: absolute;
-    top: 5px;
+    top: 3px;
 }
 
 .clicktohide:checked ~ .sheet-hiddenarea {
@@ -257,6 +250,50 @@
 input[disabled]{
     background-color: transparent;
     border: transparent;
+}
+
+
+/**************************/
+/* Attributes             */
+/**************************/
+
+.char-stats-5col{
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  column-gap: 15px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* The in-line action button for an attribute */
+.attrib-button{
+  padding: 5px;
+  width: 50px;
+  border-style: none;
+  padding-block: 0px;
+  padding-inline: 0px;
+  background-color: black;
+}
+
+.attrib-button:hover {
+  background-color: #ccc;
+  color: black;
+}
+
+/* The Attribute Entry Input */
+.attrib-input {
+  padding: 5px;
+  width: 100%;
+}
+
+.attrib-button-holder{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 5px;
+  background-color: black;
+  color: white;
 }
 
 /**************************/
