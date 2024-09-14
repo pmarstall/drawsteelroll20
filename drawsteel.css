@@ -1,7 +1,10 @@
 /* All Buttons */
-.button {
-    background: transparent;
-    border: 0px;
+.ui-dialog .charsheet button[type=roll]::before {
+  content: "";
+}
+
+.sheet-generic{
+  width: 100%;
 }
 
 /* The title box for a container */
@@ -11,6 +14,8 @@
 }
 
 .sheet-section{
+  margin: auto;
+  width: 100%;
   padding: 10px;
   border-bottom: solid 1px black;
 }
@@ -35,21 +40,53 @@
     column-gap: 5px;
 }
 
+.middle-header-2col{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 10px;
+}
+
+.sheet-middle{
+  padding-top: 10px;
+}
+
 .char-stats-5col{
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(5, 50px);
     column-gap: 5px;
 }
 
-.char-top-layout-2col{
+.char-top-layout-3col{
     display: grid;
-    grid-template-columns: 300px 400px;
+    grid-template-columns: 400px 400px 400px;
     column-gap: 20px;
     padding-top: 10px;
 }
 
 .basics {
     width: 100%;
+}
+
+/**************************************/
+/*       Tab Buttons                  */
+/**************************************/
+
+.button-holder{
+  margin: auto;
+  width: 150px;
+}
+
+/* configure the tab buttons */
+.charsheet .sheet-actions,
+.charsheet .sheet-skills {
+    display: none;
+}
+
+/* show the selected tab */
+.charsheet .sheet-tabstoggle[value="actions"] ~ div.sheet-actions,
+.charsheet .sheet-tabstoggle[value="skills"] ~ div.sheet-skills {
+    display: block;
 }
 
 /******************/
@@ -128,9 +165,7 @@
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-damage{
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 5px;
+    text-align: center;
     padding-top: 5px;
 }
 
@@ -173,11 +208,23 @@
   padding: 0px;
 }
 
+.cost-input{
+  font-size: 10px;
+  padding: 0px;
+  width: 50px;
+}
+
 /* The in-line action button for a repeating section */
 .rptactionbutton{
   font-size: 10px;
   padding: 1px;
   height: 12px;
+  border-style: none;
+  background-color: transparent;
+}
+
+.rptactionbutton:hover {
+  background-color: #ccc;
 }
 
 .small-val-input{
@@ -220,7 +267,7 @@ input[disabled]{
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 50px;
     height: 34px;
   }
   
@@ -236,9 +283,10 @@ input[disabled]{
     position: absolute;
     cursor: pointer;
     top: 0;
-    left: 0;
+    left: 7px;
     right: 0;
     bottom: 0;
+    width: 100px;
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
@@ -247,9 +295,10 @@ input[disabled]{
     position: absolute;
     cursor: pointer;
     top: 0;
-    left: 0;
+    left: 7px;
     right: 0;
     bottom: 0;
+    width: 100px;
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
@@ -279,10 +328,10 @@ input[disabled]{
   }
   
   input:checked + .slider_green {
-    background-color: #198503;
+    background-color: #2bff00;
   }
   input:checked + .slider_red {
-    background-color: #850303;
+    background-color: #fa0404;
   }
   
   input:focus + .slider_green {
@@ -305,15 +354,32 @@ input[disabled]{
 
   /* Bane and Edge Switch containers */
   .bane-top-level{
+    position: relative;
     align-items: center;
-    width: 100%;
+    width: 120px;
   }
 
   .bane-grid{
     display: grid;
-    grid-template-columns: 80px 80px;
+    grid-template-columns: 130px 130px;
     column-gap: 5px;
     text-align: center;
+  }
+
+  .edge-container{
+    position: relative;
+    background-color: #102e0a;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+  }
+
+  .bane-container{
+    position: relative;
+    background-color: #2e0a0a;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
   }
 
   /***********************************/
@@ -385,5 +451,127 @@ input[disabled]{
     background-color: #f39121;
   }
   
+/******************************************/
+/* Stamina and recovery                   */
+/******************************************/
+  .sheet-stam-recover{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    column-gap: 5px;
+  }
+
+  .sheet-stam-recover-inner{
+    display: grid;
+    grid-template-columns: 95px 95px;
+  }
+
+  .bignum{
+    font-size: 25px;
+  }
+
+  .sheet-stam-recover-main{
+    color: black;
+  }
+
+  .sheet-stam-recover-second{
+    font-size: 10px;
+    padding-top: 10px;
+    text-align:center;
+  }
+
+  .sheet-stam-recover-2col{
+    display: grid;
+    grid-template-columns: 40px auto;
+    vertical-align: middle;
+  }
+
+  .small-num-input{
+    font-size: 10px;
+    padding: 3px;
+    height: 15px;
+  }
+
+  /********************************/
+  /*      Skill Rolls             */
+  /********************************/
+
+  .sheet-skill-top{
+    display: grid;
+    grid-template-columns: 200px 50px;
+    text-align: left;
+  }
+
+  .sheet-skill-section{
+    font-size: smaller;
+  }
+  
+  .sheet-skill-text{
+    font-size: 20px;
+  }
+
+  .sheet-skill-check{
+    font-size: 20px;
+  }
+
+  /* Customize the label (the container) */
+  .skill-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  label.skill-container {
+    padding: 0px 3px 0px 0px;
+    margin-bottom: 1px;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .skill-container input {
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .skill-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 15px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .skill-container:hover input ~ .skill-checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the victory checkbox is checked, add a blue background */
+  .skill-container input:checked ~ .skill-checkmark {
+    background-color: #2196F3;
+  }
+
+  /* The in-line action button for a repeating section */
+.skillbutton{
+  font-size: 12px;
+  padding: 1px;
+  padding-left: 15px;
+  height: 15px;
+  text-align: left;
+  border-style: none;
+  background-color: transparent;
+}
+
+.skillbutton:hover {
+  background-color: #ccc;
+}
   
   

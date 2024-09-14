@@ -21,9 +21,12 @@
             <input type="text" name="attr_languages" value="" placeholder="Enter Languages">
         </div>
     </div>
-    <div class="char-top-layout-2col">
-        <div>
-            <div class="sheet-section">
+
+    <!-- Middle Area -->
+    <div class="char-header-main">
+        <div class="middle-header-2col">
+            <!-- Character Stats -->
+            <div class="sheet-middle">
                 <div class="sheet-section-title">Attributes and Skills</div>
                 <div class="char-stats-5col">
                     <span><button type="action" name="act_test" value="MGT">MGT</button></span>
@@ -37,19 +40,20 @@
                     <input type="number" name="attr_rea" value="0">
                     <input type="number" name="attr_inu" value="0">
                     <input type="number" name="attr_prs" value="0">
-                </div>  
+                </div> 
             </div>
-            <div class="bane-grid sheet-section">
-                <div class="bane-top-level">
+            <!-- Banes and Edges -->
+            <div class="bane-grid sheet-middle">
+                <div class="bane-top-level edge-container">
                     <!-- Rectangular switch -->
-                     EDGE!
+                     Edge
                     <label class="switch">
                         <input type="checkbox" name="attr_edge">
                         <span class="slider_green"></span>
                     </label>
                 </div>
-                <div>
-                    BANE!
+                <div class="bane-top-level bane-container">
+                    Bane
                     <!-- Rectangular switch -->
                     <label class="switch">
                         <input type="checkbox" name="attr_bane">
@@ -57,80 +61,170 @@
                     </label>
                 </div>
             </div>
-            <div class="sheet-section">
-                <div class="sheet-section-title">Victories</div>
-                <div class="sheet-vicres-holder">
-                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    
-                </div>
-            </div>
-            <div class="sheet-section">
-                <div class="sheet-section-title">Resources</div>
-                <div class="sheet-vicres-holder">
-                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
-                    
-                </div>
-            </div>
         </div>
-        <div>
-            <div class="sheet-section">
-                 <div class="sheet-section-title">Attacks</div>
-                 <fieldset class="repeating_attacks">
-                    <div class="sheet-repholder">
-                        <div class="sheet-reptitle">
-                            <input type="text" name="attr_atknamedisp" value="@{atkname}" class="info-input" disabled="true">
-                            <button type="action" name="act_attackroll" id="atkrollbutton" class="rptactionbutton">Roll Attack</button>
-                        </div>
-                        <input class="clicktohide" type="checkbox">
-                        <div class="sheet-hiddenarea">
-                            <div class="rpt_2col">
-                                <span>Name:</span><input type="text" name="attr_atkname" placeholder="Attack Name">
-                                <span>Modifier</span>
-                                <select name="attr_mods">
-                                    <option>MGT</option>
-                                    <option>AGL</option>
-                                    <option>REA</option>
-                                    <option>INU</option>
-                                    <option>PRS</option>
-                                </select>
-                                <span>Distance:</span><input type="text" name="attr_atkdistance" placeholder="Distance">
-                            
-                                <span>Target:</span><input type="text" name="attr_atktarget" placeholder="One Target">
-                            </div>
-                            <div class="rpt_3col"> 
-                                <span></span><span>Damage</span><span>Special</span>
-                                <span>Tier 1</span><span><input type="text" name="attr_atktier1dmg" class="small-val-input" value="" placeholder="2"></span ><input type="text" name="attr_atktier1desc" value="" placeholder="Special Effect">
-                                <span>Tier 2</span><span><input type="text" name="attr_atktier2dmg" class="small-val-input" value="" placeholder="2"></span><span><input type="text" name="attr_atktier2desc" value="" placeholder="Special Effect"></span>
-                                <span>Tier 3</span><span><input type="text" name="attr_atktier3dmg" class="small-val-input" value="" placeholder="2"></span><span><input type="text" name="attr_atktier3desc" value="" placeholder="Special Effect"></span>
-                            </div>
-                            <div class="sheet-reptitle">
-                                <span>Effect</span><br/>
-                                <input type="text" name="attr_atkeffect" placeholder="Effect Description">
-                            </div>
-                        </div>
+    </div>
 
-                    </div>
-                 </fieldset>
-            </div>
+    <!-- Button Row -->
+     <div class="sheet-section">
+        
+        <div class="button-holder">
+            <button type="action" name="act_actions" class="sheet-button">Actions</button>
+            <button type="action" name="act_skills" class="sheet-button">Skills</button>
         </div>
+     </div>
+
+    <!-- Abilities -->
+    <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="actions" />
+    <div class="sheet-actions">
+        <div class="char-top-layout-3col">
+            <div class="sheet-generic">
+                
+
+                
+                <!-- Stamina and Recovery -->
+                <div class="sheet-section sheet-stam-recover">
+                    <!-- Stamina -->
+                    <div class="sheet-stam-recover-inner">
+                        <div class="sheet-stam-recover-main">
+                            <div class="sheet-section-title">Stamina</div>
+                            <input type="number" class="bignum" name="attr_stamina">
+                        </div>
+                        <div class="sheet-stam-recover-second">
+                            <div class="sheet-stam-recover-2col">
+                                <span>Max:</span><input type="number" name="attr_maxstamina" class="small-num-input">
+                            </div>
+                            <div class="sheet-stam-recover-2col">
+                                <span>Winded:</span><input type="hidden" name="attr_halfstamina"><input type="text" name="attr_halfstamina2" value="@{halfstamina}" class="info-input" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recovery -->
+                    <div class="sheet-stam-recover-inner">
+                        <div class="sheet-stam-recover-main">
+                            <div class="sheet-section-title">Recoveries</div>
+                            <input type="number" class="bignum" name="attr_recoveries">
+                        </div>
+                        <div class="sheet-stam-recover-second">
+                            <div class="sheet-stam-recover-2col">
+                                <span>Max:</span><input type="number" name="attr_maxrecoveries" class="small-num-input">
+                            </div>
+                            <div class="sheet-stam-recover-2col">
+                                <span>Half:</span><input type="hidden" name="attr_halfrecoveries"><input type="text" name="attr_halfstamina2" value="@{halfrecoveries}" class="info-input" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Victories -->
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Victories</div>
+                    <div class="sheet-vicres-holder">
+                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Resources</div>
+                    <div class="sheet-vicres-holder">
+                        <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        <label class="res-container"><input type="checkbox"><span class="checkmark"></span></label>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Main Column -->
+            <div  class="sheet-generic">
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Attacks</div>
+                    <fieldset class="repeating_attacks">
+                        <div class="sheet-repholder">
+                            <div class="sheet-reptitle">
+                                <input type="text" name="attr_atknamedisp" value="@{atkname}" class="info-input" disabled="true">
+                                <input type="text" name="attr_atknamedisp" value="@{atkcost}" class="cost-input" disabled="true">
+                                <button type="action" name="act_attackroll" id="atkrollbutton" class="rptactionbutton">Roll Attack</button>
+                            </div>
+                            <input class="clicktohide" type="checkbox">
+                            <div class="sheet-hiddenarea">
+                                <div class="rpt_2col">
+                                    <span>Name:</span><input type="text" name="attr_atkname" placeholder="Attack Name">
+                                    <span>Modifier</span>
+                                    <select name="attr_mods">
+                                        <option>MGT</option>
+                                        <option>AGL</option>
+                                        <option>REA</option>
+                                        <option>INU</option>
+                                        <option>PRS</option>
+                                    </select>
+                                    <span>Cost</span><input type="text" name="attr_atkcost" placeholder="Cost to use">
+                                    <span>Distance:</span><input type="text" name="attr_atkdistance" placeholder="Distance">
+                                
+                                    <span>Target:</span><input type="text" name="attr_atktarget" placeholder="One Target">
+                                </div>
+                                <div class="rpt_3col"> 
+                                    <span></span><span>Damage</span><span>Special</span>
+                                    <span>Tier 1</span><span><input type="text" name="attr_atktier1dmg" class="small-val-input" value="" placeholder="2"></span ><input type="text" name="attr_atktier1desc" value="" placeholder="Special Effect">
+                                    <span>Tier 2</span><span><input type="text" name="attr_atktier2dmg" class="small-val-input" value="" placeholder="2"></span><span><input type="text" name="attr_atktier2desc" value="" placeholder="Special Effect"></span>
+                                    <span>Tier 3</span><span><input type="text" name="attr_atktier3dmg" class="small-val-input" value="" placeholder="2"></span><span><input type="text" name="attr_atktier3desc" value="" placeholder="Special Effect"></span>
+                                </div>
+                                <div class="sheet-reptitle">
+                                    <span>Effect</span><br/>
+                                    <input type="text" name="attr_atkeffect" placeholder="Effect Description">
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+                <!-- Skills -->
+                <div class="sheet-section">
+                    <div class="sheet-section-title">
+                        Crafting Skills
+                    </div>
+                    <div class="sheet-skill-top">
+                        <button name="act_skill" type="action" value="Alchemy" class="skillbutton">Alchemy</button>
+                        <label class="skill-container"><input type="checkbox" name="attr_skill_alchemy"><span class="skill-checkmark"></span></label>
+                        <button name="act_skill" type="action" value="Architecture" class="skillbutton">Architecture</button>
+                        <label class="skill-container"><input type="checkbox" name="attr_skill_architecture"><span class="skill-checkmark"></span></label>
+                        <button name="act_skill" type="action" value="Blacksmithing" class="skillbutton">Blacksmithing</button>
+                        <label class="skill-container"><input type="checkbox" name="attr_skill_blacksmithing"><span class="skill-checkmark"></span></label>
+                        <button name="act_skill" type="action" value="Fletching" class="skillbutton">Fletching</button>
+                        <label class="skill-container"><input type="checkbox" name="attr_skill_fletching"><span class="skill-checkmark"></span></label>
+                        <button name="act_skill" type="action" value="Jewelry" class="skillbutton">Jewelry</button>
+                        <label class="skill-container"><input type="checkbox" name="attr_skill_jewelry"><span class="skill-checkmark"></span></label>
+                        <button name="act_skill" type="action" value="Mechanics" class="skillbutton">Mechanics</button>
+                        <label class="skill-container"><input type="checkbox" name="attr_skill_mechanics"><span class="skill-checkmark"></span></label>
+                        <button name="act_skill" type="action" value="Tailoring" class="skillbutton">Tailoring</button>
+                        <label class="skill-container"><input type="checkbox" name="attr_skill_tailoring"><span class="skill-checkmark"></span></label>
+                    </div>
+
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="actions" />
+    <div class="sheet-skills">
+        Skills go here!
     </div>
     
 </div>
@@ -304,5 +398,67 @@
             return 0;
         }
     }
+
+    on('change:maxstamina change:maxrecoveries', function() {
+        console.log('Max Stamina Triggered');
+        // Change the half-stamina control
+        getAttrs(["maxstamina", "maxrecoveries"], function(values){
+            let hsta =Math.round(values["maxstamina"]/2);
+            let hrec = Math.round(values["maxrecoveries"]/2);
+            console.log("Half stamina is "+hsta);
+            setAttrs({halfstamina: hsta, halfrecoveries: hrec});
+        });
+    });
+
+
+
+    //////////////////////////////////////////////////////////
+    // Skill roll
+    //////////////////////////////////////////////////////////
+    on ('clicked:skill', (event) => {
+        skillRoll(event.htmlAttributes.value);
+    });
+
+    const skillRoll = (value) => {
+        console.log(value + " skill roll");
+        let skillName = value.toLowerCase();
+        let rollText = "2d10";
+        let rollVal = "";
+        
+        getAttrs([
+            "skill_"+skillName,
+            "edge",
+            "bane",
+        ], function(values){
+            if(values["skill_"+skillName] == "on"){rollText = rollText +" +2";}
+            if(values["edge"] == "on"){rollText = rollText +" +2";}
+            if(values["bane"] == "on"){rollText = rollText +" -2";}
+
+            rollVal = "&{template:drawsteelbasic}{{roll-type="+value+" Skill}}{{roll=[["+rollText+"]]}}{{critical=[[0]]}}";
+
+            startRoll(rollVal, (results) => {
+                console.log("In Skill startRoll");
+                rolldata = {};
+                rolldata.critical = isCrit(results.results.roll.dice[0], results.results.roll.dice[1]);
+                console.log(results);
+                finishRoll(results.rollId, rolldata);
+            });
+        });
+    }
+
+    ////////////////////////////////////////////////////////////////
+    //  Tabs!
+    ////////////////////////////////////////////////////////////////
+    on('clicked:skills', function() {
+        setAttrs({
+            sheetTab: "skills"
+        });
+    });
+    on('clicked:actions', function() {
+        setAttrs({
+            sheetTab: "actions"
+        });
+    });
+
 
 </script>
