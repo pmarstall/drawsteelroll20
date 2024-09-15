@@ -94,32 +94,32 @@
 /******************/
 
 .sheet-rolltemplate-drawsteelbasic {
-    border: solid purple;
+  border: solid purple;
 }
 
 .sheet-rolltemplate-drawsteelbasic .sheet-template-title{
-    background-color: purple;
-    text-decoration-color: aliceblue;
-    padding: 5px;
+  background-color: purple;
+  text-decoration-color: aliceblue;
+  padding: 5px;
 }
 
 .sheet-rolltemplate-drawsteelbasic .sheet-template-body{
-    text-align: center;
-    border: solid 1px purple;
-    background-color: rgb(31, 18, 31);;
+  text-align: center;
+  border: solid 1px purple;
+  background-color: rgb(31, 18, 31);;
 }
 
 .sheet-rolltemplate-drawsteelbasic .sheet-template-crit{
-    text-align: center;
-    background-color: greenyellow;
-    color: rgb(53, 24, 30);
-    font-size:larger;
-    padding: 10px;
+  text-align: center;
+  background-color: greenyellow;
+  color: rgb(53, 24, 30);
+  font-size:larger;
+  padding: 10px;
 }
 
 .sheet-rolltemplate-drawsteelbasic .sheet-template-result{
-    text-align: center;
-    padding: 10px;
+  text-align: center;
+  padding: 10px;
 }
 
 /*******************/
@@ -138,30 +138,28 @@
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-body{
-    text-align: center;
-    border: solid 1px rgb(116, 181, 255);
-    background-color: #171e24;
+  border: solid 1px rgb(116, 181, 255);
+  background-color: #171e24;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-crit{
-    text-align: center;
-    background-color: greenyellow;
-    color: rgb(53, 24, 30);
-    font-size:larger;
-    padding: 10px;
+  color: rgb(53, 24, 30);
+  font-size:larger;
+  padding: 10px;
+  text-align: center;
+  background-color: greenyellow;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-result{
-    text-align: center;
-    padding: 10px;
-    border: solid 1px rgb(116, 181, 255)l
+    border: solid 1px rgb(116, 181, 255);
+    padding: 5px;
 }
 
-.sheet-rolltemplate-drawsteelattack .sheet-template-tier{
-    text-align: center;
-    font-size: smaller;
-    padding: 3px;
-    border-bottom: solid 1px rgb(116, 181, 255);
+.sheet-rolltemplate-drawsteelattack .sheet-template-tier {
+  text-align: center;
+  font-size: smaller;
+  padding: 3px;
+  border-bottom: solid 1px rgb(116, 181, 255);
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-damage{
@@ -172,6 +170,48 @@
 .sheet-rolltemplate-drawsteelattack .sheet-template-desc{
     text-align: center;
     padding: 3px;
+}
+
+.sheet-rolltemplate-drawsteelattack .sheet-template-special{
+  text-align: left;
+  padding: 5px;
+  border: solid 1px rgb(116, 181, 255);
+  background-color: #171e24;
+}
+
+/******************/
+/* Abilities Template */
+/******************/
+
+.sheet-rolltemplate-drawsteelability {
+  border: solid rgb(104, 93, 64);
+}
+
+.sheet-rolltemplate-drawsteelability .sheet-template-title{
+  background-color: rgb(104, 93, 64);
+  color: white;
+  text-decoration-color: aliceblue;
+  padding: 5px;
+}
+
+.sheet-rolltemplate-drawsteelability .sheet-template-body{
+  text-align: center;
+  border: solid 1px rgb(104, 93, 64);
+  background-color: rgb(32, 27, 15);;
+}
+
+.sheet-rolltemplate-drawsteelability .sheet-template-crit{
+  text-align: center;
+  background-color: greenyellow;
+  color: rgb(32, 27, 15);
+  font-size:larger;
+  padding: 10px;
+}
+
+.sheet-rolltemplate-drawsteelability .sheet-template-result{
+  text-align: left;
+  padding: 10px;
+  border: solid rgb(104, 93, 64);
 }
 
 /****************************/

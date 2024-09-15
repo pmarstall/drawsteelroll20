@@ -177,6 +177,12 @@
                                         <option>INU</option>
                                         <option>PRS</option>
                                     </select>
+                                    <span>Attack Type</span>
+                                    <select name="attr_atktype">
+                                        <option>Melee</option>
+                                        <option>Ranged</option>
+                                        <option>Magic</option>
+                                    </select>
                                     <span>Cost</span><input type="text" name="attr_atkcost" placeholder="Cost to use">
                                     <span>Distance:</span><input type="text" name="attr_atkdistance" placeholder="Distance">
                                 
@@ -197,7 +203,28 @@
                         </div>
                     </fieldset>
                 </div>
-                
+
+                <!--  Abilities Repeating section -->
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Abilities</div>
+                    <fieldset class="repeating_abilities">
+                        <div class="sheet-repholder">
+                            <div class="sheet-reptitle">
+                                <input type="text" name="attr_ablnamedis" value="@{ablname}" class="info-input" disabled="true">
+                                <button type="action" name="act_abilityroll" id="ablrollbutton" class="rptactionbutton">Send Chat</button>
+                            </div>
+                            <input class="clicktohide" type="checkbox">
+                            <div class="sheet-hiddenarea">
+                                <div>
+                                    <span>Ability Name:</span><input type="text" name="attr_ablname">
+                                </div>
+                                <span>Description</span>
+                                <textarea name="attr_abldesc" placeholder="Description">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
             </div>
 
             
@@ -492,10 +519,19 @@
         {{/rollGreater() roll 16}}
     </div>
     {{#effect}}
-        <div class="sheet-template-body">
+        <div class="sheet-template-special">
             {{effect}}
         </div>
     {{/effect}}
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-drawsteelability">
+    <div class="sheet-template-title">
+        {{name}}
+    </div>
+    <div class="sheet-template-result">
+        {{description}}
+    </div>
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-test">
@@ -505,6 +541,22 @@
 
 <!-- SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS-->
 <script type="text/worker">
+
+    ////////////////////////////////////////////////////////////////
+    //  Tabs!
+    ////////////////////////////////////////////////////////////////
+    on('clicked:skills clicked:actions clicked:kit', (event) => {
+        evntArr = event.triggerName.split(":");
+        button = evntArr[1];
+        console.log(button);
+        setAttrs({
+            sheetTab: button
+        });
+    });
+
+    ////////////////////////////////////////////////////////////////
+    //  Abilities Test Roll!
+    ////////////////////////////////////////////////////////////////
 
     on ('clicked:test', (event) => {
         testRoll(event.htmlAttributes.value);
@@ -548,17 +600,20 @@
 
     } 
 
+    ////////////////////////////////////////////////////////////////
+    //  Attacks Roll!
+    ////////////////////////////////////////////////////////////////
+
     on ('clicked:repeating_attacks', (event) => {
         console.log("Starting event in repeating_attacks");
         console.log(event);
-        // Get the rowId
-        const trigger = event.sourceAttribute.split('_');
-        const rowid = trigger[2];
-        console.log("Row ID: " + rowid);
+        
+        const rowid = getRowID(event);
         // Get the fields
         
         getAttrs([
             "repeating_attacks_"+rowid+"_mods",
+            "repeating_attacks_"+rowid+"_atktype",
             "edge",
             "bane",
         ], function(values){
@@ -567,14 +622,16 @@
             if (values["edge"] == "on"){rollVal = rollVal + "+2";};
             if (values["bane"] == "on"){rollVal = rollVal + "-2";};
 
+            let damType = values["repeating_attacks_"+rowid+"_atktype"];
+
             rollText="&{template:drawsteelattack}"+
                         "{{roll=[[" + rollVal + "]]}}"+
                         "{{char-name=@{characterName}}}"+
                         "{{roll-type=@{repeating_attacks_"+rowid+"_atkname}}}"+
                         "{{critical=[[0]]}}"+
-                        "{{t1dmg=@{repeating_attacks_"+rowid+"_atktier1dmg}}}"+
-                        "{{t2dmg=@{repeating_attacks_"+rowid+"_atktier2dmg}}}"+
-                        "{{t3dmg=@{repeating_attacks_"+rowid+"_atktier3dmg}}}"+
+                        "{{t1dmg=[[" + getTierDamage(1, damType, rowid) + "]]}}"+
+                        "{{t2dmg=[[" + getTierDamage(2, damType, rowid) + "]]}}"+
+                        "{{t3dmg=[[" + getTierDamage(3, damType, rowid) + "]]}}"+
                         "{{t1desc=@{repeating_attacks_"+rowid+"_atktier1desc}}}"+
                         "{{t2desc=@{repeating_attacks_"+rowid+"_atktier2desc}}}"+
                         "{{t3desc=@{repeating_attacks_"+rowid+"_atktier3desc}}}"+
@@ -599,14 +656,25 @@
         });
     }
 
-    function isCrit(num1, num2){
-        if((num1+num2)>18){
-            console.log("Crit!")
-            return 1;
+    // Figure out the damage formula for a given type and tier
+    function getTierDamage(tierNum, damType, rowID) {
+        //Get the damage for the attack in question for the given tier
+        let txtRtn = "@{repeating_attacks_"+rowID+"_atktier"+tierNum+"dmg}"
+        if (damType == "Melee"){
+            txtRtn = txtRtn + " + @{kitt"+tierNum+"melee}";
         }else{
-            return 0;
+            if (damType == "Ranged"){
+                txtRtn = txtRtn + " + @{kitt"+tierNum+"range}";
+            }else{
+                txtRtn = txtRtn + " + @{kitt"+tierNum+"magic}";
+            }
         }
+        return txtRtn;
     }
+
+    //////////////////////////////////////////////////////////
+    // Recalc Stamina
+    //////////////////////////////////////////////////////////
 
     on('change:maxstamina change:maxrecoveries', function() {
         console.log('Max Stamina Triggered');
@@ -619,7 +687,30 @@
         });
     });
 
+    //////////////////////////////////////////////////////////
+    // Ability Repeating Area Roll
+    //////////////////////////////////////////////////////////
+    on ('clicked:repeating_abilities', (event) => {
+        console.log("Starting event in repeating_attacks");
+        console.log(event);
+        
+        // Get the rowId
+        const rowid = getRowID(event);
+        
+        // Get the fields
+        
+        rollText="&{template:drawsteelability}"+
+                        "{{name=@{repeating_abilities_"+rowid+"_ablname}}}"+
+                        "{{description=@{repeating_abilities_"+rowid+"_abldesc}}}";
 
+        startRoll(rollText, (results) => {
+            console.log("In Skill startRoll");
+            rolldata = {};
+            finishRoll(results.rollId, rolldata);
+        });
+
+  
+    });
 
     //////////////////////////////////////////////////////////
     // Skill roll
@@ -655,24 +746,23 @@
         });
     }
 
-    ////////////////////////////////////////////////////////////////
-    //  Tabs!
-    ////////////////////////////////////////////////////////////////
-    on('clicked:skills', function() {
-        setAttrs({
-            sheetTab: "skills"
-        });
-    });
-    on('clicked:actions', function() {
-        setAttrs({
-            sheetTab: "actions"
-        });
-    });
-    on('clicked:kit', function() {
-        setAttrs({
-            sheetTab: "kit"
-        });
-    });
+    ////////////////////////////////////////////
+    //  Utilitiy fucntions
+    ////////////////////////////////////////////
+    function getRowID(event){
+        const trigger = event.sourceAttribute.split('_');
+        const rowid = trigger[2];
+        console.log("Row ID: " + rowid);
+        return rowid;
+    }
 
+    function isCrit(num1, num2){
+        if((num1+num2)>18){
+            console.log("Crit!")
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 
 </script>
