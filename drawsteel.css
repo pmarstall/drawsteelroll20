@@ -198,7 +198,7 @@ button.sheet-button-selected {
   background-color: #171e24;
 }
 
-.sheet-rolltemplate-drawsteelattack .inlinerollresult{
+.sheet-rolltemplate-drawsteelattack .inlinerollresult  {
   background-color: #171e24;
   color: white;
 }
@@ -321,6 +321,26 @@ button.sheet-button-selected {
 input[disabled]{
     background-color: transparent;
     border: transparent;
+}
+
+/* Repeating Section standard buttons */
+.repcontrol .repcontrol_add,
+.repcontrol .repcontrol_edit,
+.repcontrol .repcontrol_del {
+    background: rgb(88, 66, 66);
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 12px;
+    font-size: 0.9em;
+    line-height: 12px;
+    border: 0px;
+}
+
+.repcontrol .repcontrol_add:hover,
+.repcontrol .repcontrol_edit:hover,
+.repcontrol .repcontrol_del:hover {
+  background: rgb(180, 28, 28);
 }
 
 
