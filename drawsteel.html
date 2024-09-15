@@ -545,12 +545,13 @@
     ////////////////////////////////////////////////////////////////
     //  Tabs!
     ////////////////////////////////////////////////////////////////
-    on('clicked:skills clicked:actions clicked:kit', (event) => {
-        evntArr = event.triggerName.split(":");
-        button = evntArr[1];
-        console.log(button);
-        setAttrs({
-            sheetTab: button
+    const buttonlist = ["actions", "skills", "kit"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function(event) {
+            console.log("in tab button click")
+            setAttrs({
+                sheetTab: button
+            });
         });
     });
 
@@ -580,8 +581,8 @@
             edgeVal = values["edge"];
             console.log("Edge is " + edgeVal);
 
-            if (edgeVal == "on"){rollVal = rollVal + "+2"};
-            if (baneVal == "on"){rollVal = rollVal + "-2"};
+            if (edgeVal == "on"){rollVal = rollVal + " + 2 [Edge]"};
+            if (baneVal == "on"){rollVal = rollVal + " - 2 [Bane]"};
     
             rollVal = rollVal +"]]";
     
@@ -589,6 +590,9 @@
             totalRoll = "&{template:drawsteelbasic}{{char-name=@{characterName}}}{{roll-type="+rollExp+"}}{{roll="+rollVal+"}}{{critical=[[0]]}}";
     
             console.log("Roll text = " + totalRoll);
+
+            // Get rid of edge and bane
+            edgeOff();
 
             startRoll(totalRoll, (results) => {
                 console.log("In Generic startRoll");
@@ -619,8 +623,8 @@
         ], function(values){
             let rollVal = "2d10";
             rollVal = rollVal + "+@{" + values["repeating_attacks_"+rowid+"_mods"] + "}";
-            if (values["edge"] == "on"){rollVal = rollVal + "+2";};
-            if (values["bane"] == "on"){rollVal = rollVal + "-2";};
+            if (values["edge"] == "on"){rollVal = rollVal + " + 2 [Edge]";};
+            if (values["bane"] == "on"){rollVal = rollVal + " - 2 [Bane]";};
 
             let damType = values["repeating_attacks_"+rowid+"_atktype"];
 
@@ -636,6 +640,10 @@
                         "{{t2desc=@{repeating_attacks_"+rowid+"_atktier2desc}}}"+
                         "{{t3desc=@{repeating_attacks_"+rowid+"_atktier3desc}}}"+
                         "{{effect=@{repeating_attacks_"+rowid+"_atkeffect}}}";
+
+            
+            // Get rid of edge and bane
+            edgeOff();
 
             attackRoll(rollText);
 
@@ -659,14 +667,14 @@
     // Figure out the damage formula for a given type and tier
     function getTierDamage(tierNum, damType, rowID) {
         //Get the damage for the attack in question for the given tier
-        let txtRtn = "@{repeating_attacks_"+rowID+"_atktier"+tierNum+"dmg}"
+        let txtRtn = "@{repeating_attacks_"+rowID+"_atktier"+tierNum+"dmg} [Base]"
         if (damType == "Melee"){
-            txtRtn = txtRtn + " + @{kitt"+tierNum+"melee}";
+            txtRtn = txtRtn + " + @{kitt"+tierNum+"melee} [Kit]";
         }else{
             if (damType == "Ranged"){
-                txtRtn = txtRtn + " + @{kitt"+tierNum+"range}";
+                txtRtn = txtRtn + " + @{kitt"+tierNum+"range} [Kit]";
             }else{
-                txtRtn = txtRtn + " + @{kitt"+tierNum+"magic}";
+                txtRtn = txtRtn + " + @{kitt"+tierNum+"magic} [Kit]";
             }
         }
         return txtRtn;
@@ -730,9 +738,12 @@
             "edge",
             "bane",
         ], function(values){
-            if(values["skill_"+skillName] == "on"){rollText = rollText +" +2";}
-            if(values["edge"] == "on"){rollText = rollText +" +2";}
-            if(values["bane"] == "on"){rollText = rollText +" -2";}
+            if(values["skill_"+skillName] == "on"){rollText = rollText +" +2 [Skilled]";}
+            if(values["edge"] == "on"){rollText = rollText +" +2 [Edge]";}
+            if(values["bane"] == "on"){rollText = rollText +" -2 [Bane]";}
+
+            // Get rid of edge and bane
+            edgeOff();
 
             rollVal = "&{template:drawsteelbasic}{{roll-type="+value+" Skill}}{{roll=[["+rollText+"]]}}{{critical=[[0]]}}";
 
@@ -763,6 +774,14 @@
         }else{
             return 0;
         }
+    }
+
+    function edgeOff(){
+        //Take the edge and bane off
+            setAttrs({
+                bane: 0,
+                edge: 0
+            });
     }
 
 </script>

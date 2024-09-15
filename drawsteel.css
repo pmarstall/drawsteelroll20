@@ -72,7 +72,7 @@
 
 .button-holder{
   margin: auto;
-  width: 150px;
+  width: 350px;
 }
 
 /* configure the tab buttons */
@@ -87,6 +87,25 @@
 .charsheet .sheet-tabstoggle[value="skills"] ~ div.sheet-skills, 
 .charsheet .sheet-tabstoggle[value="kit"] ~ div.sheet-kit {
     display: block;
+}
+
+/* Basic button styling */
+button.sheet-button {
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  width: 75px;
+}
+
+button.sheet-button:hover {
+  background-color: #ababab;
+}
+
+button.sheet-button-selected {
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  width: 75px;
 }
 
 /******************/
@@ -177,6 +196,11 @@
   padding: 5px;
   border: solid 1px rgb(116, 181, 255);
   background-color: #171e24;
+}
+
+.sheet-rolltemplate-drawsteelattack .inlinerollresult{
+  background-color: #171e24;
+  color: white;
 }
 
 /******************/
