@@ -235,6 +235,68 @@ button.sheet-button-selected {
   color: white;
 }
 
+/*******************/
+/* Maneuver Template */
+/*******************/
+
+.sheet-rolltemplate-drawsteelmaneuver {
+  border: solid 1px #deeb97;
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .sheet-template-title{
+  background-color: #deeb97;
+  text-decoration-color: aliceblue;
+  color: black;
+  padding: 5px;
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .sheet-template-body{
+border: solid 1px deeb97;
+background-color: #222417;
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .sheet-template-crit{
+color: rgb(53, 24, 30);
+font-size:larger;
+padding: 10px;
+text-align: center;
+background-color: greenyellow;
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .sheet-template-result{
+  border: solid 1px #deeb97;
+  padding: 5px;
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .sheet-template-tier {
+text-align: center;
+font-size: smaller;
+padding: 3px;
+border-bottom: solid 1px #deeb97;
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .sheet-template-damage{
+  text-align: center;
+  padding-top: 5px;
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .sheet-template-desc{
+  text-align: center;
+  padding: 3px;
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .sheet-template-special{
+text-align: left;
+padding: 5px;
+border: solid 1px #deeb97;
+background-color: #222417;
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .inlinerollresult  {
+background-color: #222417;
+color: white;
+}
+
 /******************/
 /* Abilities Template */
 /******************/
@@ -268,6 +330,41 @@ button.sheet-button-selected {
   text-align: left;
   padding: 10px;
   border: solid rgb(104, 93, 64);
+}
+
+/******************/
+/* Triggered Actions Template */
+/******************/
+
+.sheet-rolltemplate-drawsteeltrigger {
+  border: solid rgb(104, 64, 64);
+}
+
+.sheet-rolltemplate-drawsteeltrigger .sheet-template-title{
+  background-color: rgb(104, 64, 64);
+  color: white;
+  text-decoration-color: aliceblue;
+  padding: 5px;
+}
+
+.sheet-rolltemplate-drawsteeltrigger .sheet-template-body{
+  text-align: center;
+  border: solid 1px rgb(104, 64, 64);
+  background-color: rgb(32, 27, 15);;
+}
+
+.sheet-rolltemplate-drawsteeltrigger .sheet-template-crit{
+  text-align: center;
+  background-color: greenyellow;
+  color: rgb(61, 17, 20);
+  font-size:larger;
+  padding: 10px;
+}
+
+.sheet-rolltemplate-drawsteeltrigger .sheet-template-result{
+  text-align: left;
+  padding: 10px;
+  border: solid rgb(104, 64, 64);
 }
 
 /****************************/

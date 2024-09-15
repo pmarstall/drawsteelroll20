@@ -205,7 +205,78 @@
                                 </div>
                                 <div class="">
                                     <span>Effect</span><br/>
-                                    <textarea name="attr_atkeffect" class="effect-text-area" value="" placeholder="Effect Description">
+                                    <textarea name="attr_atkeffect" class="effect-text-area">
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!--  Triggered Actions Repeating section -->
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Triggered Actions</div>
+                    <fieldset class="repeating_triggers">
+                        <div class="sheet-repholder">
+                            <div class="sheet-reptitle">
+                                <input type="text" name="attr_trgnamedis" value="@{trgtrigger} >> @{trgname}" class="info-input" disabled="true">
+                                <button type="action" name="act_triggerroll" id="trgrollbutton" class="rptactionbutton">Send Chat</button>
+                            </div>
+                            <input class="clicktohide" type="checkbox">
+                            <div class="sheet-hiddenarea">
+                                <div class="sheet-generic-2col">
+                                    <span>Action Name:</span><input type="text" name="attr_trgname">
+                                    <span>Trigger:</span><input type="text" name="attr_trgtrigger">
+                                </div>
+                                <span>Effect</span>
+                                <textarea name="attr_trgdesc" class="effect-text-area">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!--  Maneuvers Repeating section -->
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Maneuvers</div>
+                    <fieldset class="repeating_maneuvers">
+                        <div class="sheet-repholder">
+                            <div class="sheet-reptitle">
+                                <input type="text" name="attr_mannamedisp" value="@{manname}" class="info-input" disabled="true">
+                                <input type="text" name="attr_mannamedisp" value="@{mancost}" class="cost-input" disabled="true">
+                                <button type="action" name="act_maneuverroll" id="manrollbutton" class="rptactionbutton">Roll Attack</button>
+                            </div>
+                            <input class="clicktohide" type="checkbox">
+                            <div class="sheet-hiddenarea">
+                                <div class="rpt_2col">
+                                    <span>Name:</span><input type="text" name="attr_manname" placeholder="Maneuver Name">
+                                    <span>Modifier</span>
+                                    <select name="attr_mods">
+                                        <option>MGT</option>
+                                        <option>AGL</option>
+                                        <option>REA</option>
+                                        <option>INU</option>
+                                        <option>PRS</option>
+                                    </select>
+                                    <span>Attack Type</span>
+                                    <select name="attr_mantype">
+                                        <option>Melee</option>
+                                        <option>Ranged</option>
+                                        <option>Magic</option>
+                                    </select>
+                                    <span>Cost</span><input type="text" name="attr_mancost" placeholder="Cost to use">
+                                    <span>Distance:</span><input type="text" name="attr_mandistance" placeholder="Distance">
+                                
+                                    <span>Target:</span><input type="text" name="attr_mantarget" placeholder="One Target">
+                                </div>
+                                <div>Results</div>
+                                <div class="rpt_2col"> 
+                                    <span>Tier 1</span><input type="text" name="attr_mantier1desc" value="" placeholder="Effect">
+                                    <span>Tier 2</span><input type="text" name="attr_mantier2desc" value="" placeholder="Effect">
+                                    <span>Tier 3</span><input type="text" name="attr_mantier3desc" value="" placeholder="Effect">
+                                </div>
+                                <div class="">
+                                    <span>Effect</span><br/>
+                                    <textarea name="attr_maneffect" class="effect-text-area">
                                 </div>
                             </div>
 
@@ -228,7 +299,7 @@
                                     <span>Ability Name:</span><input type="text" name="attr_ablname">
                                 </div>
                                 <span>Description</span>
-                                <textarea name="attr_abldesc" placeholder="Description">
+                                <textarea name="attr_abldesc" class="effect-text-area">
                             </div>
                         </div>
                     </fieldset>
@@ -551,9 +622,57 @@
     {{/effect}}
 </rolltemplate>
 
+<rolltemplate class="sheet-rolltemplate-drawsteelmaneuver">
+    <div class="sheet-template-title">
+        {{#char-name}}
+        <span>{{char-name}}: </span>
+        {{/char-name}}
+        <span> {{roll-type}}</span>
+        <span>{{roll}}</span>
+    </div>
+    <div class="sheet-template-body">
+        {{#rollGreater() computed::critical 0}}<div class="sheet-template-crit">Critical</div>{{/rollGreater() computed::critical 0}}
+        {{#rollLess() roll 12}}
+            <div class="sheet-template-result">
+                <div class="sheet-template-tier"><span>Tier 1 Result</span></div>
+                {{#t1eff}}<div class="sheet-template-desc"><span>{{t1eff}}</span></div>{{/t1eff}}
+            </div>
+        {{/rollLess() roll 12}}
+        {{#rollBetween() roll 12 16}}
+            <div class="sheet-template-result">
+                <div class="sheet-template-tier"><span>Tier 2 Result</span></div>
+                {{#t2eff}}<div class="sheet-template-desc"><span>{{t2eff}}</span></div>{{/t2eff}}
+            </div>
+        {{/rollBetween() roll 12 16}}
+        {{#rollGreater() roll 16}}
+            <div class="sheet-template-result">
+                <div class="sheet-template-tier"><span>Tier 3 Result</span></div>
+                {{#t3eff}}<div class="sheet-template-desc"><span>{{t3eff}}</span></div>{{/t3eff}}
+            </div>
+        {{/rollGreater() roll 16}}
+    </div>
+    {{#effect}}
+        <div class="sheet-template-special">
+            {{effect}}
+        </div>
+    {{/effect}}
+</rolltemplate>
+
 <rolltemplate class="sheet-rolltemplate-drawsteelability">
     <div class="sheet-template-title">
         {{name}}
+    </div>
+    <div class="sheet-template-result">
+        {{description}}
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-drawsteeltrigger">
+    <div class="sheet-template-title">
+        {{name}}
+    </div>
+    <div class="sheet-template-result">
+        {{trigger}}
     </div>
     <div class="sheet-template-result">
         {{description}}
@@ -679,8 +798,6 @@
     });
 
     const attackRoll = (rollText) => {
-        console.log("Attack Roll Start");
-
         startRoll(rollText, (results) => {
             console.log("In Attack startRoll");
             rolldata = {};
@@ -706,6 +823,52 @@
         return txtRtn;
     }
 
+    ////////////////////////////////////////////////////////////////
+    //  Maneuvers Roll!
+    ////////////////////////////////////////////////////////////////
+
+    on ('clicked:repeating_maneuvers', (event) => {
+        console.log("Starting event in repeating_maneuvers");
+        console.log(event);
+        
+        const rowid = getRowID(event);
+        
+        // Get the fields
+        getAttrs([
+            "repeating_maneuvers_"+rowid+"_mods",
+            "repeating_maneuvers_"+rowid+"_mantype",
+            "edge",
+            "bane",
+        ], function(values){
+            let rollVal = "2d10";
+            rollVal = rollVal + "+@{" + values["repeating_maneuvers_"+rowid+"_mods"] + "}";
+            if (values["edge"] == "on"){rollVal = rollVal + " + 2 [Edge]";};
+            if (values["bane"] == "on"){rollVal = rollVal + " - 2 [Bane]";};
+
+            let damType = values["repeating_attacks_"+rowid+"_atktype"];
+
+            rollText="&{template:drawsteelmaneuver}"+
+                        "{{roll=[[" + rollVal + "]]}}"+
+                        "{{char-name=@{characterName}}}"+
+                        "{{roll-type=@{repeating_maneuvers_"+rowid+"_manname}}}"+
+                        "{{critical=[[0]]}}"+
+                        "{{t1eff=@{repeating_maneuvers_"+rowid+"_mantier1desc}}}"+
+                        "{{t2eff=@{repeating_maneuvers_"+rowid+"_mantier2desc}}}"+
+                        "{{t3eff=@{repeating_maneuvers_"+rowid+"_mantier3desc}}}"+
+                        "{{effect=@{repeating_maneuvers_"+rowid+"_maneffect}}}";
+
+            
+            // Get rid of edge and bane
+            edgeOff();
+
+            attackRoll(rollText);
+
+        });
+            
+         
+    });
+
+
     //////////////////////////////////////////////////////////
     // Recalc Stamina
     //////////////////////////////////////////////////////////
@@ -725,7 +888,7 @@
     // Ability Repeating Area Roll
     //////////////////////////////////////////////////////////
     on ('clicked:repeating_abilities', (event) => {
-        console.log("Starting event in repeating_attacks");
+        console.log("Starting event in repeating_abilities");
         console.log(event);
         
         // Get the rowId
@@ -736,6 +899,32 @@
         rollText="&{template:drawsteelability}"+
                         "{{name=@{repeating_abilities_"+rowid+"_ablname}}}"+
                         "{{description=@{repeating_abilities_"+rowid+"_abldesc}}}";
+
+        startRoll(rollText, (results) => {
+            console.log("In Skill startRoll");
+            rolldata = {};
+            finishRoll(results.rollId, rolldata);
+        });
+
+  
+    });
+
+    //////////////////////////////////////////////////////////
+    // Trigger Repeating Area Roll
+    //////////////////////////////////////////////////////////
+    on ('clicked:repeating_triggers', (event) => {
+        console.log("Starting event in repeating_triggers");
+        console.log(event);
+        
+        // Get the rowId
+        const rowid = getRowID(event);
+        
+        // Get the fields
+        
+        rollText="&{template:drawsteeltrigger}"+
+                        "{{name=@{repeating_triggers_"+rowid+"_trgname}}}"+
+                        "{{trigger=@{repeating_triggers_"+rowid+"_trgtrigger}}}"+
+                        "{{description=@{repeating_triggers_"+rowid+"_trgdesc}}}";
 
         startRoll(rollText, (results) => {
             console.log("In Skill startRoll");
