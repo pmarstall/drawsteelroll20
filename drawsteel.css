@@ -31,14 +31,6 @@
     column-gap: 5px;
 }
 
-.char-header-main{
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 5px;
-    border-bottom: solid 1px black;
-    padding-bottom: 10px;
-}
-
 .char-header-2col {
     display: grid;
     grid-template-columns: 100px 120px;
@@ -66,18 +58,57 @@
     width: 100%;
 }
 
+/***************/
+/* Header Area */
+/***************/
+
+.char-header-main{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 5px;
+  background-color: black;
+  padding-bottom: 10px;
+  color: whitesmoke;
+  padding: 7px;
+}
+
+.char-header-fieldline {
+  padding: 3px;
+}
+
+input.char-name-input {
+  width: 600px;
+  font-size: xx-large;
+  border: solid 1px black;
+  border-radius: 10px;
+  background-color: white;
+}
+
+input.char-small-num-input{
+  font-size: x-small;
+  height: 15px;
+  padding: 0px;
+}
+
+.char-header-stats {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  font-size: x-small;
+}
+
 /**************************************/
 /*       Tab Buttons                  */
 /**************************************/
 
 .button-holder{
   margin: auto;
-  width: 350px;
+  width: 450px;
 }
 
 /* configure the tab buttons */
 .charsheet .sheet-actions,
 .charsheet .sheet-skills,
+.charsheet .sheet-background,
 .charsheet .sheet-kit {
     display: none;
 }
@@ -85,7 +116,8 @@
 /* show the selected tab */
 .charsheet .sheet-tabstoggle[value="actions"] ~ div.sheet-actions,
 .charsheet .sheet-tabstoggle[value="skills"] ~ div.sheet-skills, 
-.charsheet .sheet-tabstoggle[value="kit"] ~ div.sheet-kit {
+.charsheet .sheet-tabstoggle[value="kit"] ~ div.sheet-kit,
+.charsheet .sheet-tabstoggle[value="background"] ~ div.sheet-background  {
     display: block;
 }
 
@@ -257,8 +289,11 @@ button.sheet-button-selected {
 /* The thing to be hidden */
 .sheet-hiddenarea{
     display:none;
-    padding-top: 5px;
+    padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 25px;
+    background-color: #9b9b9b;
+    border-radius: 20px;
 }
 
 /*  Hide the area when checked */
@@ -316,6 +351,11 @@ button.sheet-button-selected {
 
 .clicktohide:checked ~ .sheet-hiddenarea {
     display:grid;
+}
+
+textarea.effect-text-area{
+  width: 350px;
+  height: 40px;
 }
 
 input[disabled]{
