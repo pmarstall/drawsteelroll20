@@ -236,6 +236,87 @@ button.sheet-button-selected {
 }
 
 /*******************/
+/* Summary Template */
+/*******************/
+
+.sheet-rolltemplate-drawsteelsummary {
+  border: solid 1px rgb(116, 181, 255);
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-title{
+  background-color: black;
+  text-decoration-color: aliceblue;
+  color: #e1e4dc;
+  padding: 5px;
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-body{
+border: solid 1px black;
+background-color: #e1e4dc;
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-crit{
+color: black;
+font-size:larger;
+padding: 10px;
+text-align: center;
+background-color: greenyellow;
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-result{
+  border: solid 1px black;
+  padding: 5px;
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-tier {
+text-align: center;
+font-size: smaller;
+padding: 3px;
+border-bottom: solid 1px black;
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-damage{
+  text-align: center;
+  padding-top: 5px;
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-desc{
+  text-align: center;
+  padding: 3px;
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-special{
+text-align: left;
+padding: 5px;
+border: solid 1px black;
+background-color: #e1e4dc;
+color: black;
+}
+
+.sheet-rolltemplate-drawsteelsummary .inlinerollresult  {
+background-color: #e1e4dc;
+color: black;
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-summary-2col{
+  display: grid;
+  grid-template-columns: auto auto;
+  border: solid 1px black;
+  background-color: #e1e4dc;
+  color: black;
+  padding: 10px;
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-summary-3col{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border: solid 1px black;
+  background-color: #e1e4dc;
+  color: black;
+  padding: 10px;
+}
+
+/*******************/
 /* Maneuver Template */
 /*******************/
 
@@ -411,7 +492,7 @@ color: white;
 }
 
 /* The in-line action button for a repeating section */
-.rptactionbutton{
+button[type="action"].rptactionbutton{
   font-size: 10px;
   padding: 1px;
   height: 12px;
@@ -419,7 +500,20 @@ color: white;
   background-color: transparent;
 }
 
-.rptactionbutton:hover {
+button[type="action"].rptactionbutton:hover {
+  background-color: #ccc;
+}
+
+.ui-dialog .charsheet button[type="roll"].rptactionbutton{
+  font-size: 10px;
+  padding: 1px;
+  height: 12px;
+  border-style: none;
+  background-color: transparent;
+  margin: 0px
+}
+
+.ui-dialog .charsheet button[type="roll"].rptactionbutton:hover {
   background-color: #ccc;
 }
 
@@ -438,7 +532,9 @@ color: white;
 }
 
 .sheet-reptitle {
-    padding-left: 25px;
+  display: grid;
+  grid-template-columns: 210px 50px 50px 25px;
+  padding-left: 25px;
 }
 
 .clicktohide {

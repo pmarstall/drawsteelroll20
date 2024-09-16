@@ -173,6 +173,10 @@
                                 <input type="text" name="attr_atknamedisp" value="@{atkname}" class="info-input" disabled="true">
                                 <input type="text" name="attr_atknamedisp" value="@{atkcost}" class="cost-input" disabled="true">
                                 <button type="action" name="act_attackroll" id="atkrollbutton" class="rptactionbutton">Roll</button>
+                                <button type="roll" name="roll_atksummaryroll" id="atksummarybutton" 
+                                            value="&{template:drawsteelsummary}{{mod=@{mods}}}{{name=Action: @{atkname}}}{{type=@{atktype}}}{{cost=@{atkcost}}}{{dist=@{atkdistance}}}{{targ=@{atktarget}}}{{t1d=@{atktier1dmg}}}{{t1e=@{atktier1desc}}}{{t2d=@{atktier2dmg}}}{{t2e=@{atktier2desc}}}{{t3d=@{atktier3dmg}}}{{t3e=@{atktier3desc}}}{{eft=@{atkeffect}}}" 
+                                            class="rptactionbutton">Chat</button>
+                                <span></span>
                             </div>
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
@@ -220,7 +224,9 @@
                         <div class="sheet-repholder">
                             <div class="sheet-reptitle">
                                 <input type="text" name="attr_trgnamedis" value="@{trgtrigger} >> @{trgname}" class="info-input" disabled="true">
-                                <button type="action" name="act_triggerroll" id="trgrollbutton" class="rptactionbutton">Chat</button>
+                                <span></span>
+                                <span></span>
+                                <button type="roll" name="roll_triggerroll" id="trgrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Trigger: @{trgname}}}{{trigger=@{trgtrigger}}}{{eft=@{trgdesc}}}">Chat</button>
                             </div>
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
@@ -244,13 +250,16 @@
                                 <input type="text" name="attr_mannamedisp" value="@{manname}" class="info-input" disabled="true">
                                 <input type="text" name="attr_mannamedisp" value="@{mancost}" class="cost-input" disabled="true">
                                 <button type="action" name="act_maneuverroll" id="manrollbutton" class="rptactionbutton">Roll</button>
+                                <button type="roll" name="roll_maneuversummaryroll" id="mansummarybutton" 
+                                            value="&{template:drawsteelsummary}{{mod=@{manmods}}}{{name=Maneuver: @{manname}}}{{type=@{mantype}}}{{cost=@{mancost}}}{{dist=@{mandistance}}}{{targ=@{mantarget}}}{{t1=@{mantier1desc}}}{{t2=@{mantier2desc}}}{{t3=@{mantier3desc}}}{{eft=@{maneffect}}}" 
+                                            class="rptactionbutton">Chat</button>
                             </div>
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
                                 <div class="rpt_2col">
                                     <span>Name:</span><input type="text" name="attr_manname" placeholder="Maneuver Name">
                                     <span>Modifier</span>
-                                    <select name="attr_mods">
+                                    <select name="attr_manmods">
                                         <option>MGT</option>
                                         <option>AGL</option>
                                         <option>REA</option>
@@ -291,7 +300,9 @@
                         <div class="sheet-repholder">
                             <div class="sheet-reptitle">
                                 <input type="text" name="attr_ablnamedis" value="@{ablname}" class="info-input" disabled="true">
-                                <button type="action" name="act_abilityroll" id="ablrollbutton" class="rptactionbutton">Chat</button>
+                                <span></span>
+                                <span></span>
+                                <button type="roll" name="roll_abilityroll" id="ablrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Ability: @{ablname}}}{{eft=@{abldesc}}}">Chat</button>
                             </div>
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
@@ -567,6 +578,7 @@
 
 <!-- TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES -->
 
+<!-- Attribute Roll Template -->
 <rolltemplate class="sheet-rolltemplate-drawsteelbasic">
     <div class="sheet-template-title">
         {{#char-name}}
@@ -583,6 +595,7 @@
     </div>
 </rolltemplate>
 
+<!-- Action/Attack Roll Template -->
 <rolltemplate class="sheet-rolltemplate-drawsteelattack">
     <div class="sheet-template-title">
         {{#char-name}}
@@ -622,6 +635,7 @@
     {{/effect}}
 </rolltemplate>
 
+<!-- Maneuver Roll Template -->
 <rolltemplate class="sheet-rolltemplate-drawsteelmaneuver">
     <div class="sheet-template-title">
         {{#char-name}}
@@ -658,6 +672,7 @@
     {{/effect}}
 </rolltemplate>
 
+<!-- Ability Roll Template -->
 <rolltemplate class="sheet-rolltemplate-drawsteelability">
     <div class="sheet-template-title">
         {{name}}
@@ -677,6 +692,59 @@
     <div class="sheet-template-result">
         {{description}}
     </div>
+</rolltemplate>
+
+<!-- To Chat Summary Template-->
+<rolltemplate class="sheet-rolltemplate-drawsteelsummary">
+    <div class="sheet-template-title">
+        {{#name}}
+        <span>{{name}}</span>
+        {{/name}}
+    </div>
+    {{#type}}
+        <div class="sheet-template-summary-2col">
+            {{#type}}
+            <span>Ability Type:</span><span> {{type}}</span>
+            {{/type}}
+            {{#mod}}
+            <span>Attribute Modifier:</span><span> {{mod}}</span>
+            {{/mod}}
+            {{#cost}}
+            <span>Ability Cost:</span><span> {{cost}}</span>
+            {{/cost}}
+            {{#dist}}
+            <span>Distance:</span><span> {{dist}}</span>
+            {{/dist}}
+            {{#targ}}
+            <span>Target:</span><span> {{targ}}</span>
+            {{/targ}}
+            {{#trigger}}
+            <span>Trigger:</span><span> {{trigger}}</span>
+            {{/trigger}}
+        </div>
+    {{/type}}
+    {{#trigger}}
+        <div class="sheet-template-summary-2col">
+            <span>Trigger:</span><span> {{trigger}}</span>
+        </div>
+    {{/trigger}}
+    {{#t1}}
+        <div class="sheet-template-summary-2col">
+            <span>Tier 1:</span><span>{{t1}}</span>
+            <span>Tier 2:</span><span>{{t2}}</span>
+            <span>Tier 3:</span><span>{{t3}}</span>
+        </div>
+    {{/t1}}
+    {{#t1d}}
+        <div class="sheet-template-summary-3col">
+            <span>Tier 1:</span><span>{{t1d}}</span><span>{{t1e}}</span>
+            <span>Tier 2:</span><span>{{t2d}}</span><span>{{t2e}}</span>
+            <span>Tier 3:</span><span>{{t3d}}</span><span>{{t3e}}</span>
+        </div>
+    {{/t1d}}
+    {{#eft}}
+        <div class="sheet-template-special">{{eft}}</div>
+    {{/eft}}
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-test">
@@ -835,13 +903,13 @@
         
         // Get the fields
         getAttrs([
-            "repeating_maneuvers_"+rowid+"_mods",
+            "repeating_maneuvers_"+rowid+"_manmods",
             "repeating_maneuvers_"+rowid+"_mantype",
             "edge",
             "bane",
         ], function(values){
             let rollVal = "2d10";
-            rollVal = rollVal + "+@{" + values["repeating_maneuvers_"+rowid+"_mods"] + "}";
+            rollVal = rollVal + "+@{" + values["repeating_maneuvers_"+rowid+"_manmods"] + "}";
             if (values["edge"] == "on"){rollVal = rollVal + " + 2 [Edge]";};
             if (values["bane"] == "on"){rollVal = rollVal + " - 2 [Bane]";};
 
