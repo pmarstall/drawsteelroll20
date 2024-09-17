@@ -535,6 +535,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="">
+                    <button type="roll" id="kitroll" class="kitrollbutton"
+                            value="&{template:drawsteelsummary}{{name=Kit Info: @{kitname}}}{{kt1e=@{kitt1melee}}}{{kt1r=@{kitt1range}}}{{kt1m=@{kitt1magic}}}{{kt2e=@{kitt2melee}}}{{kt2r=@{kitt2range}}}{{kt2m=@{kitt2magic}}}{{kt3e=@{kitt3melee}}}{{kt3r=@{kitt3range}}}{{kt3m=@{kitt3magic}}}{{karea=@{kitarea}}}{{kdist=@{kitdistance}}}{{kreach=@{kitreach}}}{{kstability=@{kitstability}}}{{kstamina=@{kitstamina}}}{{kspeed=@{kitspeed}}}{{eft=@{kitdesc}}}{{mob=@{kitmobility}}}{{eqp=@{kitequip}}}"
+                            >Send Kit Info to Chat</button>
+                </div>
             </div>
 
             <div class="sheet-kit-top-level">
@@ -555,7 +560,7 @@
     </div>
 
     <!-- *******************************************************************************************************************
-     ********************************************* Kit Tab **************************************************************
+     ********************************************* Ancestry Tab **************************************************************
      ********************************************************************************************************************-->
      <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="actions" />
     <div class="sheet-background">
@@ -742,9 +747,31 @@
             <span>Tier 3:</span><span>{{t3d}}</span><span>{{t3e}}</span>
         </div>
     {{/t1d}}
+
+    {{#kt1e}}
+    <div class="sheet-template-special">Stat Modifications</div>
+    <div class="sheet-template-summary-4col">
+        <span>Area</span><span>{{karea}}</span><span>Stability</span><span>{{kstability}}</span>
+        <span>Distance</span><span>{{kdist}}</span><span>Stamina</span><span>{{kstamina}}</span>
+        <span>Reach</span><span>{{kreach}}</span><span>Speed</span><span>{{kspeed}}</span>
+    </div>
+    <div class="sheet-template-special">Damage Modifications</div>
+    <div class="sheet-template-summary-4col">
+        <span></span><span>Melee</span><span>Ranged</span><span>Magic</span>
+        <span>Tier 1</span><span>{{kt1e}}</span><span>{{kt1r}}</span><span>{{kt1m}}</span>
+        <span>Tier 2</span><span>{{kt2e}}</span><span>{{kt2r}}</span><span>{{kt2m}}</span>
+        <span>Tier 3</span><span>{{kt3e}}</span><span>{{kt3r}}</span><span>{{kt3m}}</span>
+    </div>
+    {{/kt1e}}
     {{#eft}}
         <div class="sheet-template-special">{{eft}}</div>
     {{/eft}}
+    {{#mob}}
+        <div class="sheet-template-special"><span>Mobility: </span>{{mob}}</div>
+    {{/mob}}
+    {{#eqp}}
+        <div class="sheet-template-special"><span>Equipment: </span>{{eqp}}</div>
+    {{/eqp}}
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-test">
