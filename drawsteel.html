@@ -1,4 +1,39 @@
-<div class="base">
+<div class="button-holder">
+    <button type="action" name="act_pc" value="PC" class="sheet-npc">PC</button>
+    <button type="action" name="act_npc" value="NPC" class="sheet-npc">NPC</button>
+</div>
+
+
+<!-- *******************************************************************************************************************
+********************************************* NPC Sheet **************************************************************
+********************************************************************************************************************-->
+<input type="hidden" class="sheet-npctoggle" name="attr_sheetnpc" value="pc" />
+<div class="sheet-npcbase">
+    <div class="npc-header-main">
+        <div calss="npc-header-name"></div><h1>Name</h1></div>
+
+        <div class="npc-header-stats-5col">
+            <input type="text" name="attr_npc_size" class="npc-info" disabled="true" value="@{size}">
+            <input type="text" name="attr_npc_speed" class="npc-info" disabled="true" value="@{speed}">
+            <input type="text" name="attr_npc_stamina" class="npc-info" disabled="true" value="@{stamina}">
+            <input type="text" name="attr_npc_stability" class="npc-info" disabled="true" value="@{stability}">
+            <input type="text" name="attr_npc_npcfreestrike" class="npc-info" disabled="true" value="@{size}">
+            <span>Size</span>
+            <span>Speed</span>
+            <span>Stamina</span>
+            <span>Stability</span>
+            <span>Free Strike</span>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- *******************************************************************************************************************
+********************************************* PC Sheet **************************************************************
+********************************************************************************************************************-->
+<input type="hidden" class="sheet-npcstoggle" name="attr_sheetnpc" value="pc" />
+<div class="sheet-pcbase">
     <div class="char-header-main">
         <div class="">
             <div class="char-header-fieldline"><input type="text" class="char-name-input" name="attr_characterName" value="" placeholder="Enter Name"></div>
@@ -790,6 +825,20 @@
 <!-- SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS-->
 <script type="text/worker">
 
+    ////////////////////////////////////////////////////////////////
+    //  PC/NPC Displays!
+    ////////////////////////////////////////////////////////////////
+    const pcbuttonlist = ["npc", "pc"];
+    pcbuttonlist.forEach(button => {
+        on(`clicked:${button}`, function(event) {
+            console.log("in pc button click")
+            setAttrs({
+                sheetnpc: button
+            });
+        });
+    });
+    
+    
     ////////////////////////////////////////////////////////////////
     //  Tabs!
     ////////////////////////////////////////////////////////////////

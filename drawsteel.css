@@ -105,6 +105,37 @@ input.char-small-num-input{
   width: 450px;
 }
 
+/* configure the PC/NPC buttons */
+.charsheet .sheet-pcbase,
+.charsheet .sheet-npcbase {
+    display: none;
+}
+
+/* show the selected tab */
+.charsheet .sheet-npctoggle[value="npc"] ~ div.sheet-npcbase,
+.charsheet .sheet-npctoggle[value="pc"] ~ div.sheet-pcbase {
+    display: block;
+}
+
+/* Basic button styling */
+button.sheet-npc {
+  background-color: #ccc;
+  border: none;
+  border-radius: 1px;
+  width: 75px;
+}
+
+button.sheet-npc:hover {
+  background-color: #ababab;
+}
+
+button.sheet-npc-selected {
+  background-color: green;
+  border: none;
+  border-radius: 1px;
+  width: 75px;
+}
+
 /* configure the tab buttons */
 .charsheet .sheet-actions,
 .charsheet .sheet-skills,
@@ -973,5 +1004,24 @@ textarea.kit-bigtextarea{
   height: 150px;
 }
   
-  
-  
+
+
+/***********************/
+/*   NPC Areas         */
+/***********************/
+
+.npc-header-stats-5col{
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 105px);
+  column-gap: 15px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: large;
+}
+
+.npc-info {
+  width: 100px;
+  text-align:center;
+  font-size: large
+}
