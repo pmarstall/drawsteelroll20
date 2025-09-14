@@ -9,8 +9,30 @@
 ********************************************************************************************************************-->
 <input type="hidden" class="sheet-npctoggle" name="attr_sheetnpc" value="pc" />
 <div class="sheet-npcbase">
+    <label for="npc_options_checkbox" class="gearbox-options"></label>
+    <input type="checkbox" id="npc_options_checkbox" class="hidden-options npc_edit_clicktohide">
+    <div class="sheet-npcEdit sheet-generic-2col"> 
+        <label>Name</label><input type="text" name="attr_charactername" value="@{charactername}" placeholder="Enter Name">
+        <label>Type</label><input type="text" name="attr_npctype" value="@{npctype}" placeholder="Enter Name">
+        <label>Level</label><input type="text" name="attr_npclevel" value="@{npclevel}" placeholder="Enter Name">
+        <label>Encounter Value(EV)</label><input type="text" name="attr_ev" value="@{ev}" placeholder="Enter Name">
+        <label>Size</label><input type="text" name="attr_size" value="@{size}" placeholder="Enter Name">
+        <label>Speed</label><input type="text" name="attr_speed" value="@{speed}" placeholder="Enter Name">
+        <label>Stamina</label><input type="text" name="attr_stamina" value="@{stamina}" placeholder="Enter Name">
+        <label>Free Strike Damage</label><input type="text" name="attr_npcfreestrike" value="@{npcfreestrike}" placeholder="Enter Name">
+        <label>Immunities</label><input type="text" name="attr_npcimmunitites" value="@{npcimmunitites}" placeholder="Enter Name">
+        <label>Weaknesses</label><input type="text" name="attr_npcweakenesses" value="@{npcweakenesses}" placeholder="Enter Name">
+        <label>Might</label><input type="text" name="attr_mgt" value="@{mgt}" placeholder="Enter Name">
+        <label>Agility</label><input type="text" name="attr_agl" value="@{agl}" placeholder="">
+        <label>Reason</label><input type="text" name="attr_rea" value="@{rea}" placeholder="">
+        <label>Intuition</label><input type="text" name="attr_inu" value="@{inu}" placeholder="">
+        <label>Presence</label><input type="text" name="attr_prs" value="@{prs}" placeholder="">
+    </div>
+
     <div class="npc-header-main">
-        <div calss="npc-header-name"></div><h1>Name</h1></div>
+        <div class="npc-header-name"></div>
+            <input type="text" name="attr_npc_name" class="npc-info" disabled="true" value="@{charactername}">
+        </div>
 
         <div class="npc-header-stats-5col">
             <input type="text" name="attr_npc_size" class="npc-info" disabled="true" value="@{size}">
@@ -213,6 +235,7 @@
                                             class="rptactionbutton">Chat</button>
                                 <span></span>
                             </div>
+                           
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
                                 <div class="rpt_2col">

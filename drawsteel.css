@@ -1004,7 +1004,20 @@ textarea.kit-bigtextarea{
   height: 150px;
 }
   
+/***********************/
+/*   Options Checkbox  */
+/***********************/
+.hidden-options {
+  display: none;
+}
 
+.gearbox-options {
+  width: 18px; 
+  height: 18px; 
+  cursor: pointer;
+  background-image: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/optionsgear.png'); /* Image for unchecked state */
+  background-repeat: no-repeat;
+}
 
 /***********************/
 /*   NPC Areas         */
@@ -1025,3 +1038,14 @@ textarea.kit-bigtextarea{
   text-align:center;
   font-size: large
 }
+
+/* When clicked, hide sheet-npcEdit area */
+.npc_edit_clicktohide:checked ~ .sheet-npcEdit {
+    display:grid;
+}
+
+/* The thing to be hidden */
+.sheet-npcEdit {
+    display:none;
+}
+
