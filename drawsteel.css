@@ -1179,3 +1179,14 @@ textarea.kit-bigtextarea{
   font-size: medium;
   color: black
 }
+
+
+/*********************************/
+/*   Dividing lines             */
+/*********************************/ 
+
+npc-header-line1 {
+  border-top: solid 2px black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
