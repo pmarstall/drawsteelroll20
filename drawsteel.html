@@ -30,22 +30,60 @@
     </div>
 
     <div class="npc-header-main">
-        <div class="npc-header-name"></div>
-            <input type="text" name="attr_npc_name" class="npc-info" disabled="true" value="@{charactername}">
+        <div class="npc-header-titles">
+            <div class="npc-header-left">
+                <div><input type="text" name="attr_npc_name" class="npc-name-disp" disabled="true" value="@{charactername}"></div>
+                <div><input type="text" name="attr_npc_type" class="npc-input-header" disabled="true" value="@{npctype}"></div>
+            </div>
+            <div class="npc-header-right">
+                <div>Level: <input type="text" name="attr_npc_level" class="npc-input-header" disabled="true" value="@{npclevel}"></div>
+                <div>EV: <input type="text" name="attr_npc_ev" class="npc-input-header" disabled="true" value="@{ev}"></div>
+            </div>
         </div>
+
+        <div class="npc-header-line1">Dividing Line 1</div>
 
         <div class="npc-header-stats-5col">
             <input type="text" name="attr_npc_size" class="npc-info" disabled="true" value="@{size}">
             <input type="text" name="attr_npc_speed" class="npc-info" disabled="true" value="@{speed}">
             <input type="text" name="attr_npc_stamina" class="npc-info" disabled="true" value="@{stamina}">
             <input type="text" name="attr_npc_stability" class="npc-info" disabled="true" value="@{stability}">
-            <input type="text" name="attr_npc_npcfreestrike" class="npc-info" disabled="true" value="@{size}">
+            <input type="text" name="attr_npc_npcfreestrike" class="npc-info" disabled="true" value="@{npcfreestrike}">
             <span>Size</span>
             <span>Speed</span>
             <span>Stamina</span>
             <span>Stability</span>
-            <span>Free Strike</span>
+            <button type="roll" name="roll_abilityroll" id="ablfreestrike" class="npc-free-strike" value="&{template:drawsteelsummary}{{name=Ability: @{charactername} Free Strike}}{{eft=[[@{npcfreestrike}]] Damage}}">Free Strike</button>
         </div>
+
+        <div class="npc-header-line2">Dividing Line 2</div>
+
+        <div class="npc_attrib-grid">
+            <div class="npc-attribute-item">
+                <button type="action" name="act_test" class="npc-attribute-button" value="MGT">M</button>
+                <div class="npc-attribute-label">ight <input type="text" name="attr_npcmgt" class="npc-stats" disabled="true" value="@{mgt}"></div>
+            </div>
+            <div class="npc-attribute-item">
+                <button type="action" name="act_test" class="npc-attribute-button" value="AGL">A</button>
+                <div class="npc-attribute-label">gility <input type="text" name="attr_npcagi" class="npc-stats" disabled="true" value="@{agl}"></div>
+            </div>   
+            <div class="npc-attribute-item">
+                <button type="action" name="act_test" class="npc-attribute-button" value="REA">R</button>
+                <div class="npc-attribute-label">eason <input type="text" name="attr_npcrea" class="npc-stats" disabled="true" value="@{rea}"></div>
+            </div>
+            <div class="npc-attribute-item">
+                <button type="action" name="act_test" class="npc-attribute-button" value="INU">I</button>
+                <div class="npc-attribute-label">ntuition <input type="text" name="attr_npcinu" class="npc-stats" disabled="true" value="@{inu}"></div>
+            </div>
+            <div class="npc-attribute-item">
+                <button type="action" name="act_test" class="npc-attribute-button" value="PRS">P</button>
+                <div class="npc-attribute-label">resence <input type="text" name="attr_npcprs" class="npc-stats" disabled="true" value="@{prs}"></div>
+            </div>
+        </div>
+
+        <div class="npc-header-line3">Dividing Line 3</div>
+
+
     </div>
 
 </div>
