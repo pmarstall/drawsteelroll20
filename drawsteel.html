@@ -97,7 +97,7 @@
                                 <input type="text" name="attr_atkcostdisp" value="@{atkcost}" class="cost-input" disabled="true">
                                 <button type="action" name="act_attackroll" id="atkrollbutton" class="rptactionbutton">Roll</button>
                                 <button type="roll" name="roll_atksummaryroll" id="atksummarybutton" 
-                                            value="&{template:drawsteelsummary}{{mod=@{mods}}}{{name=Action: @{atkname}}}{{type=@{atktype}}}{{keys=@{atkkeywords}}}{{cost=@{atkcost}}}{{dist=@{atkdistance}}}{{targ=@{atktarget}}}{{t1d=@{atktier1dmg}}}{{t1e=@{atktier1desc}}}{{t2d=@{atktier2dmg}}}{{t2e=@{atktier2desc}}}{{t3d=@{atktier3dmg}}}{{t3e=@{atktier3desc}}}{{eft=@{atkeffect}}}" 
+                                            value="&{template:drawsteelsummary}{{mod=@{mods}}}{{name=Action: @{atkname}}}{{actiontype=y}}{{keys=@{atkkeywords}}}{{cost=@{atkcost}}}{{dist=@{atkdistance}}}{{targ=@{atktarget}}}{{t1d=@{atktier1dmg}}}{{t1e=@{atktier1desc}}}{{t2d=@{atktier2dmg}}}{{t2e=@{atktier2desc}}}{{t3d=@{atktier3dmg}}}{{t3e=@{atktier3desc}}}{{eft=@{atkeffect}}}" 
                                             class="rptactionbutton">Chat</button>
                                 <span></span>
                             </div>
@@ -183,7 +183,7 @@
                                 <input type="text" name="attr_mannamedisp" value="@{mancost}" class="cost-input" disabled="true">
                                 <button type="action" name="act_maneuverroll" id="manrollbutton" class="rptactionbutton">Roll</button>
                                 <button type="roll" name="roll_maneuversummaryroll" id="mansummarybutton" 
-                                            value="&{template:drawsteelsummary}{{mod=@{manmods}}}{{name=Maneuver: @{manname}}}{{keys=@{mankeywords}}}{{type=@{mantype}}}{{cost=@{mancost}}}{{dist=@{mandistance}}}{{targ=@{mantarget}}}{{t1=@{mantier1desc}}}{{t2=@{mantier2desc}}}{{t3=@{mantier3desc}}}{{eft=@{maneffect}}}" 
+                                            value="&{template:drawsteelsummary}{{mod=@{manmods}}}{{name=Maneuver: @{manname}}}{{cost=@{mancost}}}{{actiontype=y}}{{keys=@{mankeywords}}}{{dist=@{mandistance}}}{{targ=@{mantarget}}}{{t1=@{mantier1desc}}}{{t2=@{mantier2desc}}}{{t3=@{mantier3desc}}}{{eft=@{maneffect}}}" 
                                             class="rptactionbutton">Chat</button>
                             </div>
                             <input class="clicktohide" type="checkbox">
@@ -437,7 +437,7 @@
                                 <input type="text" name="attr_atkcostdisp" value="@{atkcost}" class="cost-input" disabled="true">
                                 <button type="action" name="act_attackroll" id="atkrollbutton" class="rptactionbutton">Roll</button>
                                 <button type="roll" name="roll_atksummaryroll" id="atksummarybutton" 
-                                            value="&{template:drawsteelsummary}{{mod=@{mods}}}{{name=Action: @{atkname}}}{{type=@{atktype}}}{{cost=@{atkcost}}}{{dist=@{atkdistance}}}{{targ=@{atktarget}}}{{t1d=@{atktier1dmg}}}{{t1e=@{atktier1desc}}}{{t2d=@{atktier2dmg}}}{{t2e=@{atktier2desc}}}{{t3d=@{atktier3dmg}}}{{t3e=@{atktier3desc}}}{{eft=@{atkeffect}}}" 
+                                            value="&{template:drawsteelsummary}{{mod=@{mods}}}{{name=Action: @{atkname}}}{{actiontype=y}}{{keys=@{atkkeywords}}}{{cost=@{atkcost}}}{{dist=@{atkdistance}}}{{targ=@{atktarget}}}{{t1d=@{atktier1dmg}}}{{t1e=@{atktier1desc}}}{{t2d=@{atktier2dmg}}}{{t2e=@{atktier2desc}}}{{t3d=@{atktier3dmg}}}{{t3e=@{atktier3desc}}}{{eft=@{atkeffect}}}" 
                                             class="rptactionbutton">Chat</button>
                                 <span></span>
                             </div>
@@ -462,6 +462,7 @@
                                             <option>Melee</option>
                                             <option>Ranged</option>
                                         </select>
+                                     
                                     <span>Cost</span><input type="text" name="attr_atkcost" placeholder="Cost to use">
                                     <span>Distance:</span><input type="text" name="attr_atkdistance" placeholder="Distance">
                                 
@@ -492,12 +493,13 @@
                                 <input type="text" name="attr_trgnamedis" value="@{trgtrigger} >> @{trgname}" class="info-input" disabled="true">
                                 <span></span>
                                 <span></span>
-                                <button type="roll" name="roll_triggerroll" id="trgrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Trigger: @{trgname}}}{{trigger=@{trgtrigger}}}{{eft=@{trgdesc}}}">Chat</button>
+                                <button type="roll" name="roll_triggerroll" id="trgrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Trigger: @{trgname}}}{{keys=@{trgkeywords}}}{{trigger=@{trgtrigger}}}{{eft=@{trgdesc}}}">Chat</button>
                             </div>
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
                                 <div class="sheet-generic-2col">
                                     <span>Action Name:</span><input type="text" name="attr_trgname">
+                                    <span>Keywords:</span><input type="text" name="attr_trgkeywords">
                                     <span>Trigger:</span><input type="text" name="attr_trgtrigger">
                                 </div>
                                 <span>Effect</span>
@@ -517,26 +519,22 @@
                                 <input type="text" name="attr_mannamedisp" value="@{mancost}" class="cost-input" disabled="true">
                                 <button type="action" name="act_maneuverroll" id="manrollbutton" class="rptactionbutton">Roll</button>
                                 <button type="roll" name="roll_maneuversummaryroll" id="mansummarybutton" 
-                                            value="&{template:drawsteelsummary}{{mod=@{manmods}}}{{name=Maneuver: @{manname}}}{{type=@{mantype}}}{{cost=@{mancost}}}{{dist=@{mandistance}}}{{targ=@{mantarget}}}{{t1=@{mantier1desc}}}{{t2=@{mantier2desc}}}{{t3=@{mantier3desc}}}{{eft=@{maneffect}}}" 
+                                            value="&{template:drawsteelsummary}{{mod=@{manmods}}}{{name=Maneuver: @{manname}}}{{cost=@{mancost}}}{{actiontype=y}}{{keys=@{mankeywords}}}{{dist=@{mandistance}}}{{targ=@{mantarget}}}{{t1=@{mantier1desc}}}{{t2=@{mantier2desc}}}{{t3=@{mantier3desc}}}{{eft=@{maneffect}}}" 
                                             class="rptactionbutton">Chat</button>
                             </div>
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
                                 <div class="rpt_2col">
                                     <span>Name:</span><input type="text" name="attr_manname" placeholder="Maneuver Name">
-                                    <span>Modifier</span>
+                                    <span>Keywords:</span><input type="text" name="attr_mankeywords" placeholder="Melee, strike, etc.">
+                                    <span>Power Roll +</span>
                                     <select name="attr_manmods">
+                                        <option>None</option>
                                         <option>MGT</option>
                                         <option>AGL</option>
                                         <option>REA</option>
                                         <option>INU</option>
                                         <option>PRS</option>
-                                    </select>
-                                    <span>Attack Type</span>
-                                    <select name="attr_mantype">
-                                        <option>Melee</option>
-                                        <option>Ranged</option>
-                                        <option>Magic</option>
                                     </select>
                                     <span>Cost</span><input type="text" name="attr_mancost" placeholder="Cost to use">
                                     <span>Distance:</span><input type="text" name="attr_mandistance" placeholder="Distance">
@@ -551,7 +549,7 @@
                                 </div>
                                 <div class="">
                                     <span>Effect</span><br/>
-                                    <textarea name="attr_maneffect" class="effect-text-area">
+                                    <textarea name="attr_maneffect" class="effect-text-area" placeholder="Effect text here">
                                 </div>
                             </div>
 
@@ -1024,11 +1022,8 @@
         <span>{{name}}</span>
         {{/name}}
     </div>
-    {{#type}}
+    {{#actiontype}}
         <div class="sheet-template-summary-2col">
-            {{#type}}
-            <span>Ability Type:</span><span> {{type}}</span>
-            {{/type}}
             {{#keys}}
             <span>Keywords:</span><span> {{keys}}</span>
             {{/keys}}
@@ -1048,10 +1043,13 @@
             <span>Trigger:</span><span> {{trigger}}</span>
             {{/trigger}}
         </div>
-    {{/type}}
+    {{/actiontype}}
     {{#trigger}}
         <div class="sheet-template-summary-2col">
             <span>Trigger:</span><span> {{trigger}}</span>
+            {{#keys}}
+            <span>Keywords:</span><span> {{keys}}</span>
+            {{/keys}}
         </div>
     {{/trigger}}
     {{#t1}}
