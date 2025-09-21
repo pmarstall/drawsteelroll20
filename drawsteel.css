@@ -394,8 +394,8 @@ color: black;
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-main{
   /* border: solid 1px rgb(116, 181, 255);*/
-  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border02.png");
-  border-image-slice: 150 195 fill;
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border03.png");
+  border-image-slice: 85 115 fill;
   border-image-width: auto;
   border-image-repeat: round;
   padding-top: 15px;
