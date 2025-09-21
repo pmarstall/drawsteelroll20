@@ -235,36 +235,45 @@ button.sheet-button-selected {
     border: solid 1px rgb(116, 181, 255);
 }
 
+.sheet-rolltemplate-drawsteelattack .sheet-template-main{
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border04.png");
+  border-image-slice: 30 50 fill;
+  border-image-width: auto;
+  border-image-repeat: round;
+  padding-top: 35px;
+  padding-left: 10px;
+  padding-bottom: 30px;
+}
 .sheet-rolltemplate-drawsteelattack .sheet-template-title{
-    background-color: rgb(116, 181, 255);
-    text-decoration-color: aliceblue;
-    color: black;
-    padding: 5px;
+  font-size: x-large;
+  padding: 5px;
+  padding-right: 50px;
+  padding-bottom: 75px;
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border05.png");
+  border-image-slice: 13 13;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-body{
-  border: solid 1px rgb(116, 181, 255);
-  background-color: #171e24;
+
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-crit{
-  color: rgb(53, 24, 30);
-  font-size:larger;
+
+  font-size: x-large;
   padding: 10px;
   text-align: center;
-  background-color: greenyellow;
+
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-result{
-    border: solid 1px rgb(116, 181, 255);
+
     padding: 5px;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-tier {
   text-align: center;
-  font-size: smaller;
   padding: 3px;
-  border-bottom: solid 1px rgb(116, 181, 255);
+  border-bottom: #3a1100 solid 1px;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-damage{
@@ -280,13 +289,10 @@ button.sheet-button-selected {
 .sheet-rolltemplate-drawsteelattack .sheet-template-special{
   text-align: left;
   padding: 5px;
-  border: solid 1px rgb(116, 181, 255);
-  background-color: #171e24;
 }
 
 .sheet-rolltemplate-drawsteelattack .inlinerollresult  {
-  background-color: #171e24;
-  color: white;
+
 }
 
 /*******************/
