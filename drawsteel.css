@@ -389,31 +389,37 @@ color: black;
 /*******************/
 
 .sheet-rolltemplate-drawsteelmaneuver {
-  border: solid 1px #deeb97;
+ 
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .sheet-template-main{
+  /* border: solid 1px rgb(116, 181, 255);*/
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border02.png");
+  border-image-slice: 150 195 fill;
+  border-image-width: auto;
+  border-image-repeat: round;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-bottom: 15px;
 }
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-title{
-  background-color: #deeb97;
-  text-decoration-color: aliceblue;
-  color: black;
+
   padding: 5px;
 }
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-body{
-border: solid 1px deeb97;
-background-color: #222417;
+
 }
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-crit{
-color: rgb(53, 24, 30);
 font-size:larger;
 padding: 10px;
 text-align: center;
-background-color: greenyellow;
 }
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-result{
-  border: solid 1px #deeb97;
+
   padding: 5px;
 }
 
@@ -421,7 +427,7 @@ background-color: greenyellow;
 text-align: center;
 font-size: smaller;
 padding: 3px;
-border-bottom: solid 1px #deeb97;
+
 }
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-damage{
@@ -437,13 +443,11 @@ border-bottom: solid 1px #deeb97;
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-special{
 text-align: left;
 padding: 5px;
-border: solid 1px #deeb97;
-background-color: #222417;
+
 }
 
 .sheet-rolltemplate-drawsteelmaneuver .inlinerollresult  {
-background-color: #222417;
-color: white;
+
 }
 
 /******************/
