@@ -19,6 +19,7 @@
         <label>Size</label><input type="text" name="attr_size" value="@{size}" placeholder="Enter Name">
         <label>Speed</label><input type="text" name="attr_speed" value="@{speed}" placeholder="Enter Name">
         <label>Stamina</label><input type="text" name="attr_stamina" value="@{stamina}" placeholder="Enter Name">
+        <label>Stability</label><input type="text" name="attr_stability" value="@{stability}" placeholder="Enter Name">
         <label>Free Strike Damage</label><input type="text" name="attr_npcfreestrike" value="@{npcfreestrike}" placeholder="Enter Name">
         <label>Immunities</label><input type="text" name="attr_npcimmunitites" value="@{npcimmunitites}" placeholder="Enter Name">
         <label>Weaknesses</label><input type="text" name="attr_npcweakenesses" value="@{npcweakenesses}" placeholder="Enter Name">
@@ -41,7 +42,7 @@
             </div>
         </div>
 
-        <div class="npc-header-line1"><span></span></div>
+        <div class="npc-header-line4"></div>
 
         <div class="npc-header-stats-5col">
             <input type="text" name="attr_npc_size" class="npc-info" disabled="true" value="@{size}">
@@ -56,7 +57,7 @@
             <button type="roll" name="roll_abilityroll" id="ablfreestrike" class="npc-free-strike" value="&{template:drawsteelsummary}{{name=Ability: @{charactername} Free Strike}}{{eft=[[@{npcfreestrike}]] Damage}}">Free Strike</button>
         </div>
 
-        <div class="npc-header-line2">Dividing Line 2</div>
+        <div class="npc-header-line3"></div>
 
         <div class="npc_attrib-grid">
             <div class="npc-attribute-item">
@@ -81,8 +82,172 @@
             </div>
         </div>
 
-        <div class="npc-header-line3">Dividing Line 3</div>
+        <div class="npc-header-line1"></div>
 
+        <div class="npc-abilities-section">
+            
+            <div class="npc-abilities-actions">
+                <!-- NPC Attacks repeating section -->
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Actions</div>
+                    <fieldset class="repeating_attacks">
+                        <div class="sheet-repholder">
+                            <div class="sheet-reptitle">
+                                <input type="text" name="attr_atknamedisp" value="@{atkname}" class="info-input" disabled="true">
+                                <input type="text" name="attr_atknamedisp" value="@{atkcost}" class="cost-input" disabled="true">
+                                <button type="action" name="act_attackroll" id="atkrollbutton" class="rptactionbutton">Roll</button>
+                                <button type="roll" name="roll_atksummaryroll" id="atksummarybutton" 
+                                            value="&{template:drawsteelsummary}{{mod=@{mods}}}{{name=Action: @{atkname}}}{{type=@{atktype}}}{{cost=@{atkcost}}}{{dist=@{atkdistance}}}{{targ=@{atktarget}}}{{t1d=@{atktier1dmg}}}{{t1e=@{atktier1desc}}}{{t2d=@{atktier2dmg}}}{{t2e=@{atktier2desc}}}{{t3d=@{atktier3dmg}}}{{t3e=@{atktier3desc}}}{{eft=@{atkeffect}}}" 
+                                            class="rptactionbutton">Chat</button>
+                                <span></span>
+                            </div>
+                           
+                            <input class="clicktohide" type="checkbox">
+                            <div class="sheet-hiddenarea">
+                                <div class="rpt_2col">
+                                    <span>Name:</span><input type="text" name="attr_atkname" placeholder="Attack Name">
+                                    <span>Modifier</span>
+                                    <select name="attr_mods">
+                                        <option>MGT</option>
+                                        <option>AGL</option>
+                                        <option>REA</option>
+                                        <option>INU</option>
+                                        <option>PRS</option>
+                                    </select>
+                                    <span>Attack Type</span>
+                                    <select name="attr_atktype">
+                                        <option>Melee</option>
+                                        <option>Ranged</option>
+                                        <option>Magic</option>
+                                    </select>
+                                    <span>Cost</span><input type="text" name="attr_atkcost" placeholder="Cost to use">
+                                    <span>Distance:</span><input type="text" name="attr_atkdistance" placeholder="Distance">
+                                
+                                    <span>Target:</span><input type="text" name="attr_atktarget" placeholder="One Target">
+                                </div>
+                                <div class="rpt_3col"> 
+                                    <span></span><span>Damage</span><span>Special</span>
+                                    <span>Tier 1</span><span><input type="number" name="attr_atktier1dmg" class="small-val-input" value="0"></span ><input type="text" name="attr_atktier1desc" value="" placeholder="Special Effect">
+                                    <span>Tier 2</span><span><input type="number" name="attr_atktier2dmg" class="small-val-input" value="0"></span><span><input type="text" name="attr_atktier2desc" value="" placeholder="Special Effect"></span>
+                                    <span>Tier 3</span><span><input type="number" name="attr_atktier3dmg" class="small-val-input" value="0"></span><span><input type="text" name="attr_atktier3desc" value="" placeholder="Special Effect"></span>
+                                </div>
+                                <div class="">
+                                    <span>Effect</span><br/>
+                                    <textarea name="attr_atkeffect" class="effect-text-area">
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="npc-abilities-triggered">
+                <!--  NPC Triggered Actions Repeating section -->
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Triggered Actions</div>
+                    <fieldset class="repeating_triggers">
+                        <div class="sheet-repholder">
+                            <div class="sheet-reptitle">
+                                <input type="text" name="attr_trgnamedis" value="@{trgtrigger} >> @{trgname}" class="info-input" disabled="true">
+                                <span></span>
+                                <span></span>
+                                <button type="roll" name="roll_triggerroll" id="trgrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Trigger: @{trgname}}}{{trigger=@{trgtrigger}}}{{eft=@{trgdesc}}}">Chat</button>
+                            </div>
+                            <input class="clicktohide" type="checkbox">
+                            <div class="sheet-hiddenarea">
+                                <div class="sheet-generic-2col">
+                                    <span>Action Name:</span><input type="text" name="attr_trgname">
+                                    <span>Trigger:</span><input type="text" name="attr_trgtrigger">
+                                </div>
+                                <span>Effect</span>
+                                <textarea name="attr_trgdesc" class="effect-text-area">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="npc-abilities-maneuvers">
+                <!--  NPC Maneuvers Repeating section -->
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Maneuvers</div>
+                    <fieldset class="repeating_maneuvers">
+                        <div class="sheet-repholder">
+                            <div class="sheet-reptitle">
+                                <input type="text" name="attr_mannamedisp" value="@{manname}" class="info-input" disabled="true">
+                                <input type="text" name="attr_mannamedisp" value="@{mancost}" class="cost-input" disabled="true">
+                                <button type="action" name="act_maneuverroll" id="manrollbutton" class="rptactionbutton">Roll</button>
+                                <button type="roll" name="roll_maneuversummaryroll" id="mansummarybutton" 
+                                            value="&{template:drawsteelsummary}{{mod=@{manmods}}}{{name=Maneuver: @{manname}}}{{type=@{mantype}}}{{cost=@{mancost}}}{{dist=@{mandistance}}}{{targ=@{mantarget}}}{{t1=@{mantier1desc}}}{{t2=@{mantier2desc}}}{{t3=@{mantier3desc}}}{{eft=@{maneffect}}}" 
+                                            class="rptactionbutton">Chat</button>
+                            </div>
+                            <input class="clicktohide" type="checkbox">
+                            <div class="sheet-hiddenarea">
+                                <div class="rpt_2col">
+                                    <span>Name:</span><input type="text" name="attr_manname" placeholder="Maneuver Name">
+                                    <span>Modifier</span>
+                                    <select name="attr_manmods">
+                                        <option>MGT</option>
+                                        <option>AGL</option>
+                                        <option>REA</option>
+                                        <option>INU</option>
+                                        <option>PRS</option>
+                                    </select>
+                                    <span>Attack Type</span>
+                                    <select name="attr_mantype">
+                                        <option>Melee</option>
+                                        <option>Ranged</option>
+                                        <option>Magic</option>
+                                    </select>
+                                    <span>Cost</span><input type="text" name="attr_mancost" placeholder="Cost to use">
+                                    <span>Distance:</span><input type="text" name="attr_mandistance" placeholder="Distance">
+                                
+                                    <span>Target:</span><input type="text" name="attr_mantarget" placeholder="One Target">
+                                </div>
+                                <div>Results</div>
+                                <div class="rpt_2col"> 
+                                    <span>Tier 1</span><input type="text" name="attr_mantier1desc" value="" placeholder="Effect">
+                                    <span>Tier 2</span><input type="text" name="attr_mantier2desc" value="" placeholder="Effect">
+                                    <span>Tier 3</span><input type="text" name="attr_mantier3desc" value="" placeholder="Effect">
+                                </div>
+                                <div class="">
+                                    <span>Effect</span><br/>
+                                    <textarea name="attr_maneffect" class="effect-text-area">
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="npc-abilities-abilities">
+                <!--  NPC Abilities Repeating section -->
+                <div class="sheet-section">
+                    <div class="sheet-section-title">Abilities</div>
+                    <fieldset class="repeating_abilities">
+                        <div class="sheet-repholder">
+                            <div class="sheet-reptitle">
+                                <input type="text" name="attr_ablnamedis" value="@{ablname}" class="info-input" disabled="true">
+                                <span></span>
+                                <span></span>
+                                <button type="roll" name="roll_abilityroll" id="ablrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Ability: @{ablname}}}{{eft=@{abldesc}}}">Chat</button>
+                            </div>
+                            <input class="clicktohide" type="checkbox">
+                            <div class="sheet-hiddenarea">
+                                <div>
+                                    <span>Ability Name:</span><input type="text" name="attr_ablname">
+                                </div>
+                                <span>Description</span>
+                                <textarea name="attr_abldesc" class="effect-text-area">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
@@ -175,6 +340,8 @@
             <button type="action" name="act_background" class="sheet-button">Background</button>
         </div>
      </div>
+
+     <div class="npc-header-line1"></div>
 
      <!-- *******************************************************************************************************************
      ********************************************* Abilities Tab **************************************************************
@@ -742,6 +909,50 @@
             {{effect}}
         </div>
     {{/effect}}
+</rolltemplate>
+
+<!--  Test Roll Template -->
+<rolltemplate class="sheet-rolltemplate-drawsteeltest">
+    <div class="sheet-template-title">
+        {{#char-name}}
+        <span>{{char-name}}: </span>
+        {{/char-name}}
+        <span> {{roll-type}}</span>
+        <span>{{roll}}</span>
+    </div>
+    <div class="sheet-template-body">
+        {{#rollGreater() computed::critical 0}}<div class="sheet-template-crit">Critical</div>{{/rollGreater() computed::critical 0}}
+        {{#rollLess() roll 12}}
+            <div class="sheet-template-result">
+                <div class="sheet-template-tier"><span>Tier 1 Result</span></div>
+                <div class="sheet-template-desc"><span>
+                    {{#diffeasy}}You succeed on the task but incur a consequence.{{/diffeasy}}
+                    {{#diffmedium}}You fail the task.{{/diffmedium}}
+                    {{#diffhard}}You fail the task and incur a consequence.{{/diffhard}}
+                </span></div>
+            </div>
+        {{/rollLess() roll 12}}
+        {{#rollBetween() roll 12 16}}
+            <div class="sheet-template-result">
+                <div class="sheet-template-tier"><span>Tier 2 Result</span></div>
+                <div class="sheet-template-desc"><span>
+                    {{#diffeasy}}You succeed on the task.{{/diffeasy}}
+                    {{#diffmedium}}You succeed on the task but incur a consequence.{{/diffmedium}}
+                    {{#diffhard}}You fail the task.{{/diffhard}}
+                </span></div>
+            </div>
+        {{/rollBetween() roll 12 16}}
+        {{#rollGreater() roll 16}}
+            <div class="sheet-template-result">
+                <div class="sheet-template-tier"><span>Tier 3 Result</span></div>
+                <div class="sheet-template-desc"><span>
+                    {{#diffeasy}}You succeed on the task with a reward.{{/diffeasy}}
+                    {{#diffmedium}}You succeed on the task.{{/diffmedium}}
+                    {{#diffhard}}You succeed on the task.{{/diffhard}}
+                </span></div>
+            </div>
+        {{/rollGreater() roll 16}}
+    </div>
 </rolltemplate>
 
 <!-- Maneuver Roll Template -->

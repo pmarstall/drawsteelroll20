@@ -219,6 +219,14 @@ button.sheet-button-selected {
   padding: 10px;
 }
 
+.sheet-rolltemplate-drawsteeltest .sheet-template-result{
+  text-align: center;
+  border: solid 1px purple;
+  background-color: rgb(31, 18, 31);;
+  padding: 10px;
+}
+
+
 /*******************/
 /* Attack Template */
 /*******************/
@@ -1060,6 +1068,8 @@ textarea.kit-bigtextarea{
   vertical-align: middle;
   text-align: center;
   font-size: large;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .npc-name-disp {
@@ -1094,11 +1104,13 @@ textarea.kit-bigtextarea{
 
 /* NPC Attribute group holder */
 .npc_attrib-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 150px);
-    column-gap: 5px;
-    text-align: center; 
-    font-size: large;
+  display: grid;
+  grid-template-columns: repeat(5, 150px);
+  column-gap: 5px;
+  text-align: center; 
+  font-size: large;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 /* The attribute individual holder */
@@ -1160,7 +1172,7 @@ textarea.kit-bigtextarea{
   grid-template-columns: auto auto;
   font-size: larger;
   text-align: left;
-  padding-bottom: 5px;
+  padding-bottom: 25px;
   font-weight: bold;}
 
 .npc-header-left{
@@ -1187,7 +1199,27 @@ textarea.kit-bigtextarea{
 /*********************************/ 
 
 .npc-header-line1 {
-  height: 100px;
+  height: 60px;
   background-image: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/line1.png'); 
+  background-repeat: no-repeat;
+
+}
+
+.npc-header-line2 {
+  height: 60x;
+  background-image: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/line2.png'); 
   background-repeat: no-repeat
+}
+
+.npc-header-line3 {
+  height: 60px;
+  background-image: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/line3.png'); 
+  background-repeat: no-repeat
+}
+
+.npc-header-line4 {
+  height: 60px;
+  background-image: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/line4.png'); 
+  background-repeat: no-repeat;
+
 }
