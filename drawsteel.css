@@ -300,7 +300,7 @@ button.sheet-button-selected {
 .sheet-rolltemplate-drawsteelsummary .sheet-template-main{
   /* border: solid 1px rgb(116, 181, 255);*/
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border01.png");
-  border-image-slice: 30 35;
+  border-image-slice: 30 50 fill;
   border-image-width: auto;
   border-image-repeat: round;
   padding-top: 35px;
