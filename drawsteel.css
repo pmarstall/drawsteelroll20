@@ -194,22 +194,29 @@ button.sheet-button-selected {
   border: solid purple;
 }
 
+.sheet-rolltemplate-drawsteelbasic .sheet-template-main{
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border03.png");
+  border-image-slice: 30 50 fill;
+  border-image-width: auto;
+  border-image-repeat: round;
+  padding-top: 35px;
+  padding-left: 10px;
+  padding-bottom: 30px;
+}
+
 .sheet-rolltemplate-drawsteelbasic .sheet-template-title{
-  background-color: purple;
-  text-decoration-color: aliceblue;
+
   padding: 5px;
 }
 
 .sheet-rolltemplate-drawsteelbasic .sheet-template-body{
   text-align: center;
-  border: solid 1px purple;
-  background-color: rgb(31, 18, 31);;
+
 }
 
 .sheet-rolltemplate-drawsteelbasic .sheet-template-crit{
   text-align: center;
-  background-color: greenyellow;
-  color: rgb(53, 24, 30);
+
   font-size:larger;
   padding: 10px;
 }
@@ -221,9 +228,23 @@ button.sheet-button-selected {
 
 .sheet-rolltemplate-drawsteeltest .sheet-template-result{
   text-align: center;
-  border: solid 1px purple;
-  background-color: rgb(31, 18, 31);;
   padding: 10px;
+}
+
+.sheet-rolltemplate-drawsteeltest .sheet-template-main{
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border03.png");
+  border-image-slice: 30 50 fill;
+  border-image-width: auto;
+  border-image-repeat: round;
+  padding-top: 35px;
+  padding-left: 10px;
+  padding-bottom: 30px;
+}
+
+.sheet-rolltemplate-drawsteeltest .sheet-template-title{
+  text-align: center;
+  font-size: larger;
+  padding: 5px;
 }
 
 
@@ -237,7 +258,7 @@ button.sheet-button-selected {
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-main{
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border04.png");
-  border-image-slice: 30 50 fill;
+  border-image-slice: 145 185 fill;
   border-image-width: auto;
   border-image-repeat: round;
   padding-top: 35px;
@@ -251,6 +272,8 @@ button.sheet-button-selected {
   padding-bottom: 75px;
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border05.png");
   border-image-slice: 13 13;
+  border-image-width: auto;
+  border-image-repeat: round;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-body{
@@ -266,14 +289,17 @@ button.sheet-button-selected {
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-result{
-
-    padding: 5px;
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border05.png");
+  border-image-slice: 13 13;
+  border-image-width: auto;
+  border-image-repeat: round;
+  padding: 5px;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-tier {
   text-align: center;
   padding: 3px;
-  border-bottom: #3a1100 solid 1px;
+
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-damage{

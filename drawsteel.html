@@ -857,6 +857,7 @@
 
 <!-- Attribute Roll Template -->
 <rolltemplate class="sheet-rolltemplate-drawsteelbasic">
+    <div class="sheet-template-main">
     <div class="sheet-template-title">
         {{#char-name}}
         <span>{{char-name}}: </span>
@@ -870,6 +871,7 @@
         {{#rollBetween() roll 12 16}}<div class="sheet-template-result">Tier 2 Result</div>{{/rollBetween() roll 12 16}}
         {{#rollGreater() roll 16}}<div class="sheet-template-result">Tier 3 Result</div>{{/rollGreater() roll 16}}
     </div>
+    </div>  
 </rolltemplate>
 
 <!-- Action/Attack Roll Template -->
@@ -916,6 +918,7 @@
 
 <!--  Test Roll Template -->
 <rolltemplate class="sheet-rolltemplate-drawsteeltest">
+    <div class="sheet-template-main">
     <div class="sheet-template-title">
         {{#char-name}}
         <span>{{char-name}}: </span>
@@ -955,6 +958,7 @@
                 </span></div>
             </div>
         {{/rollGreater() roll 16}}
+    </div>
     </div>
 </rolltemplate>
 
