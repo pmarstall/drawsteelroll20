@@ -269,11 +269,12 @@ button.sheet-button-selected {
   font-size: x-large;
   padding: 5px;
   padding-right: 50px;
-  padding-bottom: 75px;
+  padding-bottom: 20px;
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border05.png");
   border-image-slice: 13 13;
   border-image-width: auto;
   border-image-repeat: round;
+  line-height: 1.75;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-body{
@@ -845,6 +846,100 @@ input[disabled]{
     color: white;
     padding: 3px;
     font-weight: bold;
+  }
+
+  /***********************************/
+  /* PC/NPG Toggle Checkbox          */
+  /***********************************/
+  .pc-choice-top{
+    position: relative;
+    height: 25px;
+    display: flex;
+    align-items:flex-end;
+  }
+
+  /* The switch - the box around the slider */
+  .pc-switch {
+    position: relative;
+    left: 750px;
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+  }
+
+  /* Hide default HTML checkbox */
+  .pc-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider-pc {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 4px;
+    right: 0;
+    bottom: 0;
+    width: 65px;
+    background-color: #000000;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  /* The inner label */
+  .slider-pc-inner-left {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    text-align: center;
+    color: black;
+    -webkit-transition: .4s;
+    transition: .4s;
+    font-size: x-small;
+  }
+  .slider-pc-inner-right {
+    position: absolute;
+    top: 3px;
+    left: 28px;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    text-align: center;
+    color: black;
+    -webkit-transition: .4s;
+    transition: .4s;
+    font-size: x-small;
+  }
+
+  .slider-pc:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 26px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider-pc {
+    background-color: #000000;
+  }
+
+  input:focus + .slider-pc {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider-pc:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
   }
 
   /***********************************/

@@ -1,7 +1,12 @@
-<div class="button-holder">
-    <button type="action" name="act_pc" value="PC" class="sheet-npc">PC</button>
-    <button type="action" name="act_npc" value="NPC" class="sheet-npc">NPC</button>
-</div>
+<div><div class="pc-choice-top">
+    <label class="pc-switch">
+        <input type="checkbox" name="attr_npc_toggle">
+        <span class="slider-pc">
+            <span class="slider-pc-inner-left">PC</span>
+            <span class="slider-pc-inner-right">NPC</span>
+        </span>
+    </label>
+</div></div>
 
 
 <!-- *******************************************************************************************************************
@@ -1114,16 +1119,29 @@
     ////////////////////////////////////////////////////////////////
     //  PC/NPC Displays!
     ////////////////////////////////////////////////////////////////
-    const pcbuttonlist = ["npc", "pc"];
-    pcbuttonlist.forEach(button => {
-        on(`clicked:${button}`, function(event) {
-            console.log("in pc button click")
-            setAttrs({
-                sheetnpc: button
-            });
-        });
-    });
+    //const pcbuttonlist = ["npc", "pc"];
+    //pcbuttonlist.forEach(button => {
+    //    on(`clicked:${button}`, function(event) {
+    //        console.log("in pc button click")
+    //        setAttrs({
+     //           sheetnpc: button
+    //        });
+    //    });
+    //});
     
+    on('change:npc_toggle', (eventinfo) => {
+        console.log("In checkbox NPC toggle");
+        console.log(eventinfo);
+        const isChecked = eventinfo.newValue;
+        if (isChecked === 'on') {
+            setAttrs({ sheetnpc: 'npc' });
+            console.log('Set to NPC');
+        } else {
+            setAttrs({ sheetnpc: 'pc' });
+            console.log('Set to PC');
+        }
+    });
+
     
     ////////////////////////////////////////////////////////////////
     //  Tabs!
