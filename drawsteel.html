@@ -196,25 +196,29 @@
                                 <div class="rpt_2col">
                                     <span>Name:</span><input type="text" name="attr_manname" placeholder="Maneuver Name">
                                     <span>Keywords:</span><input type="text" name="attr_mankeywords" placeholder="Melee, strike, etc.">
-                                    <span>Power Roll +</span>
-                                    <select name="attr_manmods">
-                                        <option>None</option>
-                                        <option>MGT</option>
-                                        <option>AGL</option>
-                                        <option>REA</option>
-                                        <option>INU</option>
-                                        <option>PRS</option>
-                                    </select>
                                     <span>Cost</span><input type="text" name="attr_mancost" placeholder="Cost to use">
                                     <span>Distance:</span><input type="text" name="attr_mandistance" placeholder="Distance">
-                                
                                     <span>Target:</span><input type="text" name="attr_mantarget" placeholder="One Target">
                                 </div>
-                                <div>Results</div>
-                                <div class="rpt_2col"> 
-                                    <span>Tier 1</span><input type="text" name="attr_mantier1desc" value="" placeholder="Effect">
-                                    <span>Tier 2</span><input type="text" name="attr_mantier2desc" value="" placeholder="Effect">
-                                    <span>Tier 3</span><input type="text" name="attr_mantier3desc" value="" placeholder="Effect">
+                                <span>Use Power Roll?</span><input type="checkbox" name="attr_manpowerroll" class="clicktohide power-roll-choice-npc" value="None">
+                                <div class="power_roll_hideen_area sheet-hiddenarea">
+                                    <div class="rpt_2col">
+                                        <span>Power Roll +</span>
+                                        <select name="attr_manmods">
+                                            <option>None</option>
+                                            <option>MGT</option>
+                                            <option>AGL</option>
+                                            <option>REA</option>
+                                            <option>INU</option>
+                                            <option>PRS</option>
+                                        </select>
+                                    </div>
+                                    <div>Results</div>
+                                    <div class="rpt_2col"> 
+                                        <span>Tier 1</span><input type="text" name="attr_mantier1desc" value="" placeholder="Effect">
+                                        <span>Tier 2</span><input type="text" name="attr_mantier2desc" value="" placeholder="Effect">
+                                        <span>Tier 3</span><input type="text" name="attr_mantier3desc" value="" placeholder="Effect">
+                                    </div>
                                 </div>
                                 <div class="">
                                     <span>Effect</span><br/>
@@ -532,25 +536,29 @@
                                 <div class="rpt_2col">
                                     <span>Name:</span><input type="text" name="attr_manname" placeholder="Maneuver Name">
                                     <span>Keywords:</span><input type="text" name="attr_mankeywords" placeholder="Melee, strike, etc.">
-                                    <span>Power Roll +</span>
-                                    <select name="attr_manmods">
-                                        <option>None</option>
-                                        <option>MGT</option>
-                                        <option>AGL</option>
-                                        <option>REA</option>
-                                        <option>INU</option>
-                                        <option>PRS</option>
-                                    </select>
                                     <span>Cost</span><input type="text" name="attr_mancost" placeholder="Cost to use">
                                     <span>Distance:</span><input type="text" name="attr_mandistance" placeholder="Distance">
-                                
                                     <span>Target:</span><input type="text" name="attr_mantarget" placeholder="One Target">
                                 </div>
-                                <div>Results</div>
-                                <div class="rpt_2col"> 
-                                    <span>Tier 1</span><input type="text" name="attr_mantier1desc" value="" placeholder="Effect">
-                                    <span>Tier 2</span><input type="text" name="attr_mantier2desc" value="" placeholder="Effect">
-                                    <span>Tier 3</span><input type="text" name="attr_mantier3desc" value="" placeholder="Effect">
+                                <span>Use Power Roll?</span><input type="checkbox" name="attr_manpowerroll" class="clicktohide power-roll-choice-pc" value="None">
+                                <div class="power_roll_hideen_area sheet-hiddenarea">
+                                    <div class="rpt_2col">
+                                        <span>Power Roll +</span>
+                                        <select name="attr_manmods">
+                                            <option>None</option>
+                                            <option>MGT</option>
+                                            <option>AGL</option>
+                                            <option>REA</option>
+                                            <option>INU</option>
+                                            <option>PRS</option>
+                                        </select>
+                                    </div>
+                                    <div>Results</div>
+                                    <div class="rpt_2col"> 
+                                        <span>Tier 1</span><input type="text" name="attr_mantier1desc" value="" placeholder="Effect">
+                                        <span>Tier 2</span><input type="text" name="attr_mantier2desc" value="" placeholder="Effect">
+                                        <span>Tier 3</span><input type="text" name="attr_mantier3desc" value="" placeholder="Effect">
+                                    </div>
                                 </div>
                                 <div class="">
                                     <span>Effect</span><br/>
@@ -975,8 +983,9 @@
         <span>{{char-name}}: </span>
         {{/char-name}}
         <span> {{roll-type}}</span>
-        <span>{{roll}}</span>
+        {{#powerroll}}<span>{{roll}}</span>{{/powerroll}}
     </div>
+    {{#powerroll}}
     <div class="sheet-template-body">
         {{#rollGreater() computed::critical 0}}<div class="sheet-template-crit">Critical</div>{{/rollGreater() computed::critical 0}}
         {{#rollLess() roll 12}}
@@ -998,6 +1007,7 @@
             </div>
         {{/rollGreater() roll 16}}
     </div>
+    {{/powerroll}}
     {{#effect}}
         <div class="sheet-template-special">
             {{effect}}
@@ -1291,6 +1301,7 @@
         getAttrs([
             "repeating_maneuvers_"+rowid+"_manmods",
             "repeating_maneuvers_"+rowid+"_mantype",
+            "repeating_maneuvers_"+rowid+"_manpowerroll",
             "edge",
             "bane",
         ], function(values){
@@ -1301,17 +1312,21 @@
 
             let damType = values["repeating_attacks_"+rowid+"_atktype"];
 
+            let powerroll = values["repeating_maneuvers_"+rowid+"_manpowerroll"];
+            if (powerroll == "None"){powerroll = "1";}else{powerroll = ""};
+
             rollText="&{template:drawsteelmaneuver}"+
                         "{{roll=[[" + rollVal + "]]}}"+
                         "{{char-name=@{characterName}}}"+
                         "{{roll-type=@{repeating_maneuvers_"+rowid+"_manname}}}"+
+                        "{{powerroll=" + powerroll +"}}"+
                         "{{critical=[[0]]}}"+
                         "{{t1eff=@{repeating_maneuvers_"+rowid+"_mantier1desc}}}"+
                         "{{t2eff=@{repeating_maneuvers_"+rowid+"_mantier2desc}}}"+
                         "{{t3eff=@{repeating_maneuvers_"+rowid+"_mantier3desc}}}"+
                         "{{effect=@{repeating_maneuvers_"+rowid+"_maneffect}}}";
 
-            
+          
             // Get rid of edge and bane
             edgeOff();
 

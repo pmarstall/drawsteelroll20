@@ -647,6 +647,25 @@ button[type="action"].rptactionbutton:hover {
     top: 3px;
 }
 
+.sheet-hiddenarea .clicktohide {
+  position: relative;
+  top: -15px;
+}
+
+.power-roll-choice-pc {
+  top: -15px;
+  left: -75px;
+}
+
+.power-roll-choice-npc {
+  top: -15px;
+  left: -275px;
+}
+
+.man_power{
+  font-size:medium;
+}
+
 .clicktohide:checked ~ .sheet-hiddenarea {
     display:grid;
 }
