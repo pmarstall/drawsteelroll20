@@ -191,10 +191,10 @@ button.sheet-button-selected {
 /******************/
 
 .sheet-rolltemplate-drawsteelbasic {
-  border: solid purple;
+  color: black
 }
 
-.sheet-rolltemplate-drawsteelbasic .sheet-template-main{
+.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-main{
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border03.png");
   border-image-slice: 30 50 fill;
   border-image-width: auto;
@@ -202,26 +202,28 @@ button.sheet-button-selected {
   padding-top: 35px;
   padding-left: 10px;
   padding-bottom: 30px;
+  color: black;
 }
 
-.sheet-rolltemplate-drawsteelbasic .sheet-template-title{
-
+.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-title{
+  font-size: large;
+  line-height: 1.40;
   padding: 5px;
 }
 
-.sheet-rolltemplate-drawsteelbasic .sheet-template-body{
+.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-body{
   text-align: center;
 
 }
 
-.sheet-rolltemplate-drawsteelbasic .sheet-template-crit{
+.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-crit{
   text-align: center;
 
   font-size:larger;
   padding: 10px;
 }
 
-.sheet-rolltemplate-drawsteelbasic .sheet-template-result{
+.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-result{
   text-align: center;
   padding: 10px;
 }
@@ -239,6 +241,7 @@ button.sheet-button-selected {
   padding-top: 35px;
   padding-left: 10px;
   padding-bottom: 30px;
+  color: black;
 }
 
 .sheet-rolltemplate-drawsteeltest .sheet-template-title{
@@ -264,9 +267,10 @@ button.sheet-button-selected {
   padding-top: 35px;
   padding-left: 10px;
   padding-bottom: 30px;
+  color: black;
 }
 .sheet-rolltemplate-drawsteelattack .sheet-template-title{
-  font-size: x-large;
+  font-size: large;
   padding: 5px;
   padding-right: 50px;
   padding-bottom: 20px;
@@ -274,7 +278,7 @@ button.sheet-button-selected {
   border-image-slice: 13 13;
   border-image-width: auto;
   border-image-repeat: round;
-  line-height: 1.75;
+  line-height: 1.40;
 }
 
 .sheet-rolltemplate-drawsteelattack .sheet-template-body{
@@ -333,19 +337,19 @@ button.sheet-button-selected {
 .sheet-rolltemplate-drawsteelsummary .sheet-template-main{
   /* border: solid 1px rgb(116, 181, 255);*/
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border01.png");
-  border-image-slice: 30 50 fill;
+  border-image-slice: 50 50 fill;
   border-image-width: auto;
   border-image-repeat: round;
   padding-top: 35px;
   padding-left: 10px;
   padding-bottom: 30px;;
+  color: black;
 }
 
 .sheet-rolltemplate-drawsteelsummary .sheet-template-title{
-  /*background-color: black;
-  text-decoration-color: aliceblue;
-  color: #e1e4dc;
-  padding: 5px;*/
+  font-size: large;
+  line-spacing: 1.40;
+  padding: 10px;
 }
 
 .sheet-rolltemplate-drawsteelsummary .sheet-template-body{
@@ -427,18 +431,29 @@ color: black;
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-main{
   /* border: solid 1px rgb(116, 181, 255);*/
-  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border03.png");
-  border-image-slice: 85 115 fill;
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border06.png");
+  border-image-slice: 100 175 fill;
   border-image-width: auto;
   border-image-repeat: round;
-  padding-top: 15px;
-  padding-left: 10px;
+  padding-top: 10px;
+  padding-left: 5px;
   padding-bottom: 15px;
+  color: black;
 }
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-title{
-
+  font-size: large;
+  line-height: 1.40;
   padding: 5px;
+  padding-top: 50px;
+  padding-left: 35px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border05.png");
+  border-image-slice: 13 13;
+  border-image-width: auto;
+  border-image-repeat: round;
+
 }
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-body{

@@ -887,6 +887,23 @@
     </div>  
 </rolltemplate>
 
+<!-- Saving Throw Template -->
+<rolltemplate class="sheet-rolltemplate-drawsteelsave">
+    <div class="sheet-template-main">
+    <div class="sheet-template-title">
+        {{#char-name}}
+        <span>{{char-name}}: </span>
+        {{/char-name}}
+        <span> {{roll-type}}</span>
+        <span>{{roll}}</span>
+    </div>
+    <div class="sheet-template-body">
+        {{#rollLess() roll 6}}<div class="sheet-template-result">Failure!</div>{{/rollLess() roll 6}}
+        {{#rollGreater() roll 5}}<div class="sheet-template-result">Success!</div>{{/rollGreater() roll 5}}
+    </div>
+    </div>  
+</rolltemplate>
+
 <!-- Action/Attack Roll Template -->
 <rolltemplate class="sheet-rolltemplate-drawsteelattack">
     <div class="sheet-template-main">   
