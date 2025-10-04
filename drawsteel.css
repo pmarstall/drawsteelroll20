@@ -1048,6 +1048,91 @@ input[disabled]{
 /******************************************/
 /* Stamina and recovery                   */
 /******************************************/
+  .sheet-new-stam-hold {
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+  }
+
+  .sheet-new-stam-hold .three-col{
+    display: grid;
+    grid-template-columns: 150px 100px 100px;
+    column-gap: 5px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .sheet-new-stam-hold .two-col{
+    display: grid;
+    grid-template-columns: 195px 195px;
+    column-gap: 5px;
+    padding-top: 15px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .stam-indicator{
+    font-size: 20px;
+    padding: 3px;
+    width: 100px;
+    text-align: center;
+  }
+
+  .stam-title{
+    font-size: 20px;
+    padding: 3px;
+    width: 400px;
+    text-align: center;
+  }
+
+  .sheet-new-stam-hold  .stam-winded .info-input{
+    width: 100px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+  }
+
+  /* When the winded or dying checkbox is checked, add a red background */
+  .stam-winded input:checked ~ .stam-status {
+    background-color: #ff6262;
+  }
+
+  .sheet-new-stam-hold .stam-shield{
+    width: 150px;
+    height: 150px;
+    background: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/stamframe.png') no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sheet-new-stam-hold .stam-shield .stam-shield-input{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    font-size: xx-large;
+    border: none;
+    background: transparent;
+  }
+
+  .stam-temp .small-num-input{
+    width: 50px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    font-size: medium;
+    border: 1px solid black;
+  }
+
+  .stam-maximum .small-num-input{
+    width: 50px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    font-size: medium;
+    border: 1px solid black;
+  }
+
   .sheet-stam-recover{
     display: grid;
     grid-template-columns: 200px 200px;
@@ -1084,6 +1169,50 @@ input[disabled]{
     padding: 3px;
     height: 15px;
   }
+
+  /** Resources & Recovery **/
+
+  .sheet-recoveries-resources{
+    /** Holder **/
+  }
+
+  .sheet-recoveries-resources .three-col{
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    column-gap: 5px;
+    text-align: center;
+    align-items: center;
+  } 
+
+  .sheet-recoveries-resources .frame-input{
+    width: 50px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    font-size: large;
+  }
+
+  .res-frame{
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .recovery-frame{
+    background: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/recoveryframe.png') no-repeat center;
+  }
+
+  .resource-frame{
+    background: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/resframe.png') no-repeat center;
+  }
+
+  .surge-frame{
+    background: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/surgeframe.png') no-repeat center;
+  }
+
 
   /********************************/
   /*      Skill Rolls             */

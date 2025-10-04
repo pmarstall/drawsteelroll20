@@ -362,41 +362,65 @@
         <div class="char-top-layout-3col">
             <div class="sheet-generic">
                 
-
+                <!-- New Stamina -->
+                 <div class="sheet-new-stam-hold">
+                    <div class="stam-title">Stamina</div>
+                    <div class="three-col">
+                        <div class="stam-shield">
+                            <input type="text" class="stam-shield-input" name="attr_stamina">
+                        </div>
+                        <div class="stam-winded">
+                            <input type="checkbox" name="attr_iswinded" class="hidden-options">
+                            <div class="stam-status">
+                                <div class="stam-indicator">Winded</div>
+                                <input type="hidden" name="attr_halfstamina">
+                                <input type="text" name="attr_windedstamina" class="info-input" readonly>
+                            </div>
+                        </div>
+                        <div class="stam-winded">
+                            <input type="checkbox" name="attr_isdying" class="hidden-options">
+                            <div class="stam-status">
+                                <div class="stam-indicator">Dying</div>
+                                <input type="text" name="attr_dyingstamina" class="info-input" readonly>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="two-col">
+                        <div class="stam-temp">
+                            <input type="number" name="attr_tempstamina" class="small-num-input">
+                            <div>Temporary</div>
+                        </div>
+                        <div class="stam-maximum">
+                            <input type="number" name="attr_maxstamina" class="small-num-input">
+                            <div>Maximum</div>
+                        </div>
+                    </div>
+                 </div>
                 
-                <!-- Stamina and Recovery -->
-                <div class="sheet-section sheet-stam-recover">
-                    <!-- Stamina -->
-                    <div class="sheet-stam-recover-inner">
-                        <div class="sheet-stam-recover-main">
-                            <div class="sheet-section-title">Stamina</div>
-                            <input type="number" class="bignum" name="attr_stamina">
+                <!-- Recoveries and Resources -->
+                 <div class="sheet-recoveries-resources">
+                    <div class="three-col">
+                        <div class="recovery-main">
+                            <div class="res-title">Recoveries</div>
+                            <div class="recovery-frame res-frame">   
+                                <input type="text" name="attr_recoveries" class="frame-input">
+                            </div> 
                         </div>
-                        <div class="sheet-stam-recover-second">
-                            <div class="sheet-stam-recover-2col">
-                                <span>Max:</span><input type="number" name="attr_maxstamina" class="small-num-input">
-                            </div>
-                            <div class="sheet-stam-recover-2col">
-                                <span>Winded:</span><input type="hidden" name="attr_halfstamina"><input type="text" name="attr_halfstamina2" value="@{halfstamina}" class="info-input" disabled>
-                            </div>
+                        <div class="resource-main">
+                            <div class="res-title">Heroic Resources</div>
+                            <div class="resource-frame res-frame">   
+                                <input type="text" name="attr_recoveries" class="frame-input">
+                            </div> 
                         </div>
-                    </div>
-                    <!-- Recovery -->
-                    <div class="sheet-stam-recover-inner">
-                        <div class="sheet-stam-recover-main">
-                            <div class="sheet-section-title">Recoveries</div>
-                            <input type="number" class="bignum" name="attr_recoveries">
-                        </div>
-                        <div class="sheet-stam-recover-second">
-                            <div class="sheet-stam-recover-2col">
-                                <span>Max:</span><input type="number" name="attr_maxrecoveries" class="small-num-input">
-                            </div>
-                            <div class="sheet-stam-recover-2col">
-                                <span>Half:</span><input type="hidden" name="attr_halfrecoveries"><input type="text" name="attr_halfstamina2" value="@{halfrecoveries}" class="info-input" disabled>
-                            </div>
+                        <div class="surves-main">
+                            <div class="res-title">Surges</div>
+                            <div class="surges-frame res-frame">   
+                                <input type="text" name="attr_recoveries" class="frame-input">
+                            </div> 
                         </div>
                     </div>
-                </div>
+                </div>  
+                
                 <!-- Victories -->
                 <div class="sheet-section">
                     <div class="sheet-section-title">Victories</div>
@@ -1359,14 +1383,29 @@
     // Recalc Stamina
     //////////////////////////////////////////////////////////
 
-    on('change:maxstamina change:maxrecoveries', function() {
+    on('change:maxstamina change:maxrecoveries change:stamina', function() {
         console.log('Max Stamina Triggered');
         // Change the half-stamina control
-        getAttrs(["maxstamina", "maxrecoveries"], function(values){
+        getAttrs(["maxstamina", "maxrecoveries", "stamina"], function(values){
             let hsta =Math.round(values["maxstamina"]/2);
             let hrec = Math.round(values["maxrecoveries"]/2);
+            let windstam = "Less than " + hsta;
+            let dyingstam = "0 to -" + hsta;
+
+            if (values["stamina"] <= hsta) {
+                setAttrs({iswinded: "on"});
+            }else{
+                setAttrs({iswinded: 0});
+            }
+
+            if(values["stamina"] <= 0){
+                setAttrs({isdying: "on"});
+            }else{
+                setAttrs({isdying: 0});     
+            }
+
             console.log("Half stamina is "+hsta);
-            setAttrs({halfstamina: hsta, halfrecoveries: hrec});
+            setAttrs({halfstamina: hsta, halfrecoveries: hrec, windedstamina: windstam, dyingstamina: dyingstam});
         });
     });
 
