@@ -100,7 +100,15 @@ input.char-name-input {
   width: 600px;
   font-size: xx-large;
   border: solid 1px black;
-  border-radius: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+input.char-longname-input {
+  width: 600px;
+  font-size: medium;
+  border: solid 1px black;
+  border-radius: 3px;
   background-color: white;
 }
 
