@@ -281,10 +281,6 @@ button.sheet-button-selected {
   line-height: 1.40;
 }
 
-.sheet-rolltemplate-drawsteelattack .sheet-template-body{
-
-}
-
 .sheet-rolltemplate-drawsteelattack .sheet-template-crit{
 
   font-size: x-large;
@@ -322,18 +318,9 @@ button.sheet-button-selected {
   padding: 5px;
 }
 
-.sheet-rolltemplate-drawsteelattack .inlinerollresult  {
-
-}
-
 /*******************/
 /* Summary Template */
 /*******************/
-
-.sheet-rolltemplate-drawsteelsummary {
-  /* border: solid 1px rgb(116, 181, 255);*/
-}
-
 .sheet-rolltemplate-drawsteelsummary .sheet-template-main{
   /* border: solid 1px rgb(116, 181, 255);*/
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border01.png");
@@ -348,26 +335,8 @@ button.sheet-button-selected {
 
 .sheet-rolltemplate-drawsteelsummary .sheet-template-title{
   font-size: large;
-  line-spacing: 1.40;
+  line-height: 1.40;
   padding: 10px;
-}
-
-.sheet-rolltemplate-drawsteelsummary .sheet-template-body{
-/*border: solid 1px black;
-background-color: #e1e4dc;*/
-}
-
-.sheet-rolltemplate-drawsteelsummary .sheet-template-crit{
-/*color: black;
-font-size:larger;
-padding: 10px;
-text-align: center;
-background-color: greenyellow;*/
-}
-
-.sheet-rolltemplate-drawsteelsummary .sheet-template-result{
-  /*border: solid 1px black;
-  padding: 5px;*/
 }
 
 .sheet-rolltemplate-drawsteelsummary .sheet-template-tier {
@@ -425,10 +394,6 @@ color: black;
 /* Maneuver Template */
 /*******************/
 
-.sheet-rolltemplate-drawsteelmaneuver {
- 
-}
-
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-main{
   /* border: solid 1px rgb(116, 181, 255);*/
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border06.png");
@@ -453,10 +418,6 @@ color: black;
   border-image-slice: 13 13;
   border-image-width: auto;
   border-image-repeat: round;
-
-}
-
-.sheet-rolltemplate-drawsteelmaneuver .sheet-template-body{
 
 }
 
@@ -491,11 +452,6 @@ padding: 3px;
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-special{
 text-align: left;
 padding: 5px;
-
-}
-
-.sheet-rolltemplate-drawsteelmaneuver .inlinerollresult  {
-
 }
 
 /******************/
@@ -1205,7 +1161,7 @@ input[disabled]{
 
   .res-frame{
     width: 120px;
-    height: 120px;
+    height: 70px;
     background-size: contain;
     display: flex;
     align-items: center;
