@@ -1172,8 +1172,11 @@ input[disabled]{
 
   /** Resources & Recovery **/
 
-  .sheet-recoveries-resources{
-    /** Holder **/
+  .sheet-recoveries-resources .under-title{
+    font-size: medium;
+    width: 120px;
+    border-top: 1px solid black;
+    text-align: center;
   }
 
   .sheet-recoveries-resources .three-col{
@@ -1192,9 +1195,17 @@ input[disabled]{
     font-size: large;
   }
 
+  .res-title{
+    font-size: 15px;
+    height: 35px;
+    padding-top: 10px;
+    width: 120px;
+    text-align: center;
+    }
+
   .res-frame{
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     background-size: contain;
     display: flex;
     align-items: center;
@@ -1211,6 +1222,25 @@ input[disabled]{
 
   .surge-frame{
     background: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/surgeframe.png') no-repeat center;
+  }
+
+  .sheet-recoveries-resources .small-num-input {
+    width: 50px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    font-size: medium;
+    border: none;
+  }
+
+  .small-text-input{
+    width: 100px;
+    font-size: 10px;
+    padding: 3px;
+    height: 15px;
+    font-size: medium;
+    background-color: transparent;
+    border: none
   }
 
 
