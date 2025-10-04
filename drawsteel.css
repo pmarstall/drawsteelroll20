@@ -36,7 +36,8 @@
 .sheet-section{
   margin: auto;
   width: 100%;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
   border-bottom: solid 1px black;
 }
 
@@ -62,15 +63,19 @@
   padding-top: 10px;
 }
 
-.char-top-layout-3col{
+.char-top-layout-2col{
     display: grid;
-    grid-template-columns: 400px 400px 400px;
+    grid-template-columns: 400px 400px;
     column-gap: 20px;
     padding-top: 10px;
 }
 
 .basics {
     width: 100%;
+}
+
+.sheet-pcbase{
+  width: 800 px;
 }
 
 /***************/
@@ -192,6 +197,23 @@ button.sheet-button-selected {
 
 .sheet-rolltemplate-drawsteelbasic {
   color: black
+}
+
+.sheet-background{
+  padding: 20px;
+}
+
+.sheet-background-lower{
+  padding: 20px;
+}
+
+.sheet-background-lower textarea{
+  width: 100%;
+  height: 400px;
+  font-size: medium;
+  border: solid 1px black;
+  border-radius: 3px;
+  background-color: transparent;
 }
 
 .sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-main{
@@ -318,11 +340,40 @@ button.sheet-button-selected {
   padding: 5px;
 }
 
+.sheet-rolltemplate-drawsteelattack .sheet-template-body{
+
+}
+
+.sheet-rolltemplate-drawsteelattack .inlinerollresult  {
+
+}
+
 /*******************/
 /* Summary Template */
 /*******************/
-.sheet-rolltemplate-drawsteelsummary .sheet-template-main{
+.sheet-rolltemplate-drawsteelsummary {
   /* border: solid 1px rgb(116, 181, 255);*/
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-body{
+/*border: solid 1px black;
+background-color: #e1e4dc;*/
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-crit{
+/*color: black;
+font-size:larger;
+padding: 10px;
+text-align: center;
+background-color: greenyellow;*/
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-result{
+  /*border: solid 1px black;
+  padding: 5px;*/
+}
+
+.sheet-rolltemplate-drawsteelsummary .sheet-template-main{
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border01.png");
   border-image-slice: 50 50 fill;
   border-image-width: auto;
@@ -393,6 +444,17 @@ color: black;
 /*******************/
 /* Maneuver Template */
 /*******************/
+.sheet-rolltemplate-drawsteelmaneuver {
+ 
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .sheet-template-body{
+
+}
+
+.sheet-rolltemplate-drawsteelmaneuver .inlinerollresult  {
+
+}
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-main{
   /* border: solid 1px rgb(116, 181, 255);*/
@@ -418,7 +480,6 @@ color: black;
   border-image-slice: 13 13;
   border-image-width: auto;
   border-image-repeat: round;
-
 }
 
 .sheet-rolltemplate-drawsteelmaneuver .sheet-template-crit{
@@ -1129,7 +1190,7 @@ input[disabled]{
   /** Resources & Recovery **/
 
   .sheet-recoveries-resources .under-title{
-    font-size: medium;
+    font-size: normal;
     width: 120px;
     border-top: 1px solid black;
     text-align: center;
@@ -1148,12 +1209,12 @@ input[disabled]{
     text-align: center;
     background-color: transparent;
     border: none;
-    font-size: large;
+    font-size: x-large;
   }
 
   .res-title{
     font-size: 15px;
-    height: 35px;
+    height: 25px;
     padding-top: 10px;
     width: 120px;
     text-align: center;
@@ -1161,7 +1222,7 @@ input[disabled]{
 
   .res-frame{
     width: 120px;
-    height: 70px;
+    height: 90px;
     background-size: contain;
     display: flex;
     align-items: center;
@@ -1194,6 +1255,7 @@ input[disabled]{
     font-size: 10px;
     padding: 3px;
     height: 15px;
+    text-align: center;
     font-size: medium;
     background-color: transparent;
     border: none
@@ -1504,4 +1566,14 @@ textarea.kit-bigtextarea{
   background-image: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/line4.png'); 
   background-repeat: no-repeat;
 
+}
+
+/*********************************/
+/*   Fancy Borders         */   
+/*********************************/
+.golden-lower-border{
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border05.png");
+  border-image-slice: 13 13;
+  border-image-width: auto;
+  border-image-repeat: round;
 }
