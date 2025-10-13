@@ -20,11 +20,17 @@
 .sheet-generic-2col{
   display: grid;
   grid-template-columns: auto auto;
+  column-gap: 5px;
 }
 
 .sheet-generic-5col {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
+}
+
+.sheet-generic-4col {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 }
 
 /* The title box for a container */
@@ -59,10 +65,6 @@
   column-gap: 10px;
 }
 
-.sheet-middle{
-  padding-top: 10px;
-}
-
 .char-top-layout-2col{
     display: grid;
     grid-template-columns: 400px 400px;
@@ -83,13 +85,15 @@
 /***************/
 
 .char-header-main{
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 5px;
+  width: 820px;
   background-color: black;
   padding-bottom: 10px;
   color: whitesmoke;
   padding: 7px;
+}
+
+.char-header-secondary{
+
 }
 
 .char-header-fieldline {
@@ -119,9 +123,22 @@ input.char-small-num-input{
 }
 
 .char-header-stats {
-  display: grid;
-  grid-template-columns: 50px 50px 50px 50px;
-  font-size: x-small;
+  width: 400px;
+  font-size: medium;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.secondary-stat{
+  text-align: center;
+  width: 70px;
+}
+
+.secondary-stat input{
+  width: 50px;
+  text-align: center;
+  background-color: white;
+  border: none;
 }
 
 /**************************************/
@@ -884,13 +901,16 @@ input[disabled]{
     width: 120px;
   }
 
-  .bane-grid{
-    display: grid;
-    grid-template-columns: 130px 130px;
-    column-gap: 5px;
-    text-align: center;
+  .bane-grid span{
+    padding: 5px;
+    text-align: right;
+    vertical-align: middle;
   }
-
+  
+  .bane-grid{
+    text-align: right;
+    vertical-align: middle;
+  }
   .edge-container{
     position: relative;
     background-color: #102e0a;
@@ -1237,6 +1257,15 @@ input[disabled]{
     justify-content: center;
   }
 
+  .wideres-frame{
+    width: 200px;
+    height: 90px;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .recovery-frame{
     background: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/recoveryframe.png') no-repeat center;
   }
@@ -1269,6 +1298,35 @@ input[disabled]{
     border: none
   }
 
+
+  /**  Victories, XP and Wealth **/
+  .victories-xp-wealth .three-col{
+    display: grid;
+    grid-template-columns: 80px 160px 80px;
+    column-gap: 5px;
+    text-align: center;
+    align-items: center;
+  } 
+
+  .vic-frame{
+    background: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/octframe.png') no-repeat center;
+  }
+
+  .xp-frame{
+    background: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/recframe.png') no-repeat center;
+  }
+
+  .wealth-frame{
+    background: url('https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/octframe.png') no-repeat center;
+  }
+
+  .victories-xp-wealth .frame-input{
+    width: 50px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    font-size: x-large;
+  }
 
   /********************************/
   /*      Skill Rolls             */

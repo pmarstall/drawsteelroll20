@@ -268,7 +268,7 @@
 ********************************************************************************************************************-->
 <input type="hidden" class="sheet-npcstoggle" name="attr_sheetnpc" value="pc" />
 <div class="sheet-pcbase">
-    <div class="char-header-main">
+    <div class="char-header-main sheet-generic-2col">
         <div class="">
             <div class="char-header-fieldline"><input type="text" class="char-name-input" name="attr_characterName" value="" placeholder="Enter Name"></div>
             <div class="char-header-fieldline"><input type="text" class="char-longname-input" name="attr_characterLongName" value="" placeholder="Enter Name"></div>
@@ -276,68 +276,66 @@
                 <input type="text" class="char-race-input" name="attr_race" placeholder="Enter Race">
                 <input type="text" class="char-class-input" name="attr_characterClass" value="" placeholder="Enter Class">
             </div>
+        </div>
             
+        <!-- Banes and Edges -->
+        <div class="bane-grid sheet-middle">
+            <div class="bane-top-level edge-container">
+                <!-- Rectangular switch -->
+                <label class="switch">
+                    <input type="checkbox" name="attr_edge">
+                    <span class="slider_green">Edge</span>
+                </label>
+            </div>
+            <div class="bane-top-level bane-container">
+                <!-- Rectangular switch -->
+                <label class="switch">
+                    <input type="checkbox" name="attr_bane">
+                    <span class="slider_red">Bane</span>
+                </label>
+            </div>
         </div>
-        <div class="char-header-stats">
-                <span>Size</span>
-                <input type="number" name="attr_size" class="char-small-num-input" value="1">
-                <span>Weight</span>
-                <input type="number" name="attr_weight" class="char-small-num-input" value="1">
-                <span>Reach</span>
-                <input type="number" name="attr_reach" class="char-small-num-input" value="1">
-                <span>Speed</span>
-                <input type="number" name="attr_speed" class="char-small-num-input" value="5">
-                <span>Stability</span>
-                <input type="number" name="attr_stability" class="char-small-num-input" value="0">
-                <span>Renoun</span>
-                <input type="number" name="attr_renoun" class="char-small-num-input" value="0">
-                <span>Level</span>
-                <input type="number" name="attr_level" class="char-small-num-input"  value="0">
-                <span></span>
-                <span></span>                        
-        </div>
-    </div>
+    </div>  
 
+    <input type="number" name="attr_none" hidden value="0">
     <!-- Middle Area -->
     <div class="char-header-main">
         <div class="middle-header-2col">
             <!-- Character Stats -->
-            <div class="sheet-middle">
-                <div class="sheet-section-title">Attributes and Skills</div>
-                <div class="char-stats-5col">
-                    <span class="attrib-button-holder"><button type="action" name="act_test" class="attrib-button" value="MGT">MGT</button></span>
-                    <span class="attrib-button-holder"><button type="action" name="act_test" class="attrib-button" value="AGL">AGL</button></span>
-                    <span class="attrib-button-holder"><button type="action" name="act_test" class="attrib-button" value="REA">REA</button></span>
-                    <span class="attrib-button-holder"><button type="action" name="act_test" class="attrib-button" value="INU">INU</button></span>
-                    <span class="attrib-button-holder"><button type="action" name="act_test" class="attrib-button" value="PRS">PRS</button></span>
 
-                    <span class="attrib-button-holder"><input type="number" name="attr_mgt" class="attrib-input" value="0"></span>
-                    <span class="attrib-button-holder"><input type="number" name="attr_agl" class="attrib-input" value="0"></span>
-                    <span class="attrib-button-holder"><input type="number" name="attr_rea" class="attrib-input" value="0"></span>
-                    <span class="attrib-button-holder"><input type="number" name="attr_inu" class="attrib-input" value="0"></span>
-                    <span class="attrib-button-holder"><input type="number" name="attr_prs" class="attrib-input" value="0"></span>
-                </div> 
-                <input type="number" name="attr_none" hidden value="0">
-            </div>
-            <!-- Banes and Edges -->
-            <div class="bane-grid sheet-middle">
-                <div class="bane-top-level edge-container">
-                    <!-- Rectangular switch -->
-                     Edge
-                    <label class="switch">
-                        <input type="checkbox" name="attr_edge">
-                        <span class="slider_green"></span>
-                    </label>
+            <div class="char-stats-5col">
+                <span class="attrib-button-holder"><button type="action" name="act_test" class="attrib-button" value="MGT">MGT</button></span>
+                <span class="attrib-button-holder"><button type="action" name="act_test" class="attrib-button" value="AGL">AGL</button></span>
+                <span class="attrib-button-holder"><button type="action" name="act_test" class="attrib-button" value="REA">REA</button></span>
+                <span class="attrib-button-holder"><button type="action" name="act_test" class="attrib-button" value="INU">INU</button></span>
+                <span class="attrib-button-holder"><button type="action" name="act_test" class="attrib-button" value="PRS">PRS</button></span>
+
+                <span class="attrib-button-holder"><input type="number" name="attr_mgt" class="attrib-input" value="0"></span>
+                <span class="attrib-button-holder"><input type="number" name="attr_agl" class="attrib-input" value="0"></span>
+                <span class="attrib-button-holder"><input type="number" name="attr_rea" class="attrib-input" value="0"></span>
+                <span class="attrib-button-holder"><input type="number" name="attr_inu" class="attrib-input" value="0"></span>
+                <span class="attrib-button-holder"><input type="number" name="attr_prs" class="attrib-input" value="0"></span>
+            </div> 
+
+            <div class="char-header-stats sheet-generic-4col">
+                <div class="secondary-stat">
+                    <div>Size</div>
+                    <input type="Text" name="attr_size" value="1">
                 </div>
-                <div class="bane-top-level bane-container">
-                    Bane
-                    <!-- Rectangular switch -->
-                    <label class="switch">
-                        <input type="checkbox" name="attr_bane">
-                        <span class="slider_red"></span>
-                    </label>
+                <div class="secondary-stat">
+                    <div>Speed</div>
+                    <input type="Text" name="attr_speed" value="5">
                 </div>
+                <div class="secondary-stat">
+                    <div>Disengage</div>
+                    <input type="Text" name="attr_disengage" value="1">
+                </div>
+                <div class="secondary-stat">
+                    <div>Stability</div>
+                    <input type="Text" name="attr_stability" value="0">
+                </div>                    
             </div>
+
         </div>
     </div>
 
@@ -399,7 +397,7 @@
                  </div>
                 
                 <!-- Recoveries and Resources -->
-                 <div class="sheet-recoveries-resources">
+                 <div class="sheet-recoveries-resources sheet-new-stam-hold">
                     <div class="three-col">
                         <div class="recovery-main">
                             <div class="res-title">Recoveries</div>
@@ -428,23 +426,29 @@
                     </div>
                 </div>  
                 
-                <!-- Victories -->
-                <div class="sheet-section">
-                    <div class="sheet-section-title">Victories</div>
-                    <div class="sheet-vicres-holder">
-                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                        <label class="vic-container"><input type="checkbox"><span class="checkmark"></span></label>
-                        
+                <!-- Victories, Experience & Wealth -->
+                <div class="victories-xp-wealth sheet-new-stam-hold">
+                    <div class="three-col">
+                        <div class="vic-main">
+                            <div class="vic-frame res-frame">   
+                                <input type="text" name="attr_victories" class="frame-input">
+                            </div> 
+                            <div class="under-title">Victories</div>
+                        </div>
+                        <div class="xp-main">
+                            <div class="xp-frame wideres-frame">   
+                                <input type="text" name="attr_xp" class="frame-input">
+                            </div> 
+                            <div class="under-title">Experience</div>
+                        </div>
+                        <div class="wealth-main">
+                            <div class="wealth-frame res-frame">   
+                                <input type="text" name="attr_level" class="frame-input">
+                            </div> 
+                            <div class="">Level</div>
+                        </div>
                     </div>
-                </div>
+                </div>  
             </div>
 
             <!-- Second Main Column -->
@@ -876,6 +880,10 @@
             <input type="text" name="attr_languages" value="" placeholder="Enter Languages">
             <span>Ancestry</span>
             <input type="text" name="attr_ancestry" value="" placeholder="Enter Ancestry">
+            <span>Wealth</span>
+            <input type="text" name="attr_wealth" value="" placeholder="1">
+            <span>Renoun</span>
+            <input type="text" name="attr_renoun" value="" placeholder="0">
         </div>
         <div class="golden-lower-border">&nbsp;</div>
         <div class="sheet-background-lower">
