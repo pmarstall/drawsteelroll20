@@ -384,7 +384,7 @@
                             </div>  
                         </div>
                     </div>
-                    <div class="two-col">
+                    <div class="three-col">
                         <div class="stam-temp">
                             <input type="number" name="attr_tempstamina" class="small-num-input">
                             <div>Temporary</div>
@@ -392,6 +392,9 @@
                         <div class="stam-maximum">
                             <input type="number" name="attr_maxstamina" class="small-num-input">
                             <div>Maximum</div>
+                        </div>
+                        <div class="stam-btn-hold">
+                            <button type="action" name="act_recovery" class="recovery_btn">Recovery</button>
                         </div>
                     </div>
                  </div>
@@ -449,6 +452,9 @@
                         </div>
                     </div>
                 </div>  
+                <div class="respite_button_row">
+                    <button type="action" name="act_respite" class="recovery_btn">Take a Respite</button>
+                </div>
             </div>
 
             <!-- Second Main Column -->
@@ -1411,6 +1417,77 @@
 
             console.log("Half stamina is "+hsta);
             setAttrs({halfstamina: hsta, halfrecoveries: hrec, windedstamina: windstam, dyingstamina: dyingstam});
+        });
+    });
+
+    //////////////////////////////////////////////////////////
+    //  Take a Recovery
+    //////////////////////////////////////////////////////////
+
+    on ('clicked:recovery', (event) => {
+        console.log("Recovery Clicked");
+
+        // Set and reset the stamina and recoveries
+        getAttrs(["maxstamina", 
+                "maxrecoveries", 
+                "stamina", 
+                "recoveries"], function(values){
+            let hstam =Math.round(values["maxstamina"]/2);
+            let newstam = parseInt(values["stamina"]) + hstam;
+            let availRecs = parseInt(values["recoveries"])
+            console.log ("New Stamina is "+newstam);
+            console.log (availRecs + " recoveries available");
+            if (newstam > values["maxstamina"]){newstam = parseInt(values["maxstamina"])};
+            console.log ("New Stamina (after max check) is "+newstam);
+
+            // Edge condition checks
+            if(availRecs < 1){
+                console.log("No recoveries left");
+                return 0;
+            }
+            if(parseInt(values["stamina"]) == parseInt(values["maxstamina"])){
+                console.log("Stamina is already at max values");
+                return 0;
+            }
+
+            // Reduce the number of recoveries
+            availRecs = availRecs - 1;
+
+            //Set the new htmlAttributes
+            setAttrs({stamina: newstam, recoveries: availRecs});
+        });
+    });
+
+    //////////////////////////////////////////////////////////
+    //  Take a Respite
+    //////////////////////////////////////////////////////////
+
+    on ('clicked:respite', (event) => {
+        console.log("Respite Clicked");
+
+        // Set and reset the stamina and recoveries
+        getAttrs(["maxstamina", 
+                "maxrecoveries", 
+                "stamina", 
+                "maxrecoveries", 
+                "victories",
+                "xp"], function(values){
+            let maxStam = parseInt(values["maxstamina"]);
+            let maxRecs = parseInt(values["maxrecoveries"]);
+            let vicPts = parseInt(values["victories"]);
+            let xpVal = parseInt(values["xp"]);
+
+            // Set some values to zero
+            setAttrs({surges: 0, resources: 0});
+
+            // Set recoveries and stamina to max
+            setAttrs({stamina: maxStam, recoveries: maxRecs});
+
+            // Add victories to XP and set victories to 0
+            xpVal = xpVal + vicPts;
+            console.log("New XP is "+xpVal);
+            setAttrs({xp: xpVal, victories: 0});
+
         });
     });
 
