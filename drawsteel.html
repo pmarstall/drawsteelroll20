@@ -1027,6 +1027,25 @@
     </div>
 </rolltemplate>
 
+<!-- Initiative Roll Template -->
+ <rolltemplate class="sheet-rolltemplate-drawsteelinitiative">
+    <div class="sheet-template-main">
+    <div class="sheet-template-title">
+        {{name}} rolled initiative: {{roll}}
+    </div>
+    {{#rollLess() roll 6}}
+        <div class="sheet-template-title">
+            The Bad Guys go first!
+        </div>
+    {{/rollLess() roll 6}}
+    {{#rollGreater() roll 5}}
+        <div class="sheet-template-title">
+            The Player-Characters go first!
+        </div>
+    {{/rollGreater() roll 5}}
+    </div>  
+</rolltemplate>
+
 <!-- Maneuver Roll Template -->
 <rolltemplate class="sheet-rolltemplate-drawsteelmaneuver">
     <div class="sheet-template-main">

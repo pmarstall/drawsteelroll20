@@ -224,6 +224,10 @@ button.sheet-button-selected {
   color: black
 }
 
+.sheet-rolltemplate-drawsteelinitiative {
+  color: black
+}
+
 .sheet-background{
   padding: 20px;
 }
@@ -241,7 +245,7 @@ button.sheet-button-selected {
   background-color: transparent;
 }
 
-.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-main{
+.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave, .sheet-rolltemplate-drawsteelinitiative .sheet-template-main{
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border03.png");
   border-image-slice: 30 50 fill;
   border-image-width: auto;
@@ -252,25 +256,25 @@ button.sheet-button-selected {
   color: black;
 }
 
-.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-title{
+.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave, .sheet-rolltemplate-drawsteelinitiative .sheet-template-title{
   font-size: large;
   line-height: 1.40;
   padding: 5px;
 }
 
-.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-body{
+.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave, .sheet-rolltemplate-drawsteelinitiative .sheet-template-body{
   text-align: center;
 
 }
 
-.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-crit{
+.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave, .sheet-rolltemplate-drawsteelinitiative .sheet-template-crit{
   text-align: center;
 
   font-size:larger;
   padding: 10px;
 }
 
-.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave .sheet-template-result{
+.sheet-rolltemplate-drawsteelbasic, .sheet-rolltemplate-drawsteelsave, .sheet-rolltemplate-drawsteelinitiative .sheet-template-result{
   text-align: center;
   padding: 10px;
 }
