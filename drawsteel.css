@@ -710,7 +710,6 @@ button[type="action"].rptactionbutton:hover {
 
 .sheet-hiddenarea .clicktohide {
   position: relative;
-  top: -15px;
 }
 
 .power-roll-choice-pc {
@@ -721,6 +720,11 @@ button[type="action"].rptactionbutton:hover {
 .power-roll-choice-npc {
   top: -15px;
   left: -275px;
+}
+
+.power-roll-attack-npc {
+  top: 1px;
+  left: -75px;
 }
 
 .man_power{

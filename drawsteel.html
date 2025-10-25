@@ -112,32 +112,36 @@
                                 <div class="rpt_2col">
                                     <span>Name:</span><input type="text" name="attr_atkname" placeholder="Attack Name">
                                     <span>Keywords:</span><input type="text" name="attr_atkkeywords" placeholder="Melee, Strike, Weapon, etc.">
-                                    <span>Power Roll +</span>
-                                    <select name="attr_mods">
-                                        <option>None</option>
-                                        <option>MGT</option>
-                                        <option>AGL</option>
-                                        <option>REA</option>
-                                        <option>INU</option>
-                                        <option>PRS</option>
-                                    </select>
-                                    <span>Include kit?</span>
-                                        <select name="attr_atktype">
-                                            <option>None</option>
-                                            <option>Melee</option>
-                                            <option>Ranged</option>
-                                        </select>
-                                     
                                     <span>Cost</span><input type="text" name="attr_atkcost" placeholder="Cost to use">
                                     <span>Distance:</span><input type="text" name="attr_atkdistance" placeholder="Distance">
-                                
                                     <span>Target:</span><input type="text" name="attr_atktarget" placeholder="One Target">
-                                </div>
-                                <div class="rpt_3col"> 
-                                    <span></span><span>Damage</span><span>Special</span>
-                                    <span>Tier 1</span><span><input type="number" name="attr_atktier1dmg" class="small-val-input" value="0"></span ><input type="text" name="attr_atktier1desc" value="" placeholder="Special Effect">
-                                    <span>Tier 2</span><span><input type="number" name="attr_atktier2dmg" class="small-val-input" value="0"></span><span><input type="text" name="attr_atktier2desc" value="" placeholder="Special Effect"></span>
-                                    <span>Tier 3</span><span><input type="number" name="attr_atktier3dmg" class="small-val-input" value="0"></span><span><input type="text" name="attr_atktier3desc" value="" placeholder="Special Effect"></span>
+
+                                    <span>Use Power Roll?</span><input type="checkbox" name="attr_atkpowerroll" class="clicktohide power-roll-attack-npc" value="None">
+                                    <div class="power_roll_hideen_area sheet-hiddenarea">
+                                        <div class="rpt_2col">
+                                            <span>Power Roll +</span>
+                                            <select name="attr_mods">
+                                                <option>None</option>
+                                                <option>MGT</option>
+                                                <option>AGL</option>
+                                                <option>REA</option>
+                                                <option>INU</option>
+                                                <option>PRS</option>
+                                            </select>
+                                            <span>Include kit?</span>
+                                            <select name="attr_atktype">
+                                                <option>None</option>
+                                                <option>Melee</option>
+                                                <option>Ranged</option>
+                                            </select>
+                                        </div>
+                                        <div class="rpt_3col"> 
+                                            <span></span><span>Damage</span><span>Special</span>
+                                            <span>Tier 1</span><span><input type="number" name="attr_atktier1dmg" class="small-val-input" value="0"></span ><input type="text" name="attr_atktier1desc" value="" placeholder="Special Effect">
+                                            <span>Tier 2</span><span><input type="number" name="attr_atktier2dmg" class="small-val-input" value="0"></span><span><input type="text" name="attr_atktier2desc" value="" placeholder="Special Effect"></span>
+                                            <span>Tier 3</span><span><input type="number" name="attr_atktier3dmg" class="small-val-input" value="0"></span><span><input type="text" name="attr_atktier3desc" value="" placeholder="Special Effect"></span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="">
                                     <span>Effect</span><br/>
@@ -201,7 +205,7 @@
                                     <span>Target:</span><input type="text" name="attr_mantarget" placeholder="One Target">
                                 </div>
                                 <span>Use Power Roll?</span><input type="checkbox" name="attr_manpowerroll" class="clicktohide power-roll-choice-npc" value="None">
-                                <div class="power_roll_hideen_area sheet-hiddenarea">
+                                <div class="power_roll_hidden_area sheet-hiddenarea">
                                     <div class="rpt_2col">
                                         <span>Power Roll +</span>
                                         <select name="attr_manmods">
@@ -212,13 +216,14 @@
                                             <option>INU</option>
                                             <option>PRS</option>
                                         </select>
+                                        <div>Results</div>
+                                        <div class="rpt_2col"> 
+                                            <span>Tier 1</span><input type="text" name="attr_mantier1desc" value="" placeholder="Effect">
+                                            <span>Tier 2</span><input type="text" name="attr_mantier2desc" value="" placeholder="Effect">
+                                            <span>Tier 3</span><input type="text" name="attr_mantier3desc" value="" placeholder="Effect">
+                                        </div>
                                     </div>
-                                    <div>Results</div>
-                                    <div class="rpt_2col"> 
-                                        <span>Tier 1</span><input type="text" name="attr_mantier1desc" value="" placeholder="Effect">
-                                        <span>Tier 2</span><input type="text" name="attr_mantier2desc" value="" placeholder="Effect">
-                                        <span>Tier 3</span><input type="text" name="attr_mantier3desc" value="" placeholder="Effect">
-                                    </div>
+                                    
                                 </div>
                                 <div class="">
                                     <span>Effect</span><br/>
@@ -480,32 +485,36 @@
                                 <div class="rpt_2col">
                                     <span>Name:</span><input type="text" name="attr_atkname" placeholder="Attack Name">
                                     <span>Keywords:</span><input type="text" name="attr_atkkeywords" placeholder="Melee, Strike, Weapon, etc.">
-                                    <span>Power Roll +</span>
-                                    <select name="attr_mods">
-                                        <option>None</option>
-                                        <option>MGT</option>
-                                        <option>AGL</option>
-                                        <option>REA</option>
-                                        <option>INU</option>
-                                        <option>PRS</option>
-                                    </select>
-                                    <span>Include kit?</span>
-                                        <select name="attr_atktype">
-                                            <option>None</option>
-                                            <option>Melee</option>
-                                            <option>Ranged</option>
-                                        </select>
-                                     
                                     <span>Cost</span><input type="text" name="attr_atkcost" placeholder="Cost to use">
                                     <span>Distance:</span><input type="text" name="attr_atkdistance" placeholder="Distance">
-                                
                                     <span>Target:</span><input type="text" name="attr_atktarget" placeholder="One Target">
-                                </div>
-                                <div class="rpt_3col"> 
-                                    <span></span><span>Damage</span><span>Special</span>
-                                    <span>Tier 1</span><span><input type="number" name="attr_atktier1dmg" class="small-val-input" value="0"></span ><input type="text" name="attr_atktier1desc" value="" placeholder="Special Effect">
-                                    <span>Tier 2</span><span><input type="number" name="attr_atktier2dmg" class="small-val-input" value="0"></span><span><input type="text" name="attr_atktier2desc" value="" placeholder="Special Effect"></span>
-                                    <span>Tier 3</span><span><input type="number" name="attr_atktier3dmg" class="small-val-input" value="0"></span><span><input type="text" name="attr_atktier3desc" value="" placeholder="Special Effect"></span>
+
+                                    <span>Use Power Roll?</span><input type="checkbox" name="attr_atkpowerroll" class="clicktohide power-roll-attack-npc" value="None">
+                                    <div class="power_roll_hideen_area sheet-hiddenarea">
+                                        <div class="rpt_2col">
+                                            <span>Power Roll +</span>
+                                            <select name="attr_mods">
+                                                <option>None</option>
+                                                <option>MGT</option>
+                                                <option>AGL</option>
+                                                <option>REA</option>
+                                                <option>INU</option>
+                                                <option>PRS</option>
+                                            </select>
+                                            <span>Include kit?</span>
+                                            <select name="attr_atktype">
+                                                <option>None</option>
+                                                <option>Melee</option>
+                                                <option>Ranged</option>
+                                            </select>
+                                        </div>
+                                        <div class="rpt_3col"> 
+                                            <span></span><span>Damage</span><span>Special</span>
+                                            <span>Tier 1</span><span><input type="number" name="attr_atktier1dmg" class="small-val-input" value="0"></span ><input type="text" name="attr_atktier1desc" value="" placeholder="Special Effect">
+                                            <span>Tier 2</span><span><input type="number" name="attr_atktier2dmg" class="small-val-input" value="0"></span><span><input type="text" name="attr_atktier2desc" value="" placeholder="Special Effect"></span>
+                                            <span>Tier 3</span><span><input type="number" name="attr_atktier3dmg" class="small-val-input" value="0"></span><span><input type="text" name="attr_atktier3desc" value="" placeholder="Special Effect"></span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="">
                                     <span>Effect</span><br/>
@@ -949,6 +958,7 @@
         <span> {{roll-type}}</span>
         <span>{{roll}}</span>
     </div>
+    {{#powerroll}}
     <div class="sheet-template-body">
         {{#rollGreater() computed::critical 0}}<div class="sheet-template-crit">Critical</div>{{/rollGreater() computed::critical 0}}
         {{#rollLess() roll 12}}
@@ -973,6 +983,7 @@
             </div>
         {{/rollGreater() roll 16}}
     </div>
+    {{/powerroll}}
     {{#effect}}
         <div class="sheet-template-special">
             {{effect}}
@@ -1300,6 +1311,7 @@
         getAttrs([
             "repeating_attacks_"+rowid+"_mods",
             "repeating_attacks_"+rowid+"_atktype",
+            "repeating_attacks_"+rowid+"_atkpowerroll",
             "edge",
             "bane",
         ], function(values){
@@ -1309,12 +1321,16 @@
             if (values["bane"] == "on"){rollVal = rollVal + " - 2 [Bane]";};
 
             let damType = values["repeating_attacks_"+rowid+"_atktype"];
+            console.log("Power Roll Checkbox: " + values["repeating_attacks_"+rowid+"_atkpowerroll"]);
+            let powerroll = getPowerRollBoolean(values["repeating_attacks_"+rowid+"_atkpowerroll"]);
+            console.log("Power Roll Value: " + powerroll);
 
             rollText="&{template:drawsteelattack}"+
                         "{{roll=[[" + rollVal + "]]}}"+
                         "{{char-name=@{characterName}}}"+
                         "{{roll-type=@{repeating_attacks_"+rowid+"_atkname}}}"+
                         "{{critical=[[0]]}}"+
+                        "{{powerroll=" + powerroll +"}}"+
                         "{{t1dmg=[[" + getTierDamage(1, damType, rowid) + "]]}}"+
                         "{{t2dmg=[[" + getTierDamage(2, damType, rowid) + "]]}}"+
                         "{{t3dmg=[[" + getTierDamage(3, damType, rowid) + "]]}}"+
@@ -1358,6 +1374,16 @@
         return txtRtn;
     }
 
+    // Return whether or not there should be a Power Roll
+    function getPowerRollBoolean(powerRollVal) {
+        let rtnVal = "";
+        if (powerRollVal == "None"){
+            rtnVal = "1";
+        }
+        console.log ("Power Roll is " + rtnVal);
+        return rtnVal;
+    }
+
     ////////////////////////////////////////////////////////////////
     //  Maneuvers Roll!
     ////////////////////////////////////////////////////////////////
@@ -1383,8 +1409,7 @@
 
             let damType = values["repeating_attacks_"+rowid+"_atktype"];
 
-            let powerroll = values["repeating_maneuvers_"+rowid+"_manpowerroll"];
-            if (powerroll == "None"){powerroll = "1";}else{powerroll = ""};
+            let powerroll = getPowerRollBoolean(values["repeating_maneuvers_"+rowid+"_manpowerroll"]);
 
             rollText="&{template:drawsteelmaneuver}"+
                         "{{roll=[[" + rollVal + "]]}}"+
