@@ -246,14 +246,18 @@
                         <div class="sheet-repholder">
                             <div class="sheet-reptitle">
                                 <input type="text" name="attr_ablnamedis" value="@{ablname}" class="info-input" disabled="true">
+                                <input type="text" name="attr_ablsrc2" value="@{ablsource}" class="info-input" disabled="true">
                                 <span></span>
-                                <span></span>
-                                <button type="roll" name="roll_abilityroll" id="ablrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Ability: @{ablname}}}{{eft=@{abldesc}}}">Chat</button>
+                                <button type="roll" name="roll_abilityroll" id="ablrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Ability: @{ablname}}}{{keys=@{ablkeywords}}}{{source=@{ablsource}}}{{targ=@{abltarget}}}{{range=@{ablrange}}}{{eft=@{abldesc}}}">Chat</button>
                             </div>
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
-                                <div>
+                                <div class="rpt_2col">
                                     <span>Ability Name:</span><input type="text" name="attr_ablname">
+                                    <span>Source:</span><input type="text" name="attr_ablsource" placeholder="Race, class, career">
+                                    <span>Keywords:</span><input type="text" name="attr_ablkeywords">
+                                    <span>Range:</span><input type="text" name="attr_ablrange">
+                                    <span>Target:</span><input type="text" name="attr_abltarget">
                                 </div>
                                 <span>Description</span>
                                 <textarea name="attr_abldesc" class="effect-text-area">
@@ -614,14 +618,18 @@
                         <div class="sheet-repholder">
                             <div class="sheet-reptitle">
                                 <input type="text" name="attr_ablnamedis" value="@{ablname}" class="info-input" disabled="true">
+                                <input type="text" name="attr_ablsrc2" value="@{ablsource}" class="info-input" disabled="true">
                                 <span></span>
-                                <span></span>
-                                <button type="roll" name="roll_abilityroll" id="ablrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Ability: @{ablname}}}{{eft=@{abldesc}}}">Chat</button>
+                                <button type="roll" name="roll_abilityroll" id="ablrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Ability: @{ablname}}}{{keys=@{ablkeywords}}}{{source=@{ablsource}}}{{targ=@{abltarget}}}{{range=@{ablrange}}}{{eft=@{abldesc}}}">Chat</button>
                             </div>
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
-                                <div>
+                                <div class="rpt_2col">
                                     <span>Ability Name:</span><input type="text" name="attr_ablname">
+                                    <span>Source:</span><input type="text" name="attr_ablsource" placeholder="Race, class, career">
+                                    <span>Keywords:</span><input type="text" name="attr_ablkeywords">
+                                    <span>Range:</span><input type="text" name="attr_ablrange">
+                                    <span>Target:</span><input type="text" name="attr_abltarget">
                                 </div>
                                 <span>Description</span>
                                 <textarea name="attr_abldesc" class="effect-text-area">
@@ -915,6 +923,9 @@
 
 
 <!-- TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES -->
+<!-- TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES -->
+<!-- TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES -->
+<!-- TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES -->
 
 <!-- Attribute Roll Template -->
 <rolltemplate class="sheet-rolltemplate-drawsteelbasic">
@@ -1132,8 +1143,11 @@
         <span>{{name}}</span>
         {{/name}}
     </div>
-    {{#actiontype}}
+  
         <div class="sheet-template-summary-2col">
+            {{#trigger}}
+            <span>Trigger:</span><span> {{trigger}}</span>
+            {{/trigger}}
             {{#keys}}
             <span>Keywords:</span><span> {{keys}}</span>
             {{/keys}}
@@ -1147,30 +1161,13 @@
             <span>Distance:</span><span> {{dist}}</span>
             {{/dist}}
             {{#range}}
-            <span>Target:</span><span> {{range}}</span>
-            {{/range}}
-            {{#targ}}
-            <span>Target:</span><span> {{targ}}</span>
-            {{/targ}}
-            {{#trigger}}
-            <span>Trigger:</span><span> {{trigger}}</span>
-            {{/trigger}}
-        </div>
-    {{/actiontype}}
-    {{#trigger}}
-        <div class="sheet-template-summary-2col">
-            <span>Trigger:</span><span> {{trigger}}</span>
-            {{#keys}}
-            <span>Keywords:</span><span> {{keys}}</span>
-            {{/keys}}
-            {{#range}}
-            <span>Target:</span><span> {{range}}</span>
+            <span>Range:</span><span> {{range}}</span>
             {{/range}}
             {{#targ}}
             <span>Target:</span><span> {{targ}}</span>
             {{/targ}}
         </div>
-    {{/trigger}}
+
     {{#t1}}
         <div class="sheet-template-summary-2col">
             <span>Tier 1:</span><span>{{t1}}</span>
