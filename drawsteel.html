@@ -1,12 +1,13 @@
-<div><div class="pc-choice-top">
-    <label class="pc-switch">
-        <input type="checkbox" name="attr_npc_toggle">
-        <span class="slider-pc">
-            <span class="slider-pc-inner-left">PC</span>
-            <span class="slider-pc-inner-right">NPC</span>
-        </span>
-    </label>
-</div></div>
+<div class="pc-choice-top">
+        <label class="pc-switch">
+            <input type="checkbox" name="attr_npc_toggle">
+            <span class="slider-pc">
+                <span class="slider-pc-inner-left">PC</span>
+                <span class="slider-pc-inner-right">NPC</span>
+            </span>
+        </label>
+    </div>
+
 
 
 <!-- *******************************************************************************************************************
@@ -668,6 +669,8 @@
                         <label class="skill-container"><input type="checkbox" name="attr_skill_carpentry"><span class="skill-checkmark"></span></label>
                         <button name="act_skill" type="action" value="Cooking" class="skillbutton">Cooking</button>
                         <label class="skill-container"><input type="checkbox" name="attr_skill_cooking"><span class="skill-checkmark"></span></label>
+                        <button name="act_skill" type="action" value="Engineering" class="skillbutton">Engineering</button>
+                        <label class="skill-container"><input type="checkbox" name="attr_skill_engineering"><span class="skill-checkmark"></span></label>
                         <button name="act_skill" type="action" value="Fletching" class="skillbutton">Fletching</button>
                         <label class="skill-container"><input type="checkbox" name="attr_skill_fletching"><span class="skill-checkmark"></span></label>
                         <button name="act_skill" type="action" value="Forgery" class="skillbutton">Forgery</button>
@@ -1213,6 +1216,29 @@
 <rolltemplate class="sheet-rolltemplate-test">
     Full Roll = {{roll1}} <br />
     Critical? = {{computed::critical}}<br />
+</rolltemplate>
+
+<!-- Prayer Check -->
+ <rolltemplate class="sheet-rolltemplate-drawsteelprayer">
+    <div>
+        {{name}} prays to the gods: {{roll}}
+    </div>
+    {{#rollTotal() roll 1}}
+    <div>
+        Rolled a 1
+    </div>
+    {{/rollTotal() roll 1}}
+    {{#rollTotal() roll 2}}
+    <div>
+        Rolled a 2
+    </div>
+    {{/rollTotal() roll 2}}
+    {{#rollTotal() roll 3}}
+    <div>
+        Rolled a 3
+    </div>
+    {{/rollTotal() roll 3}}
+
 </rolltemplate>
 
 <!-- SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS-->

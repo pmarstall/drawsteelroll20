@@ -77,7 +77,7 @@
 }
 
 .sheet-pcbase{
-  width: 800 px;
+  width: 800px;
 }
 
 /***************/
@@ -943,6 +943,7 @@ input[disabled]{
     height: 25px;
     display: flex;
     align-items:flex-end;
+    width: 800px;
   }
 
   /* The switch - the box around the slider */
