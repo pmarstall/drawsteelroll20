@@ -1220,23 +1220,23 @@
 
 <!-- Prayer Check -->
  <rolltemplate class="sheet-rolltemplate-drawsteelprayer">
-    <div class="border-style-07">
-        <div>
+    <div class="sheet-template-main">
+        <div class="sheet-template-title">
             {{name}} prays to the gods: {{roll}}
         </div>
         {{#rollTotal() roll 1}}
-        <div>
-            Rolled a 1
+        <div class="sheet-template-result">
+            Gain 2 Piety but take {{damroll}} damage.
         </div>
         {{/rollTotal() roll 1}}
         {{#rollTotal() roll 2}}
-        <div>
-            Rolled a 2
+        <div class="sheet-template-result">
+            Gain 3 Piety.
         </div>
         {{/rollTotal() roll 2}}
         {{#rollTotal() roll 3}}
-        <div>
-            Rolled a 3
+        <div class="sheet-template-result">
+            Gain 5 Piety and can activate a domain effect of your choice.
         </div>
         {{/rollTotal() roll 3}}
     </div>

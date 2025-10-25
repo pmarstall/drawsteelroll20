@@ -548,85 +548,49 @@ padding: 5px;
 /* Abilities Template */
 /******************/
 
-.sheet-rolltemplate-drawsteelability {
-  border: solid rgb(104, 93, 64);
-}
-
-.sheet-rolltemplate-drawsteelability .sheet-template-title{
-  background-color: rgb(104, 93, 64);
-  color: white;
-  text-decoration-color: aliceblue;
-  padding: 5px;
-}
-
-.sheet-rolltemplate-drawsteelability .sheet-template-body{
-  text-align: center;
-  border: solid 1px rgb(104, 93, 64);
-  background-color: rgb(32, 27, 15);;
-}
-
-.sheet-rolltemplate-drawsteelability .sheet-template-crit{
-  text-align: center;
-  background-color: greenyellow;
-  color: rgb(32, 27, 15);
-  font-size:larger;
-  padding: 10px;
-}
-
-.sheet-rolltemplate-drawsteelability .sheet-template-result{
-  text-align: left;
-  padding: 10px;
-  border: solid rgb(104, 93, 64);
-}
+/*  Abilities are shown using the summary template */
 
 /******************/
 /* Triggered Actions Template */
 /******************/
 
-.sheet-rolltemplate-drawsteeltrigger {
-  border: solid rgb(104, 64, 64);
-}
-
-.sheet-rolltemplate-drawsteeltrigger .sheet-template-title{
-  background-color: rgb(104, 64, 64);
-  color: white;
-  text-decoration-color: aliceblue;
-  padding: 5px;
-}
-
-.sheet-rolltemplate-drawsteeltrigger .sheet-template-body{
-  text-align: center;
-  border: solid 1px rgb(104, 64, 64);
-  background-color: rgb(32, 27, 15);;
-}
-
-.sheet-rolltemplate-drawsteeltrigger .sheet-template-crit{
-  text-align: center;
-  background-color: greenyellow;
-  color: rgb(61, 17, 20);
-  font-size:larger;
-  padding: 10px;
-}
-
-.sheet-rolltemplate-drawsteeltrigger .sheet-template-result{
-  text-align: left;
-  padding: 10px;
-  border: solid rgb(104, 64, 64);
-}
+/*  Triggered actions are shown using the summary template */
 
 /******************/
 /* Prayer Template */
 /******************/
+.sheet-rolltemplate-drawsteelprayer {
+  /* Placeholder */
+}
 
-.border-style-07{
+.sheet-rolltemplate-drawsteelprayer .sheet-template-main{
   border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border07.png");
   border-image-slice: 100 100 fill;
   border-image-width: auto;
   border-image-repeat: round;
-  padding-top: 35px;
-  padding-left: 10px;
-  padding-bottom: 30px;
+  padding-top: 60px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 60px;
   color: black;
+}
+
+.sheet-rolltemplate-drawsteelprayer .sheet-template-title{
+  font-size: large;
+  line-height: 1.40;
+  padding-bottom: 10px;
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border05.png");
+  border-image-slice: 13 13;
+  border-image-width: auto;
+  border-image-repeat: round;
+  text-align: center;
+}
+
+.sheet-rolltemplate-drawsteelprayer .sheet-template-result{
+  text-align: center;
+  padding: 10px;
+  font-size: large;
+  line-height: 1.40;
 }
 
 /****************************/
