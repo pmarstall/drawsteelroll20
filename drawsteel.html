@@ -1220,25 +1220,26 @@
 
 <!-- Prayer Check -->
  <rolltemplate class="sheet-rolltemplate-drawsteelprayer">
-    <div>
-        {{name}} prays to the gods: {{roll}}
+    <div class="border-style-07">
+        <div>
+            {{name}} prays to the gods: {{roll}}
+        </div>
+        {{#rollTotal() roll 1}}
+        <div>
+            Rolled a 1
+        </div>
+        {{/rollTotal() roll 1}}
+        {{#rollTotal() roll 2}}
+        <div>
+            Rolled a 2
+        </div>
+        {{/rollTotal() roll 2}}
+        {{#rollTotal() roll 3}}
+        <div>
+            Rolled a 3
+        </div>
+        {{/rollTotal() roll 3}}
     </div>
-    {{#rollTotal() roll 1}}
-    <div>
-        Rolled a 1
-    </div>
-    {{/rollTotal() roll 1}}
-    {{#rollTotal() roll 2}}
-    <div>
-        Rolled a 2
-    </div>
-    {{/rollTotal() roll 2}}
-    {{#rollTotal() roll 3}}
-    <div>
-        Rolled a 3
-    </div>
-    {{/rollTotal() roll 3}}
-
 </rolltemplate>
 
 <!-- SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS SCRIPTS-->

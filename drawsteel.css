@@ -614,6 +614,21 @@ padding: 5px;
   border: solid rgb(104, 64, 64);
 }
 
+/******************/
+/* Prayer Template */
+/******************/
+
+.border-style-07{
+  border-image-source: url("https://raw.githubusercontent.com/pmarstall/drawsteelroll20/refs/heads/main/images/border07.png");
+  border-image-slice: 100 100 fill;
+  border-image-width: auto;
+  border-image-repeat: round;
+  padding-top: 35px;
+  padding-left: 10px;
+  padding-bottom: 30px;
+  color: black;
+}
+
 /****************************/
 /* Repeating Section Styles */
 /****************************/
