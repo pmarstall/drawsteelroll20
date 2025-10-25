@@ -164,7 +164,7 @@
                                 <input type="text" name="attr_trgnamedis" value="@{trgtrigger} >> @{trgname}" class="info-input" disabled="true">
                                 <span></span>
                                 <span></span>
-                                <button type="roll" name="roll_triggerroll" id="trgrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Trigger: @{trgname}}}{{keys=@{trgkeywords}}}{{trigger=@{trgtrigger}}}{{eft=@{trgdesc}}}">Chat</button>
+                                <button type="roll" name="roll_triggerroll" id="trgrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Trigger: @{trgname}}}{{keys=@{trgkeywords}}}{{trigger=@{trgtrigger}}}{{range=@{trgrange}}}{{targ=@{trgtarget}}}{{eft=@{trgdesc}}}">Chat</button>
                             </div>
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
@@ -172,6 +172,8 @@
                                     <span>Action Name:</span><input type="text" name="attr_trgname">
                                     <span>Keywords:</span><input type="text" name="attr_trgkeywords">
                                     <span>Trigger:</span><input type="text" name="attr_trgtrigger">
+                                    <span>Range:</span><input type="text" name="attr_trgrange">
+                                    <span>Target:</span><input type="text" name="attr_trgtarget">
                                 </div>
                                 <span>Effect</span>
                                 <textarea name="attr_trgdesc" class="effect-text-area">
@@ -535,7 +537,7 @@
                                 <input type="text" name="attr_trgnamedis" value="@{trgtrigger} >> @{trgname}" class="info-input" disabled="true">
                                 <span></span>
                                 <span></span>
-                                <button type="roll" name="roll_triggerroll" id="trgrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Trigger: @{trgname}}}{{keys=@{trgkeywords}}}{{trigger=@{trgtrigger}}}{{eft=@{trgdesc}}}">Chat</button>
+                                <button type="roll" name="roll_triggerroll" id="trgrollbutton" class="rptactionbutton" value="&{template:drawsteelsummary}{{name=Trigger: @{trgname}}}{{keys=@{trgkeywords}}}{{trigger=@{trgtrigger}}}{{range=@{trgrange}}}{{targ=@{trgtarget}}}{{eft=@{trgdesc}}}">Chat</button>
                             </div>
                             <input class="clicktohide" type="checkbox">
                             <div class="sheet-hiddenarea">
@@ -543,6 +545,8 @@
                                     <span>Action Name:</span><input type="text" name="attr_trgname">
                                     <span>Keywords:</span><input type="text" name="attr_trgkeywords">
                                     <span>Trigger:</span><input type="text" name="attr_trgtrigger">
+                                    <span>Range:</span><input type="text" name="attr_trgrange">
+                                    <span>Target:</span><input type="text" name="attr_trgtarget">
                                 </div>
                                 <span>Effect</span>
                                 <textarea name="attr_trgdesc" class="effect-text-area">
@@ -1142,6 +1146,9 @@
             {{#dist}}
             <span>Distance:</span><span> {{dist}}</span>
             {{/dist}}
+            {{#range}}
+            <span>Target:</span><span> {{range}}</span>
+            {{/range}}
             {{#targ}}
             <span>Target:</span><span> {{targ}}</span>
             {{/targ}}
@@ -1156,6 +1163,12 @@
             {{#keys}}
             <span>Keywords:</span><span> {{keys}}</span>
             {{/keys}}
+            {{#range}}
+            <span>Target:</span><span> {{range}}</span>
+            {{/range}}
+            {{#targ}}
+            <span>Target:</span><span> {{targ}}</span>
+            {{/targ}}
         </div>
     {{/trigger}}
     {{#t1}}
