@@ -662,6 +662,49 @@ button[type="action"].rptactionbutton:hover {
   background-color: #ccc;
 }
 
+/* The in-line action button for a dice roll */
+button[type="action"].rptrollbutton{
+  font-family: dicefontd20;
+  appearance: button;
+  border-radius: 4px;
+  border-style: none;
+  background-color: transparent;
+}
+
+button[type="action"].rptrollbutton:hover {
+  background-color: #ccc;
+}
+
+
+
+/* The in-line action button for a send-to-chat */
+button[type="action"].rptchatbutton{
+  font-family: Pictos;
+  padding: 0px;
+  margin: 0px;
+  height: 10px;
+  border-style: none;
+  background-color: transparent;
+}
+
+button[type="action"].rptchatbutton:hover {
+  background-color: #ccc;
+}
+
+.ui-dialog .charsheet button[type="roll"].rptchatbutton{
+  font-family: Pictos;
+  font-size: 14px;
+  background-position-y: top;
+  height: 18px;
+  border-style: none;
+  background-color: transparent;
+  margin: 0px
+}
+
+.ui-dialog .charsheet button[type="roll"].rptchatbutton:hover {
+  background-color: #ccc;
+}
+
 .small-val-input{
     width: 75px;
 }
@@ -678,7 +721,7 @@ button[type="action"].rptactionbutton:hover {
 
 .sheet-reptitle {
   display: grid;
-  grid-template-columns: 210px 50px 50px 25px;
+  grid-template-columns: 175px 60px 25px 50px 25px;
   padding-left: 25px;
 }
 
