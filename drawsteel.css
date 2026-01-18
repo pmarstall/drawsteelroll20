@@ -948,6 +948,13 @@ input[disabled]{
     padding: 3px;
     font-weight: bold;
   }
+  .edge-container-white{
+    position: relative;
+    background-color: #ffffff;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+  }
 
   .bane-container{
     position: relative;

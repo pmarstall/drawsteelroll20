@@ -41,10 +41,26 @@
             <div class="npc-header-left">
                 <div><input type="text" name="attr_npc_name" class="npc-name-disp" disabled="true" value="@{charactername}"></div>
                 <div><input type="text" name="attr_npc_type" class="npc-input-header" disabled="true" value="@{npctype}"></div>
-            </div>
-            <div class="npc-header-right">
                 <div>Level: <input type="text" name="attr_npc_level" class="npc-input-header" disabled="true" value="@{npclevel}"></div>
                 <div>EV: <input type="text" name="attr_npc_ev" class="npc-input-header" disabled="true" value="@{ev}"></div>
+            </div>
+            <div class="npc-header-right">
+                <div class="bane-grid sheet-middle">
+                    <div class="bane-top-level edge-container-white">
+                        <!-- Rectangular switch -->
+                        <label class="switch">
+                            <input type="checkbox" name="attr_edge">
+                            <span class="slider_green">Edge</span>
+                        </label>
+                    </div>
+                    <div class="bane-top-level edge-container-white">
+                        <!-- Rectangular switch -->
+                        <label class="switch">
+                            <input type="checkbox" name="attr_bane">
+                            <span class="slider_red">Bane</span>
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
 
